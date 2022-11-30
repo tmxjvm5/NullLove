@@ -1,6 +1,6 @@
 package com.loven.repository;
 
-import com.loven.domain.UserVo;
+import com.loven.entity.UserVo;
 import com.loven.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,8 @@
 package com.loven.mapper;
 
-import com.loven.domain.UserVo;
+import com.loven.entity.UserVo;
 import org.apache.ibatis.annotations.Mapper;
+
 
 @Mapper
 public interface MemberMapper {

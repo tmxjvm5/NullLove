@@ -1,6 +1,6 @@
 package com.loven.service;
 
-import com.loven.domain.UserVo;
+import com.loven.entity.UserVo;
 import com.loven.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -19,7 +19,7 @@ public class LoginController {
 	@Autowired
 	BoardService service;
 
-// 회원가입 폼 테스트
+// 회원가입 폼
 	@GetMapping("/join.do")
 	public String joinForm() {
 

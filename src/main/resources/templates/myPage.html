@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<style>
+.id_ok{
+color:#008000;
+display: none;
+}
+
+.id_already{
+color:#6A82FB; 
+display: none;
+}
+</style>
+<title>Insert title here</title>
+<script>
+
+</script>
+</head>
+<body>
+<h1>My Page</h1>
+  <div>
+    <span>아이디</span>
+    <input type="text" th:placeholder="${session.mvo.id}"
+    	   th:value="${session.mvo.id}" name="id" id="id" readonly>
+</div>
+ <div>
+    <span>비밀번호</span>
+    <input type="password" th:placeholder="패스워드를 입력하세요"
+          name="pw" id="pw">
+</div>
+ <div>
+    <span>이름</span>
+    <input type="text" th:placeholder="${session.mvo.name}"
+         th:value="${session.mvo.name}" name="name" id="name">
+</div>
+ <div>
+    <span>닉네임</span>
+    <input type="text" th:placeholder="${session.mvo.nick}"
+         th:value="${session.mvo.nick}" name="nick" id="nick">
+</div>
+ <div>
+    <span>이메일</span>
+    <input type="text" th:placeholder="${session.mvo.email}"
+         th:value="${session.mvo.email}" name="email" id="email">
+</div>
+ <div>
+    <span>회사 이름</span>
+    <input type="text" th:placeholder="${session.mvo.id}"
+         th:value="${session.mvo.id}" name="id" id="id">
+</div>
+ 
+</body>
+</html>

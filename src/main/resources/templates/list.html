@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <h1 th:text="${'Hello World'}"></h1>
+  <table>
+  <tr>
+  <td>번호</td>
+  <td>제목</td>
+  <td>작성자</td>
+  <td>작성일</td>
+  <td>조회수</td>
+  </tr>
+  <tr th:each="vo : ${list}">
+  <td th:text="${vo.idx}"></td>
+  <td th:text="${vo.title}">제목</td>
+  <td th:text="${vo.writer}">작성자</td>
+  <td th:text="${vo.indate}">작성일자</td>
+  <td th:text="${vo.count}">조회수</td>
+  </tr>
+  </table>
+</body>
+</html>

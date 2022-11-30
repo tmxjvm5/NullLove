@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<style>
+.id_ok{
+color:#008000;
+display: none;
+}
+
+.id_already{
+color:#6A82FB; 
+display: none;
+}
+</style>
+<title>Insert title here</title>
+<script>
+        $(function(){
+            $('#check_btn').click(function(){
+                var check_val = $('#check_input').val();
+                var data = {
+                    "b_no": [check_val] // 사업자번호 "xxxxxxx" 로 조회 시,
+                };
+                
+                $.ajax({
+                  url: "https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=WTuu0W1dJ4sq7hoRYcDCgKcHRQUaf6UajpAF8xtP%2Fv8PGrKCBEEhgvR5kauONv8s9PxPVjClHgy2mjAzNxB%2Fyw%3D%3D",  // serviceKey 값을 xxxxxx에 입력
+                  type: "POST",
+                  data: JSON.stringify(data), // json 을 string으로 변환하여 전송
+                  dataType: "JSON",
+                  contentType: "application/json",
+                  accept: "application/json",
+                  success: function(result) {
+                    if(result.data[0].tax_type=="국세청에 등록되지 않은 사업자등록번호입니다."){
+                      alert("잘못된 사업자 등록 번호입니다.");
+                    }else {
+                      alert("사용가능한 사업자 등록 번호입니다.")
+                    }
+                      /* alert(result.data[0].tax_type); */
+                  },
+                  error: function(result) {
+                      alert(result.responseText); //responseText의 에러메세지 확인
+                  }
+                });
+            });            
+        });
+        function joinform_check2() {
+            //변수에 담아주기
+            
+            var id = document.getElementById("id");
+            var pw = document.getElementById("pw");
+            var opendate = document.getElementById("opendate");
+            var owner = document.getElementById("owner");
+            var type = document.getElementById("type");
+            var name = document.getElementById("name");
+
+            if (id.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+              alert("아이디를 입력하세요.");
+              id.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+              return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+            };
+            
+        
+			if (opendate.value == "") {
+              alert("개업 일자를 입력하세요.");
+              opendate.focus();
+              return false;
+            };
+            if (type.value == "") {
+                alert("사업직종을 입력하세요.");
+                type.focus();
+                return false;
+              };
+            if (owner.value == "") {
+                alert("대표명을 입력하세요.");
+                owner.focus();
+                return false;
+                };
+            if (name.value == "") {
+                alert("회사명을 입력하세요.");
+                name.focus();
+                return false;
+                    };
+
+            document.join_form2.submit(); //유효성 검사의 포인트
+            //입력 값 전송
+   
+          }
+        function checkId(){
+            var id = $('#id').val(); //id값이 "id"인 입력란의 값을 저장
+            $.ajax({
+                url:'./idCheck', //Controller에서 요청 받을 주소
+                type:'post', //POST 방식으로 전달
+                data:{id:id},
+                success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
+                    if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+                        $('.id_ok').css("display","inline-block"); 
+                        $('.id_already').css("display", "none");
+                    } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+                        $('.id_already').css("display","inline-block");
+                        $('.id_ok').css("display", "none");
+                        alert("아이디를 다시 입력해주세요");
+                        $('#id').val('');
+                    }
+                },
+                error:function(){
+                    alert("에러입니다");
+                }
+            });
+            };
+
+        </script>
+</head>
+<body>
+ <form action="cJoin.do" method="post" name="join_form2">
+  <div>
+    <h1>회원가입</h1>
+    <div>
+      <label for="address2">아이디</label> 
+      <input type="text" id="id" name="id" oninput = "checkId()" >
+              
+        <!-- id ajax 중복체크 -->
+        <span class="id_ok">사용 가능한 아이디입니다.</span>
+        <span class="id_already">중복된 아이디 입니다.</span>
+    </div>
+    <div>
+      <label>password</label>
+      <input type="password" name="pw" id="pw" placeholder="사용자 비밀번호">
+    </div>
+    <div>
+      <label>userName</label>
+      <input type="text" name="name" id="name" placeholder="사용자 이름">
+    </div>
+    <div>
+      <label>닉네임</label>
+      <input type="text" name="nick" id="nick" placeholder="닉네임">
+    </div>
+    <div>
+      <label>email</label>
+      <input type="email" name="email" id="email" placeholder="사용자 이메일">
+    </div>
+    <div>
+      <label>회사이름</label>
+      <input type="text" name="company_name" id="company_name" placeholder="회사이름">
+    </div>
+     
+  </div>
+  <div>
+    <h1>기업회원</h1>
+    
+    <div>
+      <label>사업자등록번호</label>
+      <input name ="no" id="check_input" maxlength='10'>
+      <button type="button" id="check_btn" >확인</button>
+    </div>
+    <div>
+      <label>개업 일자</label>
+      <input type="text" name="opendate" id="opendate" placeholder="개업 일자">
+    </div>
+    <div>
+      <label>대표명</label>
+      <input type="text" name="owner" id="owner" placeholder="대표명">
+    </div>
+    <div>
+      <label>사업 직종</label>
+      <input type="text" name="type" id="type" placeholder="사업 직종">
+    </div>
+    <div>
+      <label>회사 이름</label>
+      <input type="text" name="name" id="name" placeholder="회사 이름">
+    </div>
+<!--     <div> -->
+<!--       <label>id</label> -->
+<!--       <input type="text" name="id" id="id" placeholder="아이디"> -->
+<!--     </div> -->
+    <button type="button" onclick="joinform_check2();">가입</button>
+    <button type="reset">취소</button>
+    </div>
+  </form>
+</body>
+</html>

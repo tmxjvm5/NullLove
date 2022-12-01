@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.loven.entity.OAuthToken;
-import com.loven.entity.UserVo;
 import com.loven.service.MemberService;
 import com.loven.service.OAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,6 +126,7 @@ public class LoginController {
 		return "login";
 	}
 
+	//---------------------------------여기서부터 카카오 login Api--------------------------------------------
 	@GetMapping("/auth/kakao/callback")
 	public @ResponseBody HashMap<String, String> kakaoCallback(String code) { // Data를 리턴해주는 컨트롤러 함수
 
@@ -181,7 +181,7 @@ public class LoginController {
 			System.out.println(name);
 			System.out.println(email);
 
-			UserVo vo = new UserVo();
+			User vo = new User();
 			vo.setId(id);
 			if(email!=null){
 				vo.setEmail(email);

@@ -9,11 +9,16 @@
   <meta name="keywords"
     content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
   <meta name="author" content="elemis">
-  <title>join</title>
+  <title>write</title>
   <link rel="shortcut icon" href="./assets/img/favicon.png">
   <link rel="stylesheet" href="./assets/css/plugins.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
+  <!--글작성폼-->
+  <script src="https://cdn.tiny.cloud/1/ty583711th8ic3ubyhtwe2q3df6y2hbv2fshi8ndse8ao4y8/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!--글작성폼end-->
 </head>
 
 <body>
@@ -22,7 +27,7 @@
       <nav class="navbar navbar-expand-lg center-nav navbar-light navbar-bg-light">
         <div class="container flex-lg-row flex-nowrap align-items-center">
           <div class="navbar-brand w-100">
-            <a href="./index.html">
+            <a href="/">
               <img src="./assets/img/logo.png" srcset="./assets/img/logo@2x.png 2x" alt="" />
             </a>
           </div>
@@ -102,7 +107,7 @@
           <div class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
               <li class="nav-item d-none d-md-block">
-                <a href="#" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
+                <a href="/login" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
               </li>
               <li class="nav-item d-lg-none">
                 <div class="navbar-hamburger"><button class="hamburger animate plain"
@@ -124,7 +129,7 @@
       <div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1 class="display-1 mb-3">회원가입</h1>
+            <h1 class="display-1 mb-3">우수사업계획서</h1>
             <!-- /nav -->
           </div>
           <!-- /column -->
@@ -137,44 +142,60 @@
     <section class="wrapper bg-light">
       <div class="container pb-14 pb-md-16">
         <div class="row">
-          <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto mt-n20">
+          <div class="col-lg-12 col-xl-12 col-xxl-12 mx-auto mt-n20">
             <div class="card">
-              <div class="card-body p-11 text-center">
-                <form class="text-start mb-3">
-                  <div class="form-floating mb-4 ">
-                    <input type="text" class="form-control w-75 float-start me-lg-5" placeholder="Name" id="loginName">
-                    <label for="loginName">ID *</label>
-                    <a href="#" class="btn btn-soft-primary btn-sm rounded-pill ">아이디
-                      중복확인
-                    </a>
+              <div class="card-body text-center">
+                <div class="row row-cards ">
+                  <div class="col-12">
+                    <form method="post">
+                      <div class="bg-light border-y">
+                        <div class="row">
+                          <div class="bg-light border-y">
+                            <div class="table-responsive">
+                              <table class="table table-sm ">
+                                <tbody class="fw-semibold">
+                                  <tr class="">
+                                    <td class="text-center bg-soft-ash align-middle">제목</td>
+                                    <td colspan="3" class="text-start"><input id="textInputExample" type="text"
+                                        class="form-control form-control-sm" placeholder="제목"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="text-center bg-soft-ash">작성자</td>
+                                    <td class="text-start">${user}</a></td>
+                                    <td class="text-center  bg-soft-ash">작성일
+                                    </td>
+                                    <td class=" text-center">${sysdate}</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="4">
+                                      <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col">
+                            <textarea id="editor"></textarea>
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col">
+                            <a href="#" class="btn btn-sm btn-gradient gradient-7 float-end"><i
+                                class="uil uil-pen"></i>&nbsp;글쓰기</a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  <div class="form-floating">
-                    <p class="ms-4 mb-2 text-start small fw-bold">아이디 중복확인을 진행해주세요.</p>
-                  </div>
-                  <div class="form-floating mb-4">
-                    <input type="email" class="form-control" placeholder="Email" id="loginEmail">
-                    <label for="loginEmail">Email *</label>
-                  </div>
-                  <div class="form-floating password-field mb-4">
-                    <input type="password" class="form-control" placeholder="Password" id="loginPassword">
-                    <span class="password-toggle"><i class="uil uil-eye"></i></span>
-                    <label for="loginPassword">비밀번호 *</label>
-                  </div>
-                <div class="form-floating mb-4">
-                    <input type="text" class="form-control" placeholder="이름" id="name">
-                    <label for="loginEmail">이름 *</label>
-                  </div>
-                  <div class="form-floating mb-4">
-                    <input type="text" class="form-control" placeholder="닉네임" id="nick">
-                    <label for="loginEmail">닉네임 *</label>
-                  </div>
-                  <div class="form-floating mb-2">
-                    <input type="text" class="form-control" placeholder="회사명" id="company">
-                    <label for="company">가입된 기업회원이 있다면 회사명을 정확히 기입해주세요.</label>
-                  </div>
-                  <a class="btn btn-primary rounded-pill btn-login w-100 mb-2 mt-5">회원가입</a>
-                </form>
-                <!-- /form -->
+
+                </div>
+
               </div>
               <!--/.card-body -->
             </div>
@@ -214,5 +235,35 @@
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
 </body>
+<script>
+  $(function () {
+    var plugins = [
+      "advlist", "autolink", "lists", "link", "image", "charmap", "print", "preview", "anchor",
+      "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table",
+      "paste", "code", "help", "wordcount", "save"
+    ];
+    var edit_toolbar = 'formatselect fontselect fontsizeselect |'
+      + ' forecolor backcolor |'
+      + ' bold italic underline strikethrough |'
+      + ' alignjustify alignleft aligncenter alignright |'
+      + ' bullist numlist |'
+      + ' table tabledelete |'
+      + ' link image';
+
+    tinymce.init({
+      language: "ko_KR", //한글판으로 변경
+      selector: '#editor',
+      height: 600,
+      menubar: false,
+      plugins: plugins,
+      toolbar: edit_toolbar,
+      content_style: 'body { font-family:Open Sans, Noto Sans KR, sans-serif; font-size:14px }',
+
+
+    });
+
+
+  });
+</script>
 
 </html>

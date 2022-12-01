@@ -1,6 +1,6 @@
 package com.loven.repository;
 
-import com.loven.entity.UserVo;
+import com.loven.entity.User;
 import com.loven.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,11 +11,11 @@ public class MemberRepository {
     @Autowired
     MemberMapper memberMapper;
 
-    public void memberJoin(UserVo user){
+    public void memberJoin(User user){
         memberMapper.memberJoin(user);
     }
 
-    public void kakaoLogin(UserVo vo) {
+    public void kakaoLogin(User vo) {
         memberMapper.kakaoLogin(vo);
     }
 }

@@ -9,7 +9,7 @@
   <meta name="keywords"
     content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
   <meta name="author" content="elemis">
-  <title>Empty</title>
+  <title>join</title>
   <link rel="shortcut icon" href="./assets/img/favicon.png">
   <link rel="stylesheet" href="./assets/css/plugins.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -94,7 +94,7 @@
                 </ul>
                 <!--/.dropdown-menu -->
               </li>
-              <li class="nav-item"><a class="nav-link" href="most">Link</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
@@ -102,7 +102,7 @@
           <div class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
               <li class="nav-item d-none d-md-block">
-                <a href="/login" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
+                <a href="#" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
               </li>
               <li class="nav-item d-lg-none">
                 <div class="navbar-hamburger"><button class="hamburger animate plain"
@@ -119,9 +119,72 @@
       <!-- /.navbar -->
     </header>
     <!-- /header -->
-    <section class="wrapper bg-light">
-      <div class="container">
+    <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
+      data-image-src="./assets/img/photos/bg18.png">
+      <div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1 class="display-1 mb-3">회원가입</h1>
+            <!-- /nav -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
       </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+      <div class="container pb-14 pb-md-16">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto mt-n20">
+            <div class="card">
+              <div class="card-body p-11 text-center">
+                <form class="text-start mb-3">
+                  <div class="form-floating mb-4 ">
+                    <input type="text" class="form-control w-75 float-start me-lg-5" placeholder="Name" id="loginName">
+                    <label for="loginName">ID *</label>
+                    <a href="#" class="btn btn-soft-primary btn-sm rounded-pill ">아이디
+                      중복확인
+                    </a>
+                  </div>
+                  <div class="form-floating">
+                    <p class="ms-4 mb-2 text-start small fw-bold">아이디 중복확인을 진행해주세요.</p>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input type="email" class="form-control" placeholder="Email" id="loginEmail">
+                    <label for="loginEmail">Email *</label>
+                  </div>
+                  <div class="form-floating password-field mb-4">
+                    <input type="password" class="form-control" placeholder="Password" id="loginPassword">
+                    <span class="password-toggle"><i class="uil uil-eye"></i></span>
+                    <label for="loginPassword">비밀번호 *</label>
+                  </div>
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" placeholder="이름" id="name">
+                    <label for="loginEmail">이름 *</label>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input type="text" class="form-control" placeholder="닉네임" id="nick">
+                    <label for="loginEmail">닉네임 *</label>
+                  </div>
+                  <div class="form-floating mb-2">
+                    <input type="text" class="form-control" placeholder="회사명" id="company">
+                    <label for="company">가입된 기업회원이 있다면 회사명을 정확히 기입해주세요.</label>
+                  </div>
+                  <a class="btn btn-primary rounded-pill btn-login w-100 mb-2 mt-5">회원가입</a>
+                </form>
+                <!-- /form -->
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
     </section>
     <!-- /section -->
   </div>

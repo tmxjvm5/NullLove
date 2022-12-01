@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.loven.mapper.MemberMapper">
 
-    <insert id="memberJoin" parameterType="UserVo">
+    <insert id="memberJoin" parameterType="User">
         insert into User(id, pw, name, nick, email, reg_date, login_type, company_name)
         values (#{id}, #{pw}, #{name}, #{nick}, #{email}, sysdate(), 's', #{company_name})
     </insert>
-    <insert id="kakaoLogin" parameterType="UserVo">
+    <insert id="kakaoLogin" parameterType="User">
         insert into User(id, name, nick, email, reg_date, login_type)
         values (#{id}, #{name}, #{nick}, #{email}, sysdate(), 'k')
     </insert>

@@ -15,5 +15,13 @@
         insert into User(id, name, nick, email, reg_date, login_type)
         values (#{id}, #{name}, #{nick}, #{email}, sysdate(), 'k')
     </insert>
+    
+    <select id="userList" resultType = "User">
+    	select * from User order by reg_date asc
+    </select>
+    
+    <delete id="userDelete">
+    	delete from User where id = #{id}
+    </delete>
 
 </mapper>

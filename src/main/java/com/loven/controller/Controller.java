@@ -17,10 +17,11 @@ public class Controller {
     }
     // 기업 회원가입 페이지
 
-	/*
-	 * @GetMapping("/") public String home() { return "main"; // 메인페이지 }
-	 */
 
+	  @GetMapping("/") public String home() {
+          return "main"; // 메인페이지 }
+
+      }
     @GetMapping("/empty")
     public String empty() {
         return "empty";
@@ -37,16 +38,19 @@ public class Controller {
     }
     // 우수사업계획서
 
+    @GetMapping("/write")
+    public String write(){
+        return "write";
+    }
+    // 글쓰기 폼
+
     @GetMapping("/mypage")
     public String mypage(){
         return "mypage";
     }
     // 마이페이지
 
-    @GetMapping("/write")
-    public String write(){
-        return "write";
-    }
+
 
     }
 

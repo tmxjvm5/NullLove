@@ -4,10 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.loven.mapper.MemberMapper">
 
+    <!-- 일반 회원 -->
     <insert id="memberJoin" parameterType="User">
         insert into User(id, pw, name, nick, email, reg_date, login_type, company_name)
         values (#{id}, #{pw}, #{name}, #{nick}, #{email}, sysdate(), 's', #{company_name})
     </insert>
+
+    <!-- 카카오 로그인 Api -->
     <insert id="kakaoLogin" parameterType="User">
         insert into User(id, name, nick, email, reg_date, login_type)
         values (#{id}, #{name}, #{nick}, #{email}, sysdate(), 'k')

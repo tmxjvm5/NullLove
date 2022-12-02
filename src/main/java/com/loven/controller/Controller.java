@@ -17,11 +17,9 @@ public class Controller {
     }
     // 기업 회원가입 페이지
 
-    @GetMapping("/")
-        public String home() {
-            return "main";
-    // 메인페이지
-    }
+	/*
+	 * @GetMapping("/") public String home() { return "main"; // 메인페이지 }
+	 */
 
     @GetMapping("/empty")
     public String empty() {

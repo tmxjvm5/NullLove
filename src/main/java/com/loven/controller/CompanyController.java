@@ -16,13 +16,13 @@ public class CompanyController {
 	@Autowired
 	BoardService service;
 	//회원가입
-	@GetMapping("/cJoin.do")
-	public String cJoinForm() {
+	/*
+	 * @GetMapping("/signup_com") public String cJoinForm() {
+	 * 
+	 * return "signup_com"; }
+	 */
 		
-		return "cJoin";
-	}
-		
-	@PostMapping("/cJoin.do")
+	@PostMapping("/signup_com")
 		public String cJoin(HttpSession session, Company vo,User uvo) {
 			System.out.println(vo);
 			service.joinInsert(uvo);

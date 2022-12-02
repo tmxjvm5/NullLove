@@ -40,15 +40,16 @@ public class LoginController {
 	@Autowired
 	MemberService memberService;
 
-// 회원가입 폼
-	@GetMapping("/join.do")
-	public String joinForm() {
-
-		return "join";
-	}
+	/*
+	 * // 회원가입 폼
+	 * 
+	 * @GetMapping("/signup") public String joinForm() {
+	 * 
+	 * return "signup"; }
+	 */
 
 //회원가입
-	@PostMapping("/join.do")
+	@PostMapping("/signup")
 	public String join(HttpSession session, User vo) {
 		service.joinInsert(vo);
 		session.setAttribute("vo", vo);
@@ -72,7 +73,7 @@ public class LoginController {
 	// 로그인
 	@PostMapping("/login.do")
 	public String loginCheck(String check,User vo, HttpSession session) {
-		
+		System.out.println(vo);
 		User mvo = service.loginCheck(vo);
 		if (mvo != null) {
 			if(check.equals("기업")) {
@@ -89,7 +90,7 @@ public class LoginController {
 	@RequestMapping("/logout.do")
 	public String loginOut(HttpSession session) {
 		session.invalidate(); //무효화
-		return "redirect:/login.do";
+		return "redirect:/main";
 	}
 
 	// 로그인 폼
@@ -120,11 +121,10 @@ public class LoginController {
 			return "redirect:main";
 	}
 
-	@GetMapping("login")
-	public String login(Model model) {
-		model.addAttribute("data", "hello");
-		return "login";
-	}
+	
+	  @GetMapping("login") public String login(Model model) {
+	  model.addAttribute("data", "hello"); return "login"; }
+	
 
 	//---------------------------------여기서부터 카카오 login Api--------------------------------------------
 	@GetMapping("/auth/kakao/callback")

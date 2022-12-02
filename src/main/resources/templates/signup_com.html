@@ -151,40 +151,43 @@
                 <!--/column -->
                 <div class="col-lg-6">
                   <div class="p-10 p-md-11 p-lg-13">
+                    <form class="text-start mb-3" action="signup_com" method="post" name="join_form2">
                     <h2 class="mb-3 text-start">기업 회원가입</h2>
                     <p class="lead mb-6 text-start">아이디 / 비밀번호 입력</p>
-                    <form class="text-start mb-3">
                       <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
+                        <input type="text" class="form-control w-75 float-start me-lg-5" placeholder="Name" id="id" name="id">
                         <label for="loginId">아이디</label>
+                        <a href="#" class="btn btn-soft-primary btn-sm rounded-pill">중복확인</a>
                       </div>
                       <div class="form-floating mb-4">
-                        <input type="password" class="form-control" placeholder="Name" id="loginName">
+                        <input type="password" class="form-control" placeholder="Name" id="pw" name="pw">
                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                         <label for="loginPassword">비밀번호</label>
                       </div>
                       <br>
                       <p class="lead mb-6 text-start">기업 정보 입력</p>
+                      <div class="form-floating mb-4 ">
+                    <input type="text" class="form-control w-75 float-start me-lg-5"  placeholder="Name" id="check_input" name="no" maxlength='10'>
+                    <label for="loginName">사업자 등록번호</label>
+                    <a type="button" class="btn btn-soft-primary btn-sm rounded-pill" id="check_btn">진위확인</a>
+                  </div>
                       <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
+                        <input type="text" class="form-control" placeholder="Name" id="name" name="name">
                         <label for="loginName_com">회사명</label>
                       </div>
                       <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Email" id="loginEmail">
+                        <input type="text" class="form-control" placeholder="Email" id="type" name="type">
                         <label for="loginType">업종명</label>
                       </div>
                       <div class="form-floating password-field mb-4">
-                        <input type="text" class="form-control" placeholder="Password" id="loginPassword">
+                        <input type="text" class="form-control" placeholder="Password" id="opendate" name="opendate">
                         <label for="loginOpendate">개업일자</label>
                       </div>
                       <div class="form-floating password-field mb-4">
-                        <input type="text" class="form-control" placeholder="Confirm Password" id="loginPasswordConfirm">
+                        <input type="text" class="form-control" placeholder="Confirm Password" id="owner" name="owner">
                         <label for="loginCeo">대표명</label>
                       </div>
-                      <div class="form-floating password-field mb-4">
-                        <input type="password" class="form-control" placeholder="Confirm Password" id="loginPasswordConfirm">                        <label for="loginPasswordConfirm">사업자등록번호</label>
-                      </div>
-                      <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign Up</a>
+                      <a class="btn btn-primary rounded-pill btn-login w-100 mb-2" type="button" onclick="joinform_check2();">Sign Up</a>
                     </form>
                     <!-- /form -->
                     <p class="mb-0">Already have an account? <a href="./signin2.html" class="hover">Sign in</a></p>
@@ -237,6 +240,80 @@
   </div>
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+        $(function(){
+            $('#check_btn').click(function(){
+                var check_val = $('#check_input').val();
+                var data = {
+                    "b_no": [check_val] // 사업자번호 "xxxxxxx" 로 조회 시,
+                };
+                
+                $.ajax({
+                  url: "https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=WTuu0W1dJ4sq7hoRYcDCgKcHRQUaf6UajpAF8xtP%2Fv8PGrKCBEEhgvR5kauONv8s9PxPVjClHgy2mjAzNxB%2Fyw%3D%3D",  // serviceKey 값을 xxxxxx에 입력
+                  type: "POST",
+                  data: JSON.stringify(data), // json 을 string으로 변환하여 전송
+                  dataType: "JSON",
+                  contentType: "application/json",
+                  accept: "application/json",
+                  success: function(result) {
+                    if(result.data[0].tax_type=="국세청에 등록되지 않은 사업자등록번호입니다."){
+                      alert("잘못된 사업자 등록 번호입니다.");
+                    }else {
+                      alert("사용가능한 사업자 등록 번호입니다.")
+                    }
+                      /* alert(result.data[0].tax_type); */
+                  },
+                  error: function(result) {
+                      alert(result.responseText); //responseText의 에러메세지 확인
+                  }
+                });
+            });            
+        });
+        function joinform_check2() {
+            //변수에 담아주기
+            var id = document.getElementById("id");
+            var pw = document.getElementById("pw");
+            var name = document.getElementById("name");
+            var no = document.getElementById("no");
+            var owner = document.getElementById("owner");
+            var type = document.getElementById("type");
+
+            if (id.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+              alert("아이디를 입력하세요.");
+              id.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+              return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+            };
+
+            if (pw.value == "") {
+              alert("비밀번호를 입력하세요.");
+              pw.focus();
+              return false;
+            };
+      		if (name.value == "") {
+              alert("회사명을 입력하세요.");
+              name.focus();
+              return false;
+            };
+           /*  if (no.value == "") {
+                alert("사업자등록 번호을 입력하세요.");
+                no.focus();
+                return false;
+              };
+            if (owner.value == "") {
+                alert("대표명을 입력하세요.");
+                owner.focus();
+                return false;
+                };
+            if (type.value == "") {
+                alert("사업직종을 입력하세요.");
+                type.focus();
+                return false;
+                    }; */
+            //입력 값 전송
+              document.join_form2.submit();  //유효성 검사의 포인트   
+          }
+        </script>
 </body>
 
 </html>

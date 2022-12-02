@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loven.mapper.CommentMapper">
+
+    <select id="commentCount" resultType="Comment">
+        SELECT
+        COUNT(*)
+        FROM Comment
+    </select>
+
+    <insert id="commentInsert" parameterType="Comment">
+        INSERT INTO
+        Comment (cmt_seq, content, reg_date, seq, id)
+        VALUES(#{cmt_seq},#{content},sysdate(),#{seq},id)
+    </insert>
+
+    <update id="commentUpdate" parameterType="Comment">
+        UPDATE Comment
+        SET
+        CONTENT = #{content}
+        WHERE cmt_seq = #{cmt_seq}
+    </update>
+
+    <delete id="commentDelete" parameterType="Comment">
+        DELETE FROM Comment WHERE cmt_seq = #{cmt_seq}
+    </delete>
+</mapper>

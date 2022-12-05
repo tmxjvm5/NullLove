@@ -1,8 +1,11 @@
 package com.loven.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.loven.entity.BlindVO;
 import com.loven.entity.Company;
 import com.loven.entity.User;
 import com.loven.mapper.BoardMapper;
@@ -47,5 +50,40 @@ public class BoardServiceImpl implements BoardService{
 		mapper.memberUpdate(vo);
 		
 	}
+	// 블라인드 게시판 리스트
+	@Override
+	public List<BlindVO> blindList() {
+		return mapper.blindList();
+		
+	}
+	// 블라인드 게시판 글쓰기
+	@Override
+	public void blindInsert(BlindVO vo) {
+		mapper.blindInsert(vo);
+		
+	}
+	// 블라인드 게시판 상세보기
+	@Override
+	public BlindVO blindView(int seq) {
+		BlindVO vo= mapper.blindView(seq);
+		return vo;
+	}
+	// 게시글 수정
+	@Override
+	public void blindUpdate(BlindVO vo) {
+		mapper.blindUpdate(vo);
+		
+	}
+	// 게시글 삭제
+	@Override
+	public void blindDelete(int seq) {
+		mapper.blindDelete(seq);
+		
+	}
+	// 조회수증가
+	@Override
+	public boolean plusCnt(int seq) {
+		  return mapper.plusCnt(seq);
+		}
 	
 }

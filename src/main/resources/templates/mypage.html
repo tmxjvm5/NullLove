@@ -157,7 +157,7 @@
                                     </div>
                                     <div class="form-floating password-field mb-5">
                                         <input type="password" class="form-control w-85 float-start me-lg-5 " placeholder="${session.mvo.pw}" th:value="${session.mvo.pw}" id="pw" name="pw">
-                                        <label for="loginPassword">비밀번호</label>
+                                        <label>비밀번호</label>
                                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                                         <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1" id="check_btn">수정</a>
                                     </div>
@@ -165,21 +165,21 @@
 
                                     <div class="form-floating mb-4 pointer-block">
                                         <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.name}" th:value="${session.mvo.name}" id="name" name="name" th:readonly="readonly">
-                                        <label for="loginName_com">이름</label>
+                                        <label>이름</label>
                                     </div>
                                     <div class="form-floating mb-4">
                                         <input type="text" class="form-control w-85 float-start me-lg-5" placeholder="${session.mvo.nick}" th:value="${session.mvo.nick}" id="nick" name="nick">
-                                        <label for="nick">닉네임</label>
-                                        <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1" id="check_btn">수정</a>
+                                        <label>닉네임</label>
+                                        <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1">수정</a>
                                     </div>
                                     <div class="form-floating mb-4 ">
                                         <input type="email" class="form-control w-85 float-start me-lg-5" placeholder="${session.mvo.email}" th:value="${session.mvo.email}" id="check_input" name="email" maxlength='10'>
-                                        <label for="loginEmail">E-mail</label>
-                                        <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1" id="check_btn">수정</a>
+                                        <label>E-mail</label>
+                                        <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1">수정</a>
                                     </div>
                                     <div class="form-floating mb-4 pointer-block">
                                         <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.company_name}" th:value="${session.mvo.company_name}" id="company_name" name="company_name" th:readonly="readonly">
-                                        <label for="company">회사명</label>
+                                        <label>회사명</label>
                                     </div>
 
                                     <br><br>

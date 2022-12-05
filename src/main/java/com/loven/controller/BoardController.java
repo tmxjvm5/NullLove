@@ -23,6 +23,9 @@ public class BoardController {
 	public String blindList(Model model) {
 		List<BlindVO> list = service.blindList();
 		model.addAttribute("list", list);
+		List<BlindVO> alist = service.ablindList(); // 공지사항(관리자)
+		model.addAttribute("alist", alist);
+		System.out.println(list);
 		return "blindList";
 
 	}

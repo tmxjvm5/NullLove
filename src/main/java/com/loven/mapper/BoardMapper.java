@@ -19,11 +19,12 @@ public interface BoardMapper {
 	public Company companyCheck(User vo);
 	public void memberUpdate(User vo);
 	public List<BlindVO> blindList();
+	public List<BlindVO> ablindList();
 	public void blindInsert(BlindVO vo);
 	public BlindVO blindView(int seq);
 	public void blindUpdate(BlindVO vo);
 	public void blindDelete(int seq);
 	public boolean plusCnt(int seq);
-	
- 
+
+
 }

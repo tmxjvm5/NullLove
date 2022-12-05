@@ -24,6 +24,8 @@ public interface BoardService {
 
 	public List<BlindVO> blindList();
 
+	public List<BlindVO> ablindList();
+
 	public void blindInsert(BlindVO vo);
 
 	public BlindVO blindView(int seq);
@@ -33,5 +35,6 @@ public interface BoardService {
 	public void blindDelete(int seq);
 
 	public boolean plusCnt(int seq);
+
 
 }

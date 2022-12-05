@@ -56,6 +56,13 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.blindList();
 		
 	}
+
+	// 블라인드 게시판 공지사항 리스트
+	@Override
+	public List<BlindVO> ablindList() {
+		return mapper.ablindList();
+	}
+
 	// 블라인드 게시판 글쓰기
 	@Override
 	public void blindInsert(BlindVO vo) {
@@ -85,6 +92,9 @@ public class BoardServiceImpl implements BoardService{
 	public boolean plusCnt(int seq) {
 		  return mapper.plusCnt(seq);
 		}
+
+
+
 	// 관리자 로그인
 	@Override
 	public User loginAdmin(User vo) {

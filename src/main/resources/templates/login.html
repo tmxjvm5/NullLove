@@ -184,10 +184,10 @@
                 <p class="lead mb-6 text-start">Fill your email and password to sign in.</p>
                 <div th:if="${#lists.isEmpty(mvo)}">
                   <form class="text-start mb-3" action="login.do" method="post">
-                      <input class="form-check-input" type="radio" name="check" value="기업" checked>
+                      <input class="form-check-input" type="radio" name="login_type" value="C" checked>
                       <label class="form-check-label" for="inlineRadio1">기업</label>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="check" value="일반">
+                      <input class="form-check-input" type="radio" name="login_type" value="S">
                       <label class="form-check-label" for="inlineRadio2">일반</label>
                     </div>
                     <div class="form-floating mb-4">

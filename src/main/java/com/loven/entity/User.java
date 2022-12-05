@@ -17,6 +17,6 @@ public class User {
 	private String nick;
 	private String email;
 	private String reg_date;
-	private char login_type;
+	private String login_type;
 	private String company_name;
 }

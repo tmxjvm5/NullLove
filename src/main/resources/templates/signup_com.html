@@ -156,14 +156,27 @@
                     <p class="lead mb-6 text-start">아이디 / 비밀번호 입력</p>
                       <div class="form-floating mb-4">
                         <input type="text" class="form-control w-75 float-start me-lg-5" placeholder="Name" id="id" name="id">
-                        <label for="loginId">아이디</label>
-                        <a href="#" class="btn btn-soft-primary btn-sm rounded-pill">중복확인</a>
-                      </div>
+                        <label for="loginId">아이디 *</label>
+                        <a href="#" class="btn btn-soft-primary btn-sm rounded-pill" onclick="checkId()" id = "id_check">중복확인</a>
+                        </div>
                       <div class="form-floating mb-4">
                         <input type="password" class="form-control" placeholder="Name" id="pw" name="pw">
                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
-                        <label for="loginPassword">비밀번호</label>
+                        <label for="loginPassword">비밀번호 *</label>
                       </div>
+                      <div class="form-floating mb-4">
+                    <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                    <label for="loginEmail">Email *</label>
+                  </div>
+               
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" placeholder="이름" id="name" name="name">
+                    <label for="loginEmail">이름 *</label>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input type="text" class="form-control" placeholder="닉네임" id="nick" name="nick">
+                    <label for="loginEmail">닉네임 *</label>
+                  </div>
                       <br>
                       <p class="lead mb-6 text-start">기업 정보 입력</p>
                       <div class="form-floating mb-4 ">
@@ -187,6 +200,7 @@
                         <input type="text" class="form-control" placeholder="Confirm Password" id="owner" name="owner">
                         <label for="loginCeo">대표명</label>
                       </div>
+                       <input type="hidden" id="login_type" name="login_type" value="C">
                       <a class="btn btn-primary rounded-pill btn-login w-100 mb-2" type="button" onclick="joinform_check2();">Sign Up</a>
                     </form>
                     <!-- /form -->
@@ -313,6 +327,30 @@
             //입력 값 전송
               document.join_form2.submit();  //유효성 검사의 포인트   
           }
+        function checkId() {
+			var id = $('#id').val(); //id값이 "id"인 입력란의 값을 저장
+			$.ajax({
+				url : './idCheck', //Controller에서 요청 받을 주소
+				type : 'post', //POST 방식으로 전달
+				data : {
+					id : id
+				},
+				success : function(cnt) { //컨트롤러에서 넘어온 cnt값을 받는다 
+					if (cnt == 0) { //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+						$('.id_ok').css("display", "inline-block");
+						$('.id_already').css("display", "none");
+					} else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+						$('.id_already').css("display", "inline-block");
+						$('.id_ok').css("display", "none");
+						alert("아이디를 다시 입력해주세요");
+						$('#id').val('');
+					}
+				},
+				error : function() {
+					alert("에러입니다");
+				}
+			});
+		};
         </script>
 </body>
 

@@ -76,8 +76,9 @@ public class LoginController {
 		System.out.println(vo);
 		User mvo = service.loginCheck(vo);
 		if (mvo != null) {
-			if(check.equals("기업")) {
-			Company cvo =service.companyCheck(vo);
+			if(vo.getLogin_type().equals("C")) {
+			
+				Company cvo =service.companyCheck(vo);
 			
 				session.setAttribute("cvo", cvo);
 			}

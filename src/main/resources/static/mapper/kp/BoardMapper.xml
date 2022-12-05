@@ -7,12 +7,12 @@
 	<insert id="joinInsert" parameterType="User">
 		insert into
 		User(id,pw,name,nick,email,login_type,company_name)
-		values(#{id},#{pw},#{name},#{nick},#{email},'s',#{company_name})
+		values(#{id},#{pw},#{name},#{nick},#{email},#{login_type},#{company_name})
 	</insert>
 	<!-- 로그인 -->
 	<select id="loginCheck" resultType="User">
 		select * from User where
-		id=#{id} and pw=#{pw}
+		id=#{id} and pw=#{pw} and login_type=#{login_type}
 	</select>
 	<!-- 아이디 중복 체크 -->
 	<select id="idCheck" parameterType="String" resultType="int">
@@ -29,11 +29,11 @@
 	<!-- 기업 로그인 -->
 	<select id="companyCheck" resultType="Company"
 		parameterType="User">
-		select * from company where id=#{id}
+		select * from company c,User u where c.id=u.id and c.id=#{id} and u.login_type=#{login_type}
 	</select>
 	<!-- 블라인드 게시판 리스트 -->
 	<select id="blindList" resultType="BlindVO">
-		select * from blind
+		select * from blind order by seq desc
 	</select>
 	<!-- 블라인드 게시판 인서트 -->
 	<insert id="blindInsert" parameterType="BlindVO">

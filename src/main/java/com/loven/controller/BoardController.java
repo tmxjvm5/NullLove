@@ -45,6 +45,7 @@ public class BoardController {
 	public String blindView(@RequestParam("seq") int seq, Model model) {
 		BlindVO vo = service.blindView(seq);
 		model.addAttribute("vo", vo);
+		//조회수 증가
 		service.plusCnt(seq);
 		return "blindView";
 	}
@@ -68,7 +69,7 @@ public class BoardController {
 		service.blindDelete(seq);
 		return "redirect:/blindList";
 }
-	// 게시판 조회수 증가
+	
 	
 }
 

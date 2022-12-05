@@ -46,14 +46,18 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public void userPostDelete() {
-		// TODO Auto-generated method stub
+	public void userPostDelete(String id) {
+		mapper.disableFk();
+		mapper.userPostDelete(id);
+		mapper.enableFk();
 		
 	}
 
 	@Override
-	public void userCommentDelete() {
-		// TODO Auto-generated method stub
+	public void userCommentDelete(String id) {
+		mapper.disableFk();
+		mapper.userCommentDelete(id);
+		mapper.enableFk();
 		
 	}
 

@@ -23,5 +23,9 @@ public interface MemberMapper {
     public void disableFk();
     public void enableFk();
 
+	public void userPostDelete(String id); // 유저 게시글 삭제
+
+	public void userCommentDelete(String id); // 유저 댓글 삭제
+
 
 }

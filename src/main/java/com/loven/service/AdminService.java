@@ -13,9 +13,8 @@ public interface AdminService {
 	
 	public void userDelete(String id); // 유저 삭제
 	
-	// 미구현
-	public void userPostDelete(); //유저 게시글 삭제
-	public void userCommentDelete(); // 유저 댓글 삭제
+	public void userPostDelete(String id); //유저 게시글 삭제
+	public void userCommentDelete(String id); // 유저 댓글 삭제
 	
 
 }

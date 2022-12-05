@@ -85,5 +85,13 @@ public class BoardServiceImpl implements BoardService{
 	public boolean plusCnt(int seq) {
 		  return mapper.plusCnt(seq);
 		}
+	// 관리자 로그인
+	@Override
+	public User loginAdmin(User vo) {
+		
+		User mvo = mapper.loginAdmin(vo);
+		
+		return mvo;
+	}
 	
 }

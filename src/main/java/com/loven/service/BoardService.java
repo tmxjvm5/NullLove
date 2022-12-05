@@ -11,6 +11,8 @@ public interface BoardService {
 	public void joinInsert(User vo);
 
 	public User loginCheck(User vo);
+	
+	public User loginAdmin(User vo); // 관리자 로그인
 
 	public int idCheck(String id);
 

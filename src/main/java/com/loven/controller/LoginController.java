@@ -73,7 +73,7 @@ public class LoginController {
 	// 로그인
 	@PostMapping("/login.do")
 	public String loginCheck(String check,User vo, HttpSession session) {
-		System.out.println(vo);
+		
 		User mvo = service.loginCheck(vo);
 		if (mvo != null) {
 			if(vo.getLogin_type().equals("C")) {
@@ -81,13 +81,18 @@ public class LoginController {
 				Company cvo =service.companyCheck(vo);
 			
 				session.setAttribute("cvo", cvo);
-			}
-			session.setAttribute("mvo", mvo);
-			System.out.println(mvo);
-			return "redirect:/main";
+			}else if(vo.getLogin_type().equals("a")) { // 관리자인 경우
+				mvo = service.loginAdmin(vo); // 관리자용 로그인
+				session.setAttribute("mvo", mvo);
+				
+			}else {
+			session.setAttribute("mvo", mvo);	
 		}
+			return "redirect:/main";
+		}else {
 		return "login";
-	}
+			}	
+		}
 	@RequestMapping("/logout.do")
 	public String loginOut(HttpSession session) {
 		session.invalidate(); //무효화

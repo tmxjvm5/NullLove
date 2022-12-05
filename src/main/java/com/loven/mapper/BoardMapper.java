@@ -13,6 +13,7 @@ import com.loven.entity.User;
 public interface BoardMapper {
 	public void joinInsert(User vo);
 	public User loginCheck(User vo);
+	public User loginAdmin(User vo);
 	public int idCheck(String id);
 	public void cInsert(Company vo);
 	public Company companyCheck(User vo);

@@ -107,8 +107,8 @@ public class LoginController {
 	}
 	// 마이페이지 이동
 		@GetMapping("/myPage.do")
-		public String myPage(){
-		
+		public String myPage() {
+
 			return "myPage";
 		}
 		@PostMapping

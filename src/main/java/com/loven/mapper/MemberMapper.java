@@ -22,7 +22,6 @@ public interface MemberMapper {
     public void userDelete(String id); // 유저 삭제
     public void disableFk();
     public void enableFk();
-    
 
-	
+
 }

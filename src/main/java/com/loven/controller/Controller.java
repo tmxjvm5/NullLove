@@ -44,15 +44,6 @@ public class Controller {
     }
     // 글쓰기 폼
 
-    @GetMapping("/mypage")
-    public String mypage(){
-        return "mypage";
-    }
-    // 마이페이지
-    
-
-
-
     }
 
 

@@ -182,7 +182,7 @@
                               <td class="text-center" th:text="${user.reg_date}">reg_date</td>
                               <td class="text-center" th:text="${user.login_type}">login_type</td>
                               <td class="text-center" th:text="${user.company_name}">company_name</td>
-                              <td><a th:href="@{|/userList/delete/${user.id}|}">회원삭제</a></td>
+                              <td><a th:href="@{|/userList/delete/${user.id}|}" onclick="checkDelete()">회원삭제</a></td>
                             </tr>
                           </tbody>
                         </table>
@@ -213,8 +213,7 @@
                           <!-- /nav -->
                         </div>
                         <div class="col">
-                          <a href="/write" class="btn btn-sm btn-gradient gradient-7 float-end"><i
-                              class="uil uil-pen"></i>&nbsp;글쓰기</a>
+                          
                         </div>
                       </div>
                       <div class="card-footer pb-0">
@@ -277,6 +276,15 @@
   </div>
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
+  <script>
+  	function checkDelete(){
+  		if(confirm("정말 삭제하시겠습니까?")==false){
+  			event.preventDefault();
+  		}
+  	}
+  
+  </script>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 </body>
 
 </html>

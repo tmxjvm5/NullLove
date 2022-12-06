@@ -4,26 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.loven.mapper.CommentMapper">
 
-    <select id="commentCount" resultType="Comment">
-        SELECT
-        COUNT(*)
-        FROM Comment
+    <select id="commentList" resultType="Comment">
+        select * from blind_cmt where seq=#{seq}
     </select>
 
     <insert id="commentInsert" parameterType="Comment">
         INSERT INTO
-        Comment (cmt_seq, content, reg_date, seq, id)
-        VALUES(#{cmt_seq},#{content},sysdate(),#{seq},id)
+        blind_cmt (content, reg_date, seq, id)
+        VALUES(#{content},sysdate(),#{seq},#{id})
     </insert>
 
     <update id="commentUpdate" parameterType="Comment">
-        UPDATE Comment
+        UPDATE blind_cmt
         SET
         CONTENT = #{content}
         WHERE cmt_seq = #{cmt_seq}
     </update>
 
     <delete id="commentDelete" parameterType="Comment">
-        DELETE FROM Comment WHERE cmt_seq = #{cmt_seq}
+        DELETE FROM blind_cmt WHERE cmt_seq = #{cmt_seq}
     </delete>
 </mapper>

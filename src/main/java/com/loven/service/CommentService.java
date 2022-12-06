@@ -13,9 +13,9 @@ public class CommentService {
     @Autowired
     CommentMapper commentMapper;
 
-    public List<Comment> commentListService() throws Exception{
+    public List<Comment> commentListService(int seq){
 
-        return commentMapper.commentList();
+        return commentMapper.commentList(seq);
     }
 
     public int commentInsertService(Comment comment) throws Exception{

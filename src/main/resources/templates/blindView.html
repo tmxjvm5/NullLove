@@ -10,10 +10,10 @@
     content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
   <meta name="author" content="elemis">
   <title>상세보기</title>
-  <link rel="shortcut icon" href="./assets/img/favicon.png">
-  <link rel="stylesheet" href="./assets/css/plugins.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="shortcut icon" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="../assets/css/plugins.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preload" href="../assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
   <!--글작성폼-->
   <script src="https://cdn.tiny.cloud/1/ty583711th8ic3ubyhtwe2q3df6y2hbv2fshi8ndse8ao4y8/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"></script>
@@ -28,12 +28,12 @@
         <div class="container flex-lg-row flex-nowrap align-items-center">
           <div class="navbar-brand w-100">
             <a href="/">
-              <img src="./assets/img/logo.png" srcset="./assets/img/logo@2x.png 2x" alt="" />
+              <img src="../assets/img/logo.png" srcset="../assets/img/logo@2x.png 2x" alt="" />
             </a>
           </div>
           <div class="navbar-collapse offcanvas-nav">
             <div class="offcanvas-header d-lg-none d-xl-none">
-              <a href="./index.html"><img src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x"
+              <a href="../index.html"><img src="./assets/img/logo-light.png" srcset="../assets/img/logo-light@2x.png 2x"
                   alt="" /></a>
               <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close"
                 aria-label="Close"></button>
@@ -43,7 +43,7 @@
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#">회원커뮤</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="dropdown-item" href="#">좋좋소</a></li>
-                  <li class="nav-item"><a class="dropdown-item" href="#">짭라인드</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="/blindList">짭라인드</a></li>
                   <li class="nav-item"><a class="dropdown-item" href="#">Another Action</a></li>
                 </ul>
               </li>
@@ -144,7 +144,7 @@
     </header>
     <!-- /header -->
     <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
-      data-image-src="./assets/img/photos/bg18.png">
+      data-image-src="../assets/img/photos/bg18.png">
       <div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -207,11 +207,33 @@
                           <div class="col" th:if="${session.mvo.id == vo.id}">]
                             <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}">글 수정</a>
                             <a th:href="@{/blindDelete/{seq}(seq=${vo.seq})}">글 삭제</a>
-                            
                              <!-- <a type="button" onclick="writeCheck()" class="btn btn-sm btn-gradient gradient-7 float-end"><i
                                 class="uil uil-pen"></i>&nbsp;글쓰기</a> --> 
                           </div>
                             <a th:href="@{/blindList}">게시글 리스트</a> -->
+                        </div>
+                        <form th:action="@{/cmt_insert}" method="post" name="cmt_writeForm">
+                          <input type="hidden" th:value="${session.mvo.id}" name="id">
+                          <input type="hidden" th:value="${vo.seq}" name="seq">
+                          <textarea name="content"></textarea>
+                         <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 댓글 작성 </button>
+                        </form>
+                        <div th:each="cmt : ${cmt}">
+                          <span th:text="${cmt.content}"></span>
+                          <span th:text="${cmt.id}"></span>
+
+                          <form th:action="@{/cmt_update}" method="post" name="#">
+                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
+                            <input type="hidden" th:value="${vo.seq}" name="seq">  
+                            <textarea name="content"></textarea>
+                            <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 수정 </button>
+                          </form>
+                          <form th:action="@{/cmt_delete}" method="post" name="#">
+                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
+                            <input type="hidden" th:value="${vo.seq}" name="seq">
+                            <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 삭제 </button>
+                          </form>
+
                         </div>
                       </div>
                    <!--  </form> -->
@@ -298,6 +320,49 @@
 			    } */
 	/* 	writeForm.submit();
 	} */ 
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+                        $(document).ready(function(){
+
+                          $.ajax({
+
+                              url : '/blindView',
+                              data : {
+                              seq : /*[[${vo.seq}]]*/
+                              },
+                              dataType:'json',
+
+                              success : function(res){
+                              // res --> 응답내용을 담는 변수
+                              console.log(res);
+                              console.log("success");
+
+                            },
+                            error : function(){
+                              console.log("error!error!error!");
+                            }
+
+
+                          }).done(
+
+                          (data)=>{
+
+                          console.log(data);
+                          $('#countBasket').text(data);
+
+                          }
+                          );
+
+                        });
+ /*]]>*/
+
+
+function cmt_Delete(){
+  if(confirm("정말 삭제하시겠습니까?")==false){
+    event.preventDefault();
+    }
+    }
 </script>
 
 </html>

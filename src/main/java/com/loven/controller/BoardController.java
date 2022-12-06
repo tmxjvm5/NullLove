@@ -2,6 +2,8 @@ package com.loven.controller;
 
 import java.util.List;
 
+import com.loven.entity.Comment;
+import com.loven.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,9 @@ import com.loven.service.BoardService;
 public class BoardController {
 	@Autowired
 	BoardService service;
+
+	@Autowired
+	CommentService commentService;
 	// 게시판 리스트
 	@RequestMapping("/blindList")
 	public String blindList(Model model) {
@@ -47,7 +52,9 @@ public class BoardController {
 	@GetMapping("/blindView")
 	public String blindView(@RequestParam("seq") int seq, Model model) {
 		BlindVO vo = service.blindView(seq);
+		List<Comment> cmt = commentService.commentListService(seq);
 		model.addAttribute("vo", vo);
+		model.addAttribute("cmt", cmt);
 		//조회수 증가
 		service.plusCnt(seq);
 		return "blindView";
@@ -72,7 +79,7 @@ public class BoardController {
 		service.blindDelete(seq);
 		return "redirect:/blindList";
 }
-	
+
 	
 }
 

@@ -14,7 +14,7 @@
 		select * from User where
 		id=#{id} and pw=#{pw} and login_type=#{login_type}
 	</select>
-	
+
 	<select id="loginAdmin" resultType="User">
 		select * from User where
 		id=#{id} and pw=#{pw} and login_type = 'a'

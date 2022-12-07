@@ -18,4 +18,7 @@ public class MemberRepository {
     public void kakaoLogin(User vo) {
         memberMapper.kakaoLogin(vo);
     }
-}
+
+//    public String idCheck(String insert_id) {
+    }
+//}

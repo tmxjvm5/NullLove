@@ -57,9 +57,10 @@
             </ul>
             <!-- /.navbar-nav -->
           </div>
+
           <div th:if="${!#lists.isEmpty(session.mvo)}" class="navbar-other w-100 d-flex ms-auto">
             <div class="row">
-            <div class="col ps-17">
+            <div class="col">
             <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
               <li class="nav-item d-none d-md-block nav-link">
                 <label th:text="${session.mvo.name}"></label>
@@ -67,8 +68,11 @@
                 <a href="myPage.do">My Page</a>
               </li>
             </ul>
+              <div th:if="${#strings.equals(session.mvo.login_type, 'a')}">
+                <a href="userList.do">Admin Page</a>
+              </div>
             </div>
-            <div class="col">
+            <div class="col pt-5">
               <form action="logout.do">
               <!--   <p th:text="${session.cvo}"></p> !-->
                 <button type="submit" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</button>
@@ -76,6 +80,8 @@
             </div>
           </div>
         </div>
+
+
       <!-- /.navbar -->
       <!-- /.navbar -->
     </header>

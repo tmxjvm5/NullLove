@@ -3,6 +3,10 @@ package com.loven.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.loven.controller.LoginController;
+import com.loven.entity.User;
+import com.loven.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -10,12 +14,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
-
 //------ 카카오 APi Service ------
 
 @Service
 public class OAuthService{
 
+
+// 여기까지 -----------------------
     public String getAccessToken (String authorize_code) {
 
         String access_Token = "";
@@ -37,7 +42,7 @@ public class OAuthService{
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=2e5066b51786f5af82c6c4222bed1517");  //본인이 발급받은 key
-            sb.append("&redirect_uri=http://127.0.0.1:8088/login");     // 본인이 설정해 놓은 경로
+            sb.append("&redirect_uri=http://localhost:8088/klogin");     // 본인이 설정해 놓은 경로
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();
@@ -134,54 +139,4 @@ public class OAuthService{
         return userInfo;
     }
 
-  /*  public void createKakaoUser(String token, Model model) {
-
-        String reqURL = "https://kapi.kakao.com/v2/user/me";
-
-        //access_token을 이용하여 사용자 정보 조회
-        try {
-            URL url = new URL(reqURL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-            conn.setRequestMethod("POST");
-            conn.setDoOutput(true);
-            conn.setRequestProperty("Authorization", "Bearer " + token); //전송할 header 작성, access_token전송
-
-            //결과 코드가 200이라면 성공
-            int responseCode = conn.getResponseCode();
-            System.out.println("responseCode : " + responseCode);
-
-            //요청을 통해 얻은 JSON타입의 Response 메세지 읽어오기
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line = "";
-            String result = "";
-
-            while ((line = br.readLine()) != null) {
-                result += line;
-            }
-            System.out.println("response body : " + result);
-
-            //Gson 라이브러리로 JSON파싱
-            JsonParser parser = new JsonParser();
-            JsonElement element = parser.parse(result);
-
-            int id = element.getAsJsonObject().get("id").getAsInt();
-            boolean hasEmail = element.getAsJsonObject().get("kakao_account").getAsJsonObject().get("has_email").getAsBoolean();
-            String email = "";
-            if(hasEmail){
-                email = element.getAsJsonObject().get("kakao_account").getAsJsonObject().get("email").getAsString();
-            }
-
-            System.out.println("id : " + id);
-            System.out.println("email : " + email);
-
-            model.addAttribute("id",id);
-            model.addAttribute("email", email);
-
-            br.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    } */
 }

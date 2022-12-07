@@ -12,8 +12,8 @@
 
     <!-- 카카오 로그인 Api -->
     <insert id="kakaoLogin" parameterType="User">
-        insert into User(id, name, nick, email, reg_date, login_type)
-        values (#{id}, #{name}, #{nick}, #{email}, sysdate(), 'k')
+        insert into User(id, pw, name, email, reg_date, login_type)
+        values (#{id}, #{pw}, #{name}, #{email}, sysdate(), 'k')
     </insert>
     
     <!-- 유저 리스트  -->

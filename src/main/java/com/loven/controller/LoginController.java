@@ -1,10 +1,13 @@
 package com.loven.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.loven.entity.OAuthToken;
+import com.loven.service.BoardServiceImpl;
 import com.loven.service.MemberService;
 import com.loven.service.OAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,9 @@ public class LoginController {
 
 	@Autowired
 	OAuthService oAuthService;
+
+	@Autowired
+	BoardServiceImpl boardService;
 
 	@Autowired
 	MemberService memberService;
@@ -133,97 +139,133 @@ public class LoginController {
 	
 
 	//---------------------------------여기서부터 카카오 login Api--------------------------------------------
-	@GetMapping("/auth/kakao/callback")
-	public @ResponseBody HashMap<String, String> kakaoCallback(String code) { // Data를 리턴해주는 컨트롤러 함수
+//	@GetMapping("/auth/kakao/callback")
+//	@ResponseBody
+//	public void kakaoCallback(String code) { // Data를 리턴해주는 컨트롤러 함수
+//
+//		// POST방식으로 key=value 데이터를 요청(카카오쪽으로)
+//		//Restrofit2
+//		//OkHttp
+//		//RestTemplate
+//
+//		RestTemplate rt = new RestTemplate();
+//
+//		//HttpHeader 오브젝트 생성
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+//
+//		//HttpBody 오브젝트 생성
+//		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+//		params.add("grant_type", "authorization_code");
+//		params.add("client_id", "2e5066b51786f5af82c6c4222bed1517");
+//		params.add("redirect_uri", "http://localhost:8088/auth/kakao/callback");
+//		params.add("code", code);
+//
+//		//HttpHeader와 HttpBody를 하나의 오브젝트에 담기
+//		HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
+//				new HttpEntity<>(params, headers);
+//
+//		//Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음.
+//		ResponseEntity<String> response = rt.exchange(
+//				"https://kauth.kakao.com/oauth/token",
+//				HttpMethod.POST,
+//				kakaoTokenRequest,
+//				String.class
+//		);
+//		// Gson, Json Simple, ObjectMapper
+//		ObjectMapper objectMapper = new ObjectMapper();
+//		OAuthToken oauthToken = null;
+//
+//		try {
+//			oauthToken = objectMapper.readValue(response.getBody(), OAuthToken.class);
+////            System.out.println("카카오 엑세스 토큰 : " + oauthToken.getAccess_token());
+//
+//			String ac_token = oauthToken.getAccess_token();
+//			System.out.println("카카오 엑세스 토큰 : " + oauthToken.getAccess_token());
+//			//return response.getBody();
+//
+//			HashMap<String, String> info = oAuthService.getUserInfo(ac_token);
+//
+//			String id = info.get("id");
+//			String name = info.get("nickname");
+//			String email = info.get("email");
+//
+//			//
+//
+//			if (info == null){
+//				System.out.println(id);
+//				System.out.println(name);
+//				System.out.println(email);
+//
+//			}
+//
+//			User vo = new User();
+//			vo.setId(id);
+//			if(email!=null){
+//				vo.setEmail(email);
+//			}else{
+//				vo.setEmail(id);
+//			}
+//			vo.setNick(name);
+//			vo.setName(name);
+//			memberService.kakaoLogin(vo);
+//
+//			} catch (JsonProcessingException e) {
+//			throw new RuntimeException(e);
+//		}
+// >>>  밑부터 성민씨 코드 이상하게 수정해논상태  >>>>
 
-		// POST방식으로 key=value 데이터를 요청(카카오쪽으로)
-		//Restrofit2
-		//OkHttp
-		//RestTemplate
 
-		RestTemplate rt = new RestTemplate();
+	@RequestMapping(value = "/klogin")
+	public String login(@RequestParam(value = "code", required = false) String code, HttpSession session, HttpServletResponse response) throws Exception{
 
-		//HttpHeader 오브젝트 생성
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+		System.out.println("loginController!!");
 
-		//HttpBody 오브젝트 생성
-		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-		params.add("grant_type", "authorization_code");
-		params.add("client_id", "2e5066b51786f5af82c6c4222bed1517");
-		params.add("redirect_uri", "http://localhost:8088/auth/kakao/callback");
-		params.add("code", code);
+		System.out.println("####code#####" + code);
 
-		//HttpHeader와 HttpBody를 하나의 오브젝트에 담기
-		HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
-				new HttpEntity<>(params, headers);
+		String access_Token = oAuthService.getAccessToken(code);
+		System.out.println("###access_Token#### : " + access_Token);
 
-		//Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음.
-		ResponseEntity<String> response = rt.exchange(
-				"https://kauth.kakao.com/oauth/token",
-				HttpMethod.POST,
-				kakaoTokenRequest,
-				String.class
-		);
-		// Gson, Json Simple, ObjectMapper
-		ObjectMapper objectMapper = new ObjectMapper();
-		OAuthToken oauthToken = null;
+		Cookie token = new Cookie("authorize-access-token", access_Token);
+		token.setPath("/");
+		response.addCookie(token);
 
-		try {
-			oauthToken = objectMapper.readValue(response.getBody(), OAuthToken.class);
-//            System.out.println("카카오 엑세스 토큰 : " + oauthToken.getAccess_token());
+		//*
+		HashMap<String, String> userInfo = oAuthService.getUserInfo(access_Token);
+		System.out.println("###user_info### : " + userInfo);
 
-			String ac_token = oauthToken.getAccess_token();
-			System.out.println("카카오 엑세스 토큰 : " + oauthToken.getAccess_token());
-			//return response.getBody();
+		String mem_id = userInfo.get("id");
+		String mem_pw = userInfo.get("id");
+		String mem_name = userInfo.get("nickname");
+		String mem_email = userInfo.get("email");
 
-			HashMap<String, String> info = oAuthService.getUserInfo(ac_token);
+		int check = boardService.idCheck(mem_id);
 
-			String id = info.get("id");
-			String name = info.get("nickname");
-			String email = info.get("email");
-
-			System.out.println(id);
-			System.out.println(name);
-			System.out.println(email);
+		if ( check != 1 ){
+			System.out.println(mem_id);
+			System.out.println(mem_name);
+			System.out.println(mem_email);
 
 			User vo = new User();
-			vo.setId(id);
-			if(email!=null){
-				vo.setEmail(email);
-			}else{
-				vo.setEmail(id);
-			}
-			vo.setNick(name);
-			vo.setName(name);
+			vo.setId(mem_id);
+			vo.setPw(mem_id);
+			vo.setName(mem_name);
+			vo.setEmail(mem_email);
 			memberService.kakaoLogin(vo);
-			return info;
 
-		} catch (JsonProcessingException e) {
-			throw new RuntimeException(e);
-		}
+			return "redirect:/";
+		} else {
 
+			User vo = new User();
+			vo.setId(mem_id);
+			vo.setPw(mem_pw);
+			vo.setLogin_type("k");
+			User mvo = boardService.loginCheck(vo);
 
-//        RestTemplate rt2 = new RestTemplate();
-//
-//        //HttpHeader 오브젝트 생성
-//        HttpHeaders headers2 = new HttpHeaders();
-//        headers2.add("Authorization","Bearer "+oauthToken.getAccess_token());
-//        headers2.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-//
-//        //HttpHeader와 HttpBody를 하나의 오브젝트에 담기
-//        HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest2 =
-//                new HttpEntity<>(headers2);
-//
-//        //Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음.
-//        ResponseEntity<String> response2 = rt2.exchange(
-//                "https://kapi.kakao.com/v2/user/me",
-//                HttpMethod.POST,
-//                kakaoProfileRequest2,
-//                String.class
-//        );
-		//System.out.println(response2.getBody());
+			System.out.println(mvo);
+			session.setAttribute("type","k");
+			session.setAttribute("mvo", mvo);
+			return "redirect:/";
 
 	}
-	
-}
+}}

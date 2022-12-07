@@ -32,32 +32,50 @@
                 aria-label="Close"></button>
             </div>
             <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link" href="#">BBlind</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">우리회사좋아요</a>
+              <li class="nav-item"><a class="nav-link" href="/blindList">BBlind</a></li>
+              <li class="nav-item"><a class="nav-link" href="/imgBoardList">우리회사좋아요</a>
                 <!--/.dropdown-menu -->
               </li>
-              <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Mypage</a></li>
+              <li class="nav-item"><a class="nav-link" href="">Search</a></li>
+              <li class="nav-item"><a class="nav-link" href="/myPage.do">Mypage</a></li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
           <!-- /.navbar-collapse -->
-          <div class="navbar-other w-100 d-flex ms-auto">
+          <div th:if="${#lists.isEmpty(session.mvo)}" class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
-              <li class="nav-item d-none d-md-block">
-                <a href="#" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
+              <li class="nav-item d-nones d-md-block">
+                <a href="login.do" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
               </li>
               <li class="nav-item d-lg-none">
-                <div class="navbar-hamburger"><button class="hamburger animate plain"
-                    data-toggle="offcanvas-nav"><span></span></button></div>
+                <div class="navbar-hamburger">
+                  <button class="hamburger animate plain" data-toggle="offcanvas-nav">
+                    <span></span>
+                  </button>
+                </div>
               </li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
-          <!-- /.navbar-other -->
+          <div th:if="${!#lists.isEmpty(session.mvo)}" class="navbar-other w-100 d-flex ms-auto">
+            <div class="row">
+            <div class="col ps-17">
+            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+              <li class="nav-item d-none d-md-block nav-link">
+                <label th:text="${session.mvo.name}"></label>
+                <br>
+                <a href="myPage.do">My Page</a>
+              </li>
+            </ul>
+            </div>
+            <div class="col">
+              <form action="logout.do">
+              <!--   <p th:text="${session.cvo}"></p> !-->
+                <button type="submit" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</button>
+              </form>
+            </div>
+          </div>
         </div>
-        <!-- /.container -->
-      </nav>
       <!-- /.navbar -->
       <!-- /.navbar -->
     </header>

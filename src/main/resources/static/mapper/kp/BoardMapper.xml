@@ -70,4 +70,5 @@
 	<delete id="blindDelete">
 		delete from blind where seq=#{seq}
 	</delete>
+
 </mapper>

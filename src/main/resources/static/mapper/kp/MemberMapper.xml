@@ -61,7 +61,12 @@
     <delete id="userCommentDelete">
     	delete from blind_cmt where id = #{id}
     </delete>
-    
-    
 
+    <!-- 마이페이지 게시글 리스트 -->
+    <!--<select id="getInfo" resultMap="userInfo">
+        select id,pw,name,email,nick
+    </select>-->
+    <select id="postList" resultType="BlindVO">
+        select * from blind where id=#{id} order by date desc
+    </select>
 </mapper>

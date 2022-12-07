@@ -1,5 +1,7 @@
 package com.loven.service;
 
+import com.loven.entity.BlindVO;
+import com.loven.entity.PostVO;
 import com.loven.entity.User;
 import com.loven.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,13 @@ public class MypageServiceImpl implements MypageService{
         mapper.userDelete(id);
         mapper.enableFk();
     }
+
+    @Override
+    public List<BlindVO> postList(String id) {
+        List<BlindVO> list = mapper.postList(id);
+        return list;
+    }
+
 
 
 

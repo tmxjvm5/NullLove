@@ -39,6 +39,7 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
+<!--    회원정보 수정-->
     <section class="wrapper bg-light">
         <div class="container py-10 py-md-12">
             <div class="row gx-lg-8 gx-xl-12">
@@ -108,6 +109,41 @@
                     </div>
                 </aside>
                 <!-- /column .sidebar -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <section class="wrapper bg-light">
+        <div class="container py-10 py-md-12">
+            <div class="row gx-lg-8 gx-xl-12">
+                <div class="col-lg-8 order-lg-2">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="row row-cards ">
+                                <h2 class="info-title fs-20 text-uppercase text-start mb-4 ms-1"> 내가 쓴 글</h2>
+                                <div class="col">
+                                    <div class="row card mt-3 ">
+                                        <div class="col card-body overflow-auto py-4" style="max-height: 600px;">
+                                            <div class="row wrapper-border py-2" th:each="post:${list}">
+                                                <div class="col text-start">
+                                                    <p class="small text-ash m-0" th:text="${post.date}">date</p>
+                                                </div>
+                                                <div class="col-8 text-start">
+                                                    <a th:text="${post.title}">title</a>
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-sm btn-outline-warning float-end">삭제</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
         </div>

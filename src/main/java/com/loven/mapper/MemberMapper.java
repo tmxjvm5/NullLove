@@ -1,5 +1,7 @@
 package com.loven.mapper;
 
+import com.loven.entity.BlindVO;
+import com.loven.entity.PostVO;
 import com.loven.entity.User;
 
 import java.util.List;
@@ -26,6 +28,6 @@ public interface MemberMapper {
 	public void userPostDelete(String id); // 유저 게시글 삭제
 
 	public void userCommentDelete(String id); // 유저 댓글 삭제
-
-
+    
+    List<BlindVO> postList(String id); // 마이페이지 게시글 리스트
 }

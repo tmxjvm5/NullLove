@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,4 +21,6 @@ public class User {
 	private String reg_date;
 	private String login_type;
 	private String company_name;
+	private List<BlindVO> blindVOList;
+
 }

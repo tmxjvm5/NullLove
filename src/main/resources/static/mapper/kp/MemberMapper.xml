@@ -17,8 +17,13 @@
     </insert>
     
     <!-- 유저 리스트  -->
-    <select id="userList" resultType = "User">
-    	select * from User order by reg_date asc 
+    <select id="userList" resultType = "User" parameterType="Criteria">
+    	select * from User order by reg_date asc limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <!-- 전체 유저 수 -->
+    <select id="countUser" resultType="int" parameterType="Criteria">
+    	select count(*) from User
     </select>
     
     <!-- 유저 검색 -->

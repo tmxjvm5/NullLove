@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.loven.entity.Criteria;
 import com.loven.entity.User;
 import com.loven.mapper.MemberMapper;
 
@@ -15,8 +16,8 @@ public class AdminServiceImpl implements AdminService{
 	MemberMapper mapper;
 	
 	@Override
-	public List<User> userList() {
-		List<User> list = mapper.userList();
+	public List<User> userList(Criteria cri) {
+		List<User> list = mapper.userList(cri);
 		return list;
 	}
 	
@@ -59,6 +60,12 @@ public class AdminServiceImpl implements AdminService{
 		mapper.userCommentDelete(id);
 		mapper.enableFk();
 		
+	}
+
+	@Override
+	public int countUser(Criteria cri) {
+		int cnt = mapper.countUser(cri);
+		return cnt;
 	}
 
 	

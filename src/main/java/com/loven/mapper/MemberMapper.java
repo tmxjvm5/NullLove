@@ -1,6 +1,7 @@
 package com.loven.mapper;
 
 import com.loven.entity.BlindVO;
+import com.loven.entity.Criteria;
 import com.loven.entity.PostVO;
 import com.loven.entity.User;
 
@@ -15,7 +16,8 @@ public interface MemberMapper {
 
     public void kakaoLogin(User vo);
     
-    public List<User> userList(); // 유저 리스트 불러오기
+    public List<User> userList(Criteria cri); // 유저 리스트 불러오기
+    public int countUser(Criteria cri);
     
     public List<User> searchList1(String id); // 유저 검색(아이디)
     public List<User> searchList2(String email);  // 이메일

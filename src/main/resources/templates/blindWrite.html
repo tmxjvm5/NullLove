@@ -58,16 +58,13 @@
                                   <tr class="">
                                     <td class="text-center bg-soft-ash align-middle">제목</td>
                                     <td colspan="3" class="text-start"><input id="title" type="text"
-                                          name="title" class="form-control form-control-" placeholder="제목"></td>
+                                          name="title" class="form-control form-control-sm" placeholder="제목"></td>
                                   </tr>
                                   <tr>
                                     <td class="text-center bg-soft-ash">작성자</td>
-                                    <td class="text-start"><input type="text" name="id" th:value="${session.mvo.id}"
-                                    readonly></td>
-                                    <td class="text-center  bg-soft-ash">작성일
-                                    </td>
-                                    <td class=" text-center" name="date">date</td>
-                                  </tr>
+                                    <td class="text-start" colspan="3" th:text="${session.mvo.id}">
+									</td>
+                                    	<input type="hidden" name="id" th:value="${session.mvo.id}">
                                   <tr>
                                     <td colspan="4">
                                       <div class="input-group">

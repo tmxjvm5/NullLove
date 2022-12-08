@@ -5,130 +5,144 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
-	content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+  content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
 <meta name="keywords"
-	content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+  content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
 <meta name="author" content="elemis">
 <title>login</title>
 <link rel="shortcut icon" href="./assets/img/favicon.png">
 <link rel="stylesheet" href="./assets/css/plugins.css">
 <link rel="stylesheet" href="./assets/css/style.css">
-<link rel="preload" href="./assets/css/fonts/noto2.css" as="style"
-	onload="this.rel='stylesheet'">
+<link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
 </head>
 
 <body>
-	<div class="content-wrapper">
-		<th:block th:replace="jy/header" ::header></th:block>
-		<!-- /header -->
-		<section
-			class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
-			data-image-src="./assets/img/photos/bg18.png">
-			<div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h1 class="display-1 mb-3">Sign In</h1>
-						<!-- /nav -->
-					</div>
-					<!-- /column -->
-				</div>
-				<!-- /.row -->
-			</div>
-			<!-- /.container -->
-		</section>
-		<!-- /section -->
-		<section class="wrapper bg-light">
-			<div class="container pb-14 pb-md-16">
-				<div class="row">
-					<div class="col-lg-7 col-xl-6 col-xxl-5 mx-auto mt-n20">
-						<div class="card">
-							<div class="card-body p-11 text-center">
-								<h2 class="mb-3 text-start">Welcome Back</h2>
-								<p class="lead mb-6 text-start">Fill your email and password
-									to sign in.</p>
-								<div th:if="${#lists.isEmpty(mvo)}">
-									<form class="text-start mb-3" action="login.do" method="post">
-										<div class="form-check form-check-inline">
-											<input id="inlineRadio1" class="form-check-input"
-												type="radio" name="login_type" value="C" checked> <label
-												class="form-check-label" for="inlineRadio1">기업</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input id="inlineRadio2" class="form-check-input"
-												type="radio" name="login_type" value="S"> <label
-												class="form-check-label" for="inlineRadio2">일반</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input id="inlineRadio3" class="form-check-input"
-												type="radio" name="login_type" value="a"> <label
-												class="form-check-label" for="inlineRadio3">관리자</label>
-										</div>
-										<div class="form-floating mt-1 mb-4">
-											<input type="text" class="form-control" placeholder="Email"
-												id="input_id" name="id"> <label for="id">ID</label>
-										</div>
-										<div class="form-floating password-field mb-4">
-											<input type="Password" class="form-control"
-												placeholder="Password" id="input_pwd" name="pw"> <span
-												class="password-toggle"> <i class="uil uil-eye"></i>
-											</span> <label for="pw">Password</label>
-										</div>
-										<button type="submit"
-											class="btn btn-outline-primary rounded-pill btn-login w-100 mb-2">Login</button>
-									</form>
-								</div>
-								<!-- /form -->
-								<p class="mb-1">
-									<a href="#" class="hover">비밀번호를 잊으셨나요?</a>
-								</p>
-								<br> <a href="/signup_com"
-									class="btn btn-soft-leaf rounded-pill">기업회원가입</a> <a
-									href="/signup" class="btn btn-soft-orange rounded-pill">일반회원가입</a>
-								<div class="divider-icon my-4">or</div>
-								<div>
-									<!-- kakao -->
-									<a type="button" id="kakao-login-btn" onclick="loginWithKakao()" style="display:inline-block;">
-										<img src="/image/kakao_login_medium_wide.png" alt="카카오 로그인 버튼" />
-									</a>
-									<!-- -->
-								</div>
-								<!--/.social -->
-							</div>
-							<!--/.card-body -->
-						</div>
-						<!--/.card -->
-					</div>
-					<!-- /column -->
-				</div>
-				<!-- /.row -->
-			</div>
-			<!-- /.container -->
-		</section>
-		<!-- /section -->
-		<!-- /section -->
-	</div>
-	<!-- /.content-wrapper -->
-	<th:block th:replace="jy/footer" ::footer></th:block>
-	<div class="progress-wrap">
-		<svg class="progress-circle svg-content" width="100%" height="100%"
-			viewBox="-1 -1 102 102">
+  <div class="content-wrapper">
+    <th:block th:replace="jy/header" ::header></th:block>
+    <!-- /header -->
+    <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
+      data-image-src="./assets/img/photos/bg18.png">
+      <div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1 class="display-1 mb-3">Sign In</h1>
+            <!-- /nav -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+      <div class="container pb-14 pb-md-16">
+        <div class="row">
+          <div class="col-lg-7 col-xl-6 col-xxl-5 mx-auto mt-n20">
+            <div class="card">
+              <div class="card-body p-11 text-center">
+                <h2 class="mb-3 text-start">Welcome Back</h2>
+                <p class="lead mb-6 text-start">Fill your email and password to sign in.</p>
+                <div th:if="${#lists.isEmpty(mvo)}">
+                  <form class="text-start mb-3" action="login.do" method="post" name="loginform">
+                    <div class="form-check form-check-inline">
+                      <input id="inlineRadio1" class="form-check-input" type="radio" name="login_type" value="C" checked>
+                      <label class="form-check-label" for="inlineRadio1">기업</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input id="inlineRadio2" class="form-check-input" type="radio" name="login_type" value="S">
+                      <label class="form-check-label" for="inlineRadio2">일반</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input id="inlineRadio3" class="form-check-input" type="radio" name="login_type" value="a">
+                      <label class="form-check-label" for="inlineRadio3">관리자</label>
+                    </div>
+                    <div class="form-floating mt-1 mb-4">
+                      <input type="text" class="form-control" placeholder="Email" id="input_id" name="id">
+                      <label for="id">ID</label>
+                    </div>
+                    <div class="form-floating password-field mb-4">
+                      <input type="Password" class="form-control" placeholder="Password" id="input_pwd" name="pw">
+                      <span class="password-toggle">
+                        <i class="uil uil-eye"></i>
+                      </span>
+                      <label for="pw">Password</label>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary rounded-pill btn-login w-100 mb-2"
+                      onclick="check_info();">Login</button>
+                    <div th:if="${msg == false}">
+                      <p>로그인에 실패했습니다. 아이디또는 패스워드를 다시 입력해주십시오.</p>
+                    </div>
+                  </form>
+                </div>
+                <!-- /form -->
+                <p class="mb-1">
+                  <a href="#" class="hover">비밀번호를 잊으셨나요?</a>
+                </p>
+
+                <br>
+                <a href="/signup_com" class="btn btn-soft-leaf rounded-pill">기업회원가입</a>
+                <a href="/signup" class="btn btn-soft-orange rounded-pill">일반회원가입</a>
+                <div class="divider-icon my-4">or</div>
+                <div>
+                  <!-- kakao -->
+                  <a type="button" id="kakao-login-btn" onclick="loginWithKakao()" style="display: inline-block;">
+                    <img src="/image/kakao_login_medium_wide.png" alt="카카오 로그인 버튼" />
+                  </a>
+                  <!-- -->
+                </div>
+                <!--/.social -->
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <!-- /section -->
+  </div>
+  <!-- /.content-wrapper -->
+  <th:block th:replace="jy/footer" ::footer></th:block>
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
-	</div>
-	<script src="./assets/js/plugins.js"></script>
-	<script src="./assets/js/theme.js"></script>
-	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
-			integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
-	<script>
-  function loginWithKakao() {
-	        	Kakao.init('2e5066b51786f5af82c6c4222bed1517'); // 사용하려는 앱의 키 입력
-	            Kakao.Auth.authorize({
-	              redirectUri: 'http://localhost:8088/klogin',
+  </div>
+  <script src="./assets/js/plugins.js"></script>
+  <script src="./assets/js/theme.js"></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
+    integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
+  <script>
+			function loginWithKakao() {
+				Kakao.init('2e5066b51786f5af82c6c4222bed1517'); // 사용하려는 앱의 키 입력
+				Kakao.Auth.authorize({
+					redirectUri : 'http://localhost:8088/klogin',
 
-	            });
-	        };
-</script>
+				});
+			};
+			function check_info() {
+				var frm = document.loginform;
+
+				if (frm.id.value == "") {
+					alert("아이디를 입력하세요");
+					frm.id.focus();
+					return false;
+				}
+				if (frm.pw.value == "") {
+					alert("비밀번호를 입력하세요");
+					frm.pw.focus();
+					return false;
+				}
+				return true;
+
+			}
+		</script>
 </body>
 
 </html>

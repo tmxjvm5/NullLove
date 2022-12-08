@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -14,19 +14,70 @@
   <link rel="stylesheet" href="./assets/css/plugins.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
-  <!--글작성폼-->
-  <script src="https://cdn.tiny.cloud/1/ty583711th8ic3ubyhtwe2q3df6y2hbv2fshi8ndse8ao4y8/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!--글작성폼end-->
+
   <!--mycss-->
   <link rel="stylesheet" href="./assets/css/jy.css">
+  <script>
+    function showSpinner() {
+      document.getElementsByClassName('layerPopup')[0].style.display = 'block';
+    }
+    function hideSpinner() {
+      document.getElementsByClassName('layerPopup')[0].style.display = 'none';
+    }
+  </script>
 
 </head>
 
 <body>
+  <div class="layerPopup">
+    <div class="spinner"></div>
+  </div>
   <div class="content-wrapper">
-   <th:block th:replace="jy/header" ::header></th:block>
+    <header class="wrapper">
+      <nav class="navbar navbar-expand-lg center-nav navbar-light navbar-bg-light">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100">
+            <a href="./index.html">
+              <img src="./assets/myimgs/logo.png" alt="logo" />
+            </a>
+          </div>
+          <div class="navbar-collapse offcanvas-nav">
+            <div class="offcanvas-header d-lg-none d-xl-none">
+              <a href="./index.html"><img src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x"
+                  alt="" /></a>
+              <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close"
+                aria-label="Close"></button>
+            </div>
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="#">BBlind</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">우리회사좋아요</a>
+                <!--/.dropdown-menu -->
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Mypage</a></li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other w-100 d-flex ms-auto">
+            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+              <li class="nav-item d-none d-md-block">
+                <a href="#" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <div class="navbar-hamburger"><button class="hamburger animate plain"
+                    data-toggle="offcanvas-nav"><span></span></button></div>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+      <!-- /.navbar -->
+    </header>
     <!-- /header -->
     <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
       data-image-src="./assets/img/photos/bg18.png">
@@ -59,25 +110,153 @@
                     </div>
                   </div>
                   <div class="row row-cards mt-5">
-                    <div class="col-lg-9 mx-auto card shadow-none bg-soft-primary">
+                    <div class="col-lg-12 mx-auto card shadow-none bg-soft-sky">
                       <div class="card-body text-start">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                          <label class="form-check-label" for="flexCheckDefault"> Default checkbox </label>
+                        <div class="row">
+                          <div class="col-8">
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio1" checked>
+                              <label class="form-check-label" for="radio1">&nbsp;&nbsp;기획재정부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">9</span>
+                            </div>
+                            <div class="dropdown d-in">
+                              <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <input class="form-check-input" type="radio" name="radio2" id="radio2">
+                                <label class="form-check-label" for="radio2">&nbsp;&nbsp;과학기술정보통신부&nbsp;</label>
+                                <span class="badge bg-blue rounded-pill">56</span>
+                              </button>
+                              <ul class="dropdown-menu px-2 ">
+                                <li>
+                                  <input class="form-check-input " type="radio" name="ddradio" id="ddradio1">
+                                  <label class="form-check-label" for="ddradio1">radio </label>
+                                  <span class="badge bg-blue rounded-pill">20</span>
+                                </li>
+                                <li>
+                                  <input class="form-check-input" type="radio" name="ddradio" id="ddradio2">
+                                  <label class="form-check-label" for="ddradio2">radio2 </label>
+                                  <span class="badge bg-blue rounded-pill">3</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio3">
+                              <label class="form-check-label" for="radio3"> &nbsp;&nbsp;교육부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio4">
+                              <label class="form-check-label" for="radio4"> &nbsp;&nbsp;외교부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;통일부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;법무부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;국방부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;행정안전부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;농림축산식품부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;산업통상자원부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;보건복지부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;환경부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;고용노동부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;여성가족부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;국토교통부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;해양수산부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;중서벤처기업부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;고용노동부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;인사혁신처&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;식품의학품안전처&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;국민권익위원회&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;금융위원회&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                            <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
+                              <input class="form-check-input" type="radio" name="radio2" id="radio5">
+                              <label class="form-check-label" for="radio5"> &nbsp;&nbsp;ETC&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">20</span>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <p class="">하위기관목록</p>
+                            <p class="">한국수출입은행, 한국조폐공사, 한국재정정보원, 한국투자공사, 복권위원회사무처, 국세청, 관세청, 조달청, 통계청</p>
+                          </div>
                         </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                          <label class="form-check-label" for="flexCheckChecked"> Checked checkbox </label>
-                        </div>
-                        <div class="form-select-wrapper mb-4">
-                          <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                        </div>
+
                       </div>
+                    </div>
+                  </div>
+                  <div class="row row-cards mt-5 ">
+                    <div class="col-lg-8 mx-auto">
+                      <a href="/searchrs" class="btn btn-gradient gradient-7 rounded-pill w-50 " >submit</a>
                     </div>
                   </div>
                 </form>
@@ -94,7 +273,23 @@
     <!-- /section -->
   </div>
   <!-- /.content-wrapper -->
-  <th:block th:replace="jy/footer" ::footer></th:block>
+  <footer class="bg-dark text-inverse">
+    <div class="container py-7 pt-md-11 ">
+      <div class="d-md-flex align-items-center justify-content-between">
+        <p class="mb-2 mb-lg-0">© 2022 Null사랑하지않아. All rights reserved.</p>
+        <nav class="nav social social-white text-md-end">
+          <a href="#"><i class="uil uil-twitter"></i></a>
+          <a href="#"><i class="uil uil-facebook-f"></i></a>
+          <a href="#"><i class="uil uil-dribbble"></i></a>
+          <a href="#"><i class="uil uil-instagram"></i></a>
+          <a href="#"><i class="uil uil-youtube"></i></a>
+        </nav>
+        <!-- /.social -->
+      </div>
+      <!-- /div -->
+    </div>
+    <!-- /.container -->
+  </footer>
   <div class="progress-wrap">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
@@ -103,36 +298,5 @@
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
 </body>
-<script>
-  $(function () {
-    var plugins = [
-      "advlist", "autolink", "lists", "link", "image", "charmap", "print", "preview", "anchor",
-      "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table",
-      "paste", "code", "help", "wordcount", "save"
-    ];
-    var edit_toolbar = 'formatselect fontselect fontsizeselect |'
-      + ' forecolor backcolor |'
-      + ' bold italic underline strikethrough |'
-      + ' alignjustify alignleft aligncenter alignright |'
-      + ' bullist numlist |'
-      + ' table tabledelete |'
-      + ' link image';
-
-    tinymce.init({
-      language: "ko_KR", //한글판으로 변경
-      selector: '#editor',
-      height: 600,
-      menubar: false,
-      plugins: plugins,
-      toolbar: edit_toolbar,
-      content_style: 'body { font-family:Open Sans, Noto Sans KR, sans-serif; font-size:14px }',
-
-
-    });
-
-
-  });
-  
-</script>
 
 </html>

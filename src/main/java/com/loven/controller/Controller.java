@@ -2,6 +2,7 @@ package com.loven.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -43,7 +44,10 @@ public class Controller {
         return "write";
     }
     // 글쓰기 폼
-
+    @RequestMapping("/searchrs")
+    public String searchrs(){
+        return "searchrs";
+    }
     }
 
 

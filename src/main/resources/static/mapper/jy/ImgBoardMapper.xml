@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.loven.jy.mapper">
+<mapper namespace="com.loven.jy.mapper.ImgBoardMapper">
 
+  <select id="getLists" resultType="Boast">
+     select * from boast order by seq desc
+  </select>
 
+  <insert id="imgBoardInsert" parameterType="Boast">
+  	insert into boast(title,content,date,id)
+  	values(#{title},#{content},NOW(),#{id})
+  </insert>
+  
+  <select id="imgBoardView" resultType="Boast" parameterType="int">
+  	select * from boast where seq=#{seq}
+  </select>
+  <update id="cntPlus" parameterType="int">
+		update boast set
+		cnt = cnt+1
+		where
+		seq = #{seq}
+	</update>
+	<update id="imgBoardUpdate" parameterType="Boast">
+		update boast set title=#{title}, content=#{content} where seq=#{seq} 
+	</update>
+	<delete id="imgBoardDelete">
+		delete from boast where seq=#{seq}
+	</delete>
     
 </mapper>

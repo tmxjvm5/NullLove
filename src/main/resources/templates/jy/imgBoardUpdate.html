@@ -9,7 +9,7 @@
   <meta name="keywords"
     content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
   <meta name="author" content="elemis">
-  <title>상세보기</title>
+  <title>write</title>
   <link rel="shortcut icon" href="../assets/img/favicon.png">
   <link rel="stylesheet" href="../assets/css/plugins.css">
   <link rel="stylesheet" href="../assets/css/style.css">
@@ -19,19 +19,19 @@
     referrerpolicy="origin"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!--글작성폼end-->
+  
 </head>
 
 <body>
   <div class="content-wrapper">
     <th:block th:replace="jy/header" ::header></th:block>
-    
     <!-- /header -->
     <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
       data-image-src="../assets/img/photos/bg18.png">
       <div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1 class="display-1 mb-3">블라인드 게시판</h1>
+            <h1 class="display-1 mb-3">우리회사좋아요</h1>
             <!-- /nav -->
           </div>
           <!-- /column -->
@@ -49,30 +49,30 @@
               <div class="card-body text-center">
                 <div class="row row-cards ">
                   <div class="col-12">
-                    <!-- <form method="post" action="blindWrite" name="writeForm"> -->
+                    <form id="writeForm" method="post" action="/imgBoardUpdate">
                       <div class="bg-light border-y">
                         <div class="row">
                           <div class="bg-light border-y">
-                            <div class="table-responsive">
+                            <div class="table-responsive"><input type="hidden" name ="seq" th:value="${vo.seq}">
                               <table class="table table-sm ">
                                 <tbody class="fw-semibold">
                                   <tr class="">
                                     <td class="text-center bg-soft-ash align-middle">제목</td>
-                                    <td colspan="3" class="text-start" th:text="${vo.title}"><input id="title" type="text"
-                                         class="form-control form-control-" placeholder="제목"></td>
+                                    <td colspan="3" class="text-start"><input id="title" type="text"
+                                          name="title" class="form-control form-control-" th:value="${vo.title}" placeholder="제목"></td>
                                   </tr>
                                   <tr>
                                     <td class="text-center bg-soft-ash">작성자</td>
-                                    <td class="text-start" th:text="익명">
+                                    <td class="text-start" th:text="${vo.id}">id</td>
                                     <td class="text-center  bg-soft-ash">작성일
                                     </td>
-                                    <td class="text-center" id="date" th:text="${vo.date}"></td>
+                                    <td class=" text-center" name="date">date</td>
                                   </tr>
                                   <tr>
                                     <td colspan="4">
                                       <div class="input-group">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
-                                        <label class="input-group-text" id="file" for="inputGroupFile02">Upload</label>
+                                        <input type="file" class="form-control" id="inputGroupFile02" name="file">
+                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                       </div>
                                     </td>
                                   </tr>
@@ -83,43 +83,17 @@
                         </div>
                         <div class="row ">
                           <div class="col">
-                            <textarea id="editor" th:text="${vo.content}" readonly></textarea>
+                            <textarea id="editor" name="content" th:text=${vo.content}></textarea>
                           </div>
                         </div>
                         <div class="row mt-4">
-                          <div class="col" th:if="${session.mvo.id == vo.id}">
-                            <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}">글 수정</a>
-                            <a th:href="@{/blindDelete/{seq}(seq=${vo.seq})}">글 삭제</a>
-                             <!-- <a type="button" onclick="writeCheck()" class="btn btn-sm btn-gradient gradient-7 float-end"><i
-                                class="uil uil-pen"></i>&nbsp;글쓰기</a> --> 
+                          <div class="col">
+                            <button type="submit" class="btn btn-sm btn-success">수정</button>
+                            <button type="reset" class="btn btn-sm btn-warning">취소</button>
                           </div>
-                            <a th:href="@{/blindList}">게시글 리스트</a> -->
-                        </div>
-                        <form th:action="@{/cmt_insert}" method="post" name="cmt_writeForm">
-                          <input type="hidden" th:value="${session.mvo.id}" name="id">
-                          <input type="hidden" th:value="${vo.seq}" name="seq">
-                          <textarea name="content"></textarea>
-                         <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 댓글 작성 </button>
-                        </form>
-                        <div th:each="cmt : ${cmt}">
-                          <span th:text="${cmt.content}"></span>
-                          <span th:text="${cmt.id}"></span>
-
-                          <form th:action="@{/cmt_update}" method="post" name="#">
-                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
-                            <input type="hidden" th:value="${vo.seq}" name="seq">  
-                            <textarea name="content"></textarea>
-                            <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 수정 </button>
-                          </form>
-                          <form th:action="@{/cmt_delete}" method="post" name="#">
-                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
-                            <input type="hidden" th:value="${vo.seq}" name="seq">
-                            <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 삭제 </button>
-                          </form>
-
                         </div>
                       </div>
-                   <!--  </form> -->
+                    </form>
                   </div>
 
                 </div>
@@ -138,14 +112,14 @@
     <!-- /section -->
   </div>
   <!-- /.content-wrapper -->
-  <th:block th:replace="jy/footer" ::footer></th:block>
+<th:block th:replace="jy/footer" ::footer></th:block>
   <div class="progress-wrap">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
-  <script src="./assets/js/plugins.js"></script>
-  <script src="./assets/js/theme.js"></script>
+  <script src="../assets/js/plugins.js"></script>
+  <script src="../assets/js/theme.js"></script>
 </body>
 <script>
   $(function () {
@@ -176,18 +150,9 @@
 
 
   });
-/*   function writeCheck(){
-		 if(document.getElementById("title").value==""){
-			        alert("제목을 입력하세요");
-			        return;
-			    }
-			    /* if(document.getElementById("contents").value==""){
-			        alert("내용을 입력하세요");
-			        return;
-			    } */
-	/* 	writeForm.submit();
-	} */ 
-</script>
+  
+  
 
+</script>
 
 </html>

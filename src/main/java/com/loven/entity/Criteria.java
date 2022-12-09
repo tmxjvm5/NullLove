@@ -12,7 +12,7 @@ public class Criteria {
 	public Criteria(int page) { // 생성자
 		this.page = page;
 		this.perPageNum = 15; // 한 페이지에 보여줄 개수
-		this.pageStart = getPageStart(page);
+		this.pageStart = getPageStart(page)+1;
 	}
 	
 	public int getPageStart(int page) { // 현재 페이지의 게시글의 시작번호

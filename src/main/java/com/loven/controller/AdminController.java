@@ -35,8 +35,7 @@ public class AdminController {
 			page=1;
 		}
 		Criteria cri = new Criteria(page);
-		System.out.println(cri);
-		System.out.println("유저 리스트 요청");
+		
 		if(mvo==null) { // 로그인 x
 			return "redirect:/main";
 		}
@@ -47,11 +46,11 @@ public class AdminController {
 		List<User> list = adminService.userList(cri);
 		model.addAttribute("list", list);
 		
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(adminService.countUser(cri));
+		PageMaker pageMaker = new PageMaker(cri,adminService.countUser(cri) );
+		//pageMaker.setCri(cri);
+		//pageMaker.setTotalCount(adminService.countUser(cri));
 		model.addAttribute("pageMaker", pageMaker);
-		
+		System.out.println(pageMaker);
 		
 		return "adminpage";
 		}
@@ -59,7 +58,6 @@ public class AdminController {
 				return "main";
 			}
 		}
-		
 	}
 	// 유저 삭제
 	@GetMapping("/userList/delete/{id}")
@@ -75,7 +73,7 @@ public class AdminController {
 		List<User> list = adminService.userList(cri);
 		model.addAttribute("list", list);
 		
-		PageMaker pageMaker = new PageMaker();
+		PageMaker pageMaker = new PageMaker(cri,adminService.countUser(cri) );
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(adminService.countUser(cri));
 		model.addAttribute("pageMaker", pageMaker);
@@ -106,7 +104,7 @@ public class AdminController {
 		}
 		model.addAttribute("list", list);
 		
-		PageMaker pageMaker = new PageMaker();
+		PageMaker pageMaker = new PageMaker(cri,adminService.countUser(cri) );
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(adminService.countUser(cri));
 		model.addAttribute("pageMaker", pageMaker);

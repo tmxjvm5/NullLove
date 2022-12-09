@@ -1,8 +1,10 @@
 package com.loven.controller;
 
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -45,7 +47,9 @@ public class Controller {
     }
     // 글쓰기 폼
     @RequestMapping("/searchrs")
-    public String searchrs(){
+    public String searchrs(@RequestParam("sorted_result") String sorted_result, Model model){
+        System.out.println(sorted_result);
+        model.addAttribute("sorted_result", sorted_result);
         return "searchrs";
     }
     }

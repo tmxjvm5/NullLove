@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.loven.entity.Company;
+import com.loven.entity.Script;
 import com.loven.entity.User;
 import com.loven.service.BoardService;
 
@@ -67,7 +69,7 @@ public class LoginController {
 
 	// 로그인
 	@PostMapping("/login.do")
-	public String loginCheck(String check,User vo, HttpSession session) {
+	public String loginCheck(String check,User vo, HttpSession session,RedirectAttributes rttr) {
 		
 		User mvo = service.loginCheck(vo);
 		if (mvo != null) {
@@ -81,12 +83,15 @@ public class LoginController {
 				session.setAttribute("mvo", mvo);
 				
 			}else {
-			session.setAttribute("mvo", mvo);	
+			session.setAttribute("mvo", mvo);
+			rttr.addFlashAttribute("msg", false);
 		}
 			return "redirect:/main";
 		}else {
+			
 		return "login";
-			}	
+			}
+		
 		}
 	@RequestMapping("/logout.do")
 	public String loginOut(HttpSession session) {

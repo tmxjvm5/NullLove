@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.loven.entity.BlindVO;
 import com.loven.entity.Company;
+import com.loven.entity.Criteria;
 import com.loven.entity.User;
 
 //Mybatis
@@ -18,13 +19,15 @@ public interface BoardMapper {
 	public void cInsert(Company vo);
 	public Company companyCheck(User vo);
 	public void memberUpdate(User vo);
-	public List<BlindVO> blindList();
-	public List<BlindVO> ablindList();
+	public List<BlindVO> blindList(Criteria cri);
+	public List<BlindVO> ablindList(Criteria cri);
 	public void blindInsert(BlindVO vo);
 	public BlindVO blindView(int seq);
 	public void blindUpdate(BlindVO vo);
 	public void blindDelete(int seq);
 	public boolean plusCnt(int seq);
+	public int cntBlind(Criteria cri);
+	public int cntAblind(Criteria cri);
 
 
 }

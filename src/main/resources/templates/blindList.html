@@ -108,21 +108,19 @@
                       <div class="col"></div>
                       <div class="col">
                         <nav class="d-flex justify-content-center" aria-label="pagination">
-                          <ul class="pagination mb-0">
-                            <li class="page-item disabled">
-                              <a class="page-link" href="#" aria-label="Previous">
+                          <ul class="pagination mb-0" th:with="start=${pageMaker.startPage}, end=${pageMaker.endPage}">
+                            <li class="page-item" th:if="${pageMaker.prev}">
+                              <a class="page-link" th:href="@{/blindList(page=${start-1})}" aria-label="Previous">
                                 <span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>
                               </a>
                             </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
-                              </a>
+                            <li th:each="page:${#numbers.sequence(start, end)}">
+                            <a th:text="${page}" class="page-link" th:href="@{/blindList(page=${page})}"></a>
+                            </li>
+                            <li class="page-item" th:if="${pageMaker.next}">
+                                <a class="page-link" th:href="@{/blindList(page=${end+1})}" aria-label="Next">
+                                  <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
+                                </a>
                             </li>
                           </ul>
                           <!-- /.pagination -->
@@ -133,7 +131,7 @@
                         <a href="/blindForm" class="btn btn-sm btn-gradient gradient-7 float-end"><i
                                 class="uil uil-pen"></i>&nbsp;글쓰기</a>
                       </div>
-<<<<<<< HEAD
+
                     </div>
                     <div class="card-footer pb-0">
                       <div class="row m-auto mb-3">
@@ -150,25 +148,7 @@
                                        id="search">
                             </div>
                           </form>
-=======
-                      <div class="card-footer pb-0">
-                        <div class="row m-auto mb-3">
-                          <div class="col">
-                            <form class="search-form">
-                              <div class="input-group mb-3">
-                                <select class="form-select " aria-label="Default select example">
-                                  <option selected>검색옵션</option>
-                                  <option value="1">제목</option>
-                                  <option value="2">작성자</option>
-                                  <option value="3">내용</option>
-                                  <input type="text" class="form-control w-50" placeholder="Search"
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
-                                    id="search">
-                                    </select>
-                              </div>
-                            </form>
                           </div>
->>>>>>> d1eeb5e6ca06ac76da761341a1dab4f1ac9fe4ed
                         </div>
                       </div>
                     </div>

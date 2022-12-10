@@ -87,7 +87,7 @@
                           </div>
                         </div>
                         <div class="row mt-4">
-                          <div class="col" th:if="${session.mvo.id == vo.id}">
+                          <div class="col" th:if="${session.mvo} ne null and ${session.mvo.id == vo.id}">
                             <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}">글 수정</a>
                             <a th:href="@{/blindDelete/{seq}(seq=${vo.seq})}">글 삭제</a>
                              <!-- <a type="button" onclick="writeCheck()" class="btn btn-sm btn-gradient gradient-7 float-end"><i
@@ -100,7 +100,7 @@
                         <div class="row">
                         <div class="col">
                         <form th:action="@{/cmt_insert}" method="post" name="cmt_writeForm">
-                        <div class="form-floating">
+                        <div class="form-floating" th:if="${session.mvo} ne null">
                           <input type="hidden" th:value="${session.mvo.id}" name="id">
                           <input type="hidden" th:value="${vo.seq}" name="seq">
                           <textarea name="content" class="form-control" id="floatingTextarea2" style="height: 60px"></textarea>

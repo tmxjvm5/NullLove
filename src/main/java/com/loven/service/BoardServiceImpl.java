@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.loven.entity.BlindVO;
 import com.loven.entity.Company;
+import com.loven.entity.Criteria;
 import com.loven.entity.User;
 import com.loven.mapper.BoardMapper;
 
@@ -52,15 +53,15 @@ public class BoardServiceImpl implements BoardService{
 	}
 	// 블라인드 게시판 리스트
 	@Override
-	public List<BlindVO> blindList() {
-		return mapper.blindList();
+	public List<BlindVO> blindList(Criteria cri) {
+		return mapper.blindList(cri);
 		
 	}
 
 	// 블라인드 게시판 공지사항 리스트
 	@Override
-	public List<BlindVO> ablindList() {
-		return mapper.ablindList();
+	public List<BlindVO> ablindList(Criteria cri) {
+		return mapper.ablindList(cri);
 	}
 
 	// 블라인드 게시판 글쓰기
@@ -92,9 +93,15 @@ public class BoardServiceImpl implements BoardService{
 	public boolean plusCnt(int seq) {
 		  return mapper.plusCnt(seq);
 		}
-
-
-
+	
+	// 블라인드 게시글의 총 개수
+	@Override
+	public int cntBlind(Criteria cri) {
+		int cnt = mapper.cntBlind(cri);
+		
+		return cnt;
+	}
+	
 	// 관리자 로그인
 	@Override
 	public User loginAdmin(User vo) {

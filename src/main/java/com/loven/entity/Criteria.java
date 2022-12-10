@@ -17,7 +17,7 @@ public class Criteria {
 	
 	public int getPageStart(int page) { // 현재 페이지의 게시글의 시작번호
 		
-		return ((page-1)*perPageNum); 
+		return ((page-1)*perPageNum-1); 
 	}
 	
 	

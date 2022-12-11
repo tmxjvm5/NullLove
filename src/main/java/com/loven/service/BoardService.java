@@ -1,5 +1,6 @@
 package com.loven.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.loven.entity.BlindVO;
@@ -39,7 +40,12 @@ public interface BoardService {
 	
 	public int cntBlind(Criteria cri); 
 	
+	public List<BlindVO> searchTitle(HashMap<String, Object> map);
 	
+	public List<BlindVO> searchContent(HashMap<String, Object> map);
 	
+	public int cntSearch1(String search);
+	
+	public int cntSearch2(String search);
 
 }

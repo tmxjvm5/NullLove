@@ -76,7 +76,23 @@
 		select count(*) from blind where id !='aaa'
 	</select>
 	
+	<!-- 블라인드 검색 -->
+	<select id="searchTitle" resultType="BlindVO" parameterType="hashmap">
+		select * from blind where title like concat('%', #{search}, '%') and id != 'aaa' limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
 	
+	<select id="searchContent" resultType="BlindVO" parameterType="hashmap">
+		select * from blind where content like concat('%', #{search}, '%') and id != 'aaa' limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<!-- 검색된 게시글의 수 -->
+	<select id="cntSearch1" resultType="int">
+		select count(*) from blind where title like concat('%', #{search}, '%') and id != 'aaa'
+	</select>
+	
+	<select id="cntSearch2" resultType="int">
+		select count(*) from blind where content like concat('%', #{search}, '%') and id != 'aaa'
+	</select>
 	
 
 </mapper>

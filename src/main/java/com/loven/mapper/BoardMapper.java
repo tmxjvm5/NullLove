@@ -1,6 +1,8 @@
 package com.loven.mapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -28,6 +30,8 @@ public interface BoardMapper {
 	public boolean plusCnt(int seq);
 	public int cntBlind(Criteria cri);
 	public int cntAblind(Criteria cri);
-
-
+	public List<BlindVO> searchTitle(HashMap<String, Object> map);
+	public List<BlindVO> searchContent(HashMap<String, Object> map);
+	public int cntSearch1(String search);
+	public int cntSearch2(String search);
 }

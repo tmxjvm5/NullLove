@@ -110,15 +110,15 @@
                         <nav class="d-flex justify-content-center" aria-label="pagination">
                           <ul class="pagination mb-0" th:with="start=${pageMaker.startPage}, end=${pageMaker.endPage}">
                             <li class="page-item" th:if="${pageMaker.prev}">
-                              <a class="page-link" th:href="@{/blindList(page=${start-1})}" aria-label="Previous">
+                              <a class="page-link" th:href="@{/blindSearch(page=${start-1})}" aria-label="Previous">
                                 <span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>
                               </a>
                             </li>
                             <li th:each="page:${#numbers.sequence(start, end)}">
-                            <a th:text="${page}" class="page-link" th:href="@{/blindList(page=${page})}"></a>
+                            <a th:text="${page}" class="page-link" th:href="@{/blindSearch(page=${page})}"></a>
                             </li>
                             <li class="page-item" th:if="${pageMaker.next}">
-                                <a class="page-link" th:href="@{/blindList(page=${end+1})}" aria-label="Next">
+                                <a class="page-link" th:href="@{/blindSearch(page=${end+1})}" aria-label="Next">
                                   <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
                                 </a>
                             </li>
@@ -145,14 +145,18 @@
                                 <option value="2">내용</option>
                                 <input type="text" class="form-control w-50" placeholder="Search"
                                        aria-label="Example text with button addon" aria-describedby="button-addon1"
-                                       id="search" name="search"/>
-                                    
+                                       id="search" name="search">
                             </div>
                           </form>
                           </div>
                         </div>
                   </div>
-                
+                <section id="container">
+                <form name="readForm" action="/blindSearch">
+                	<input type="hidden" name="search" th:value="${search}"/>
+                	<input type="hidden" name="option" th:value="${option}"/>
+                </form>
+                </section>
             <!--/.card-body -->
           </div>
           <!--/.card -->

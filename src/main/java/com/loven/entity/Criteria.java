@@ -7,7 +7,8 @@ public class Criteria {
 	private int page;
 	private int perPageNum;
 	private int pageStart;
-	
+	private String search;
+	private String option;
 	
 	public Criteria(int page) { // 생성자
 		this.page = page;

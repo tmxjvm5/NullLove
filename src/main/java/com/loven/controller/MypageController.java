@@ -130,4 +130,8 @@ public class MypageController {
 
 			return "redirect:/mypagecmtList";
 		}
+		@RequestMapping("/mail")
+		public String mail() {
+			return "mail";
+		}
 }

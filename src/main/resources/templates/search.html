@@ -432,37 +432,21 @@
                             html += "<div class=' row mt-2'>"
                             html += "<div class='card card-border-start border-primary'>"
                             html += "<div class='card-body text-sm-start py-2'>"+org+" > "+result['sorted_result'][i]+"<br>"
-                            html += "<a href='#' class='fs-lg'>기관 대표 기사 "+(i+1)+"</a>"
-                            html += "<p style='overflow:hidden;white-space:nowrap;text-overflow:ellipsis;height: 28px;'>"+result['orgContent'][i]+"</p>"
+                            html += "<a href='"+result['orgUrl'][i]+"' class='fs-lg' target='_blank'>"+result['orgTitle'][i]+"</a>"
+                            html += "<p style='text-overflow: ellipsis;overflow: hidden;display: -webkit-box !important;-webkit-line-clamp: 3;-webkit-box-orient: vertical;white-space: normal;'>"+result['orgContent'][i]+"</p>"
                             html += "</div></div></div>"
                             }
                           <!--/news Area-->
                             html += "</div></div>"
   		                  $("#show_Result").html(html);
-                          var words = [
-                              { text: "인공지능", weight: 20 },
-                              { text: "문화재", weight: 10.5 },
-                              { text: "지식인", weight: 9.4 },
-                              { text: "진흥원", weight: 8 },
-                              { text: "소장", weight: 6.2 },
-                              { text: "자료", weight: 5 },
-                              { text: "세계기록유산", weight: 5 },
-                              { text: "문화", weight: 10.5 },
-                              { text: "한국국학진흥원", weight: 9.4 },
-                              { text: "컬쳐", weight: 8 },
-                              { text: "국학", weight: 6.2 },
-                              { text: "콘텐츠", weight: 5 },
-                              { text: "헌법", weight: 5 },
-                              { text: "종이", weight: 10.5 },
-                              { text: "스토리", weight: 9.4 },
-                              { text: "홈페이지", weight: 8 },
-                              { text: "테마파크", weight: 6.2 },
-                              { text: "소양", weight: 5 },
-                              { text: "제자", weight: 5 },
-                              { text: "성과", weight: 8 },
-                              { text: "집대성", weight: 6.2 },
-                              { text: "유네스코", weight: 5 },
-                              ];
+
+                          var words = []
+                          console.log(result['fre_key'][0])
+                          console.log(result['fre_value'][0])
+                          for(var i=0; i<20; i++){
+                              words.push({ text: result['fre_key'][i], weight: result['fre_value'][i]
+                              });
+                          }
                           $("#show_Cloud").jQCloud(words);
 
 

@@ -86,7 +86,7 @@ public class LoginController {
 				
 			}else {
 
-			//session.setAttribute("mvo", mvo);
+				 session.setAttribute("mvo", mvo);
 
 			rttr.addFlashAttribute("msg", false);
 		}
@@ -115,12 +115,7 @@ public class LoginController {
 		
 		return "main";
 	}
-	// 마이페이지 이동
-		/*@GetMapping("/myPage.do")
-		public String myPage() {
-
-			return "myPage";
-		}*/
+	
 		@PostMapping
 		public String memberUpdate(User vo, HttpSession session){
 			

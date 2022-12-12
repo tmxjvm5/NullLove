@@ -68,7 +68,7 @@
                         <!--일반유저게시글-->
                         <tr  th:each="blind:${list}">
                           <td th:text="${blind.seq}" class="text-center">seq</td>
-                          <td class="text-start"><a th:href="@{/blindView/(seq=${blind.seq})}" class="text-reset" th:text="${blind.title}"></a></td>
+                          <td class="text-start"><a th:href="@{/blindView(seq=${blind.seq})}" class="text-reset" th:text="${blind.title}"></a></td>
                           <td th:text="익명" class="">
                             <!-- <td th:text="${blind.id}" class="">id -->
                           </td>

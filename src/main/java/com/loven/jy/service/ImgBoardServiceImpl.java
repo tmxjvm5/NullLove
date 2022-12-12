@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.loven.entity.BlindVO;
 import com.loven.jy.entity.Boast;
 import com.loven.jy.mapper.ImgBoardMapper;
 
@@ -45,5 +44,12 @@ public class ImgBoardServiceImpl implements ImgBoardService{
 	public void imgBoardDelete(int seq) {
 		mapper.imgBoardDelete(seq);
 	}
+
+	@Override
+	public void imgFileInsert(Boast vo) {
+		mapper.imgFileInsert(vo);
+	}
+
+	
 	
 }	

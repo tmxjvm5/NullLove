@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="./assets/css/plugins.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
+  
+  <!-- pagenation -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 </head>
 
 <body>
@@ -43,20 +49,21 @@
               <div class="card-body text-center">
                 <div class="row row-cards ">
                   <div class="col-12 mt-5">
-                    <div class="row">
+                    <div class="row" id="d-con">
                       <div th:each="img:${list}" class="col-3 mt-3">
                         <article class="item post">
                           <div class="card">
-                            <figure class="card-img-top overlay overlay-1 hover-scale"><a th:href="@{/imgBoardView(seq=${img.seq})}"> <img
-                                  src="./assets/img/photos/b4.jpg" alt="" /></a>
-                              <figcaption>
+                            <figure class="card-img-top overlay overlay-1 hover-scale" style="height:200px; overflow:hidden"><a th:href="@{/imgBoardView(seq=${img.seq})}">
+                             <img id="imgId" th:src="'./uploadImg/'+${img.file1}" alt="첨부이미지" />
+                             <!-- <img src="./assets/img/photos/b4.jpg" alt="" /></a> -->
+                              <figcaption style="height:200px;">
                                 <h5 class="from-top mb-0">Read More</h5>
                               </figcaption>
                             </figure>
-                            <div class="card-body  p-5">
+                            <div class="card-body  p-3">
                               <div class="post-header">
-                                <h2 class="post-title fs-16 mt-1 mb-3 text-start"><a  th:text="${img.title}"  class="link-dark"
-                                    href="./blog-post.html">title</a>
+                                <h2 class="post-title fs-16 my-1 text-start"><a  th:text="${img.title}"  class="link-dark"
+                                    th:href="@{/imgBoardView(seq=${img.seq})}">title</a>
                                 </h2>
                               </div>
                               <!-- /.post-header -->
@@ -69,9 +76,10 @@
                             <!--/.card-body -->
                             <div class="card-footer py-2 px-3">
                               <ul class="post-meta d-flex mb-0">
-                                <li class="post-date"><i class="uil uil-calendar-alt"></i><span th:text="${#dates.format(img.date, 'yyyy-MM-dd')}">date</span></li>
-                                <li class="post-comments"><i class="uil uil-eye"></i><span th:text="${img.cnt}">cnt</span></li>
-                                <li class="post-likes"><i class="uil uil-heart-alt"></i><span th:text="${img.likes}">likes</span></li>
+                                <li class=""><i class="uil uil-calendar-alt"></i><span class="small" th:text="${#dates.format(img.date, 'yy-MM-dd')}">date</span></li>
+                                <li class=""><i class="uil uil-eye"></i><span class="small" th:text="${img.cnt}">cnt</span></li>
+                                <li class=""><i class="uil uil-heart-alt"></i><span class="small" th:text="${img.likes}">likes</span></li>
+                                <li class=""><span class="small text-end" th:text="${img.id}">id</span></li>
                               </ul>
                               <!-- /.post-meta -->
                             </div>
@@ -84,7 +92,7 @@
 
                 </div>
                 <div class="row my-4">
-                  <div class="col"></div>
+                  <div class="col" id="pagnation"></div>
                   <div class="col">
                     <nav class="d-flex justify-content-center" aria-label="pagination">
                       <ul class="pagination mb-0">
@@ -153,6 +161,45 @@
   </div>
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
+ <script th:inline="javascript">
+	  /*<![CDATA[*/
+    $(function () {
+        let container = $('#pagination');
+        container.pagination({
+            dataSource: [
+                {name: "hello1"},
+                {name: "hello2"},
+                {name: "hello3"},
+                {name: "hello4"},
+                {name: "hello5"},
+                {name: "hello6"},
+                {name: "hello7"},
+                {name: "hello8"},
+                {name: "hello9"},
+                {name: "hello10"},
+                {name: "hello11"},
+                {name: "hello12"},
+                {name: "hello13"},
+                {name: "hello14"},
+                {name: "hello15"},
+                {name: "hello16"},
+                {name: "hello17"},
+            ],
+            callback: function (data, pagination) {
+                var dataHtml = '<ul>';
+
+                $.each(data, function (index, item) {
+                    dataHtml += '<li>' + item.name + '</li>';
+                });
+
+                dataHtml += '</ul>';
+
+                $("#data-container").html(dataHtml);
+            }
+        })
+    })
+     /*]]>*/
+</script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/jy.css">
   <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="stylesheet" href="./assets/css/mypage.css">
 </head>
 <body>
 <header class="wrapper">
@@ -38,8 +37,7 @@
               <li class="nav-item"><a class="nav-link" href="/imgBoardList">우리회사좋아요</a>
                 <!--/.dropdown-menu -->
               </li>
-              <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
-              <li class="nav-item"><a class="nav-link" href="/myPage.do">Mypage</a></li>
+              <li class="nav-item"><a class="nav-link" href="">Search</a></li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
@@ -49,45 +47,37 @@
               <li class="nav-item d-nones d-md-block">
                 <a href="login.do" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
               </li>
-              <li class="nav-item d-lg-none">
-                <div class="navbar-hamburger">
-                  <button class="hamburger animate plain" data-toggle="offcanvas-nav">
-                    <span></span>
-                  </button>
-                </div>
-              </li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
-
           <div th:if="${!#lists.isEmpty(session.mvo)}" class="navbar-other w-100 d-flex ms-auto">
             <div class="row">
-            <div class="col">
-            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
-              <li class="nav-item d-none d-md-block nav-link">
-                <label id="userNm" th:text="${session.mvo.name}"></label>
-                <br>
-                <a href="myPage.do">My Page</a>
-              </li>
-            </ul>
-              <div th:if="${#strings.equals(session.mvo.login_type, 'A')}">
-                <a href="userList.do">Admin Page</a>
-              </div>
-            </div>
-            <div class="col pt-5">
-              <form action="logout.do">
-              <!--   <p th:text="${session.cvo}"></p> !-->
-                <button type="submit" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</button>
-              </form>
+	            <div class="col ps-17">
+	            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+	              <li class="nav-item d-none d-md-block nav-link text-end ">
+	                <a href="myPage.do" th:text="${session.mvo.name}"></a>님,<br>환영합니다.
+	              </li>
+	              <li class="nav-item d-none d-md-block nav-link">
+            		  <a href="logout.do" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</a>
+	              </li>
+	            </ul>
             </div>
           </div>
         </div>
-        </div>
-      </nav>
       <!-- /.navbar -->
       <!-- /.navbar -->
       </div>
       </nav>
     </header>
+     <script th:inline="javascript">
+	  /*<![CDATA[*/
+    	function myPage(){
+    		if("${#lists.isEmpty(session.mvo)}"){
+    			
+    		};
+    	}
+	  
+    	 /*]]>*/
+    </script>
 </body>
 </html>

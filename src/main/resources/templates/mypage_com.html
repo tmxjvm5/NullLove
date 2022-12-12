@@ -46,40 +46,47 @@
                         <div class="card-body text-center">
                             <div class="row row-cards ">
                                 <h2 class="info-title fs-20 text-uppercase text-start mb-4 ms-1"> 회원정보 수정</h2>
-                                <form class="text-start mb-3">
+                                <form id="umpform_per" th:action="@{/update_my_page}" th:object="${User}" enctype="multipart/form-data" method="POST" >
                                     <br>
                                     <div class="form-floating mb-4 pointer-block">
                                         <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.id}" th:value="${session.mvo.id}" id="id" name="id" readonly>
                                         <label for="id">ID</label>
                                     </div>
                                     <div class="form-floating password-field mb-5">
-                                        <input type="password" class="form-control w-85 float-start me-lg-5 " placeholder="${session.mvo.id}" th:value="${session.mvo.id}" id="loginPassword">
+                                        <input type="password" class="form-control w-85 float-start me-lg-5 " placeholder="${session.mvo.id}" th:value="${session.mvo.id}" id="loginPassword" name="pw">
                                         <label for="loginPassword">비밀번호</label>
                                         <span class="eye-toggle"><i class="uil uil-eye"></i></span>
                                         <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1" id="check_btn">수정</a>
                                     </div>
-                                    <br><br>
+                                    <div class="form-floating mb-4 ">
+                                        <input type="email" class="form-control w-85 " placeholder="${session.mvo.email}" th:value="${session.mvo.email}" id="email" name="email" >
+                                        <label for="email">E-mail</label>
+                                    </div>
                                     <div class="form-floating mb-4 pointer-block">
-                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.name}" th:value="${session.mvo.name}" id="name" name="name" readonly>
+                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.cvo.name}" th:value="${session.cvo.name}" id="loginName_com" name="name" readonly>
                                         <label for="loginName_com">회사명</label>
                                     </div>
                                     <div class="form-floating mb-4 pointer-block">
-                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.type}" th:value="${session.mvo.type}" id="type" name="type" readonly>
-                                        <label for="id">업종명</label>
+                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.cvo.name}" th:value="${session.cvo.name}" id="loginName_com" name="name" readonly>
+                                        <label for="loginName_com">회사명</label>
                                     </div>
                                     <div class="form-floating mb-4 pointer-block">
-                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.opendate}" th:value="${session.mvo.opendate}" id="opendate" name="opendate" readonly>
+                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.cvo.type}" th:value="${session.cvo.type}" id="com_type" name="type" readonly>
+                                        <label for="com_type">업종명</label>
+                                    </div>
+                                    <div class="form-floating mb-4 pointer-block">
+                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.cvo.opendate}" th:value="${session.cvo.opendate}" id="loginOpendate" name="opendate" readonly>
                                         <label for="loginOpendate">개업일자</label>
                                     </div>
                                     <div class="form-floating mb-4 pointer-block">
-                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.owner}" th:value="${session.mvo.owner}" id="owner" name="owner" readonly>
-                                        <label for="loginCeo">대표명</label>
+                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.cvo.owner}" th:value="${session.cvo.owner}" id="owner" name="owner" readonly>
+                                        <label for="owner">대표명</label>
                                     </div>
                                     <div class="form-floating mb-4 pointer-block">
-                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.mvo.no}" th:value="${session.mvo.no}" id="check_input" name="no" maxlength='10' readonly>
-                                        <label for="loginName">사업자 등록번호</label>
+                                        <input type="text" class="form-control w-85 form-readonly" placeholder="${session.cvo.no}" th:value="${session.cvo.no}" id="com_num" name="no" maxlength='10' readonly>
+                                        <label for="com_num">사업자 등록번호</label>
                                     </div>
-                                    <br><br>
+                                    <button type="submit" class="btn btn-edit btn-sm rounded-pill mt-1" >수정</button>
                                     <div class="form-floating">
                                         <div class="row">
                                             <div class="col-7">

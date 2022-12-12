@@ -1,6 +1,7 @@
 package com.loven.service;
 
 import com.loven.entity.BlindVO;
+import com.loven.entity.Comment;
 import com.loven.entity.PostVO;
 import com.loven.entity.User;
 import com.loven.mapper.MemberMapper;
@@ -27,6 +28,39 @@ public class MypageServiceImpl implements MypageService{
         List<BlindVO> list = mapper.postList(id);
         return list;
     }
+
+	@Override
+	public void update_vo(User vo) {
+		mapper.update_vo(vo);
+		
+	}
+
+	
+
+	
+
+	/*
+	 * @Override public void mypageDelete(int seq) { mapper.mypageDelete(seq);
+	 * 
+	 * }
+	 */
+	@Override
+	public void mypageDelete(String seq) {
+		mapper.mypageDelete(seq);
+		
+	}
+
+	@Override
+	public List<Comment> cmtList(String id) {
+		List<Comment> list = mapper.cmtList(id);
+        return list;
+	}
+
+	@Override
+	public void mypagecmtDelete(String cmt_seq) {
+		mapper.mypagecmtDelete(cmt_seq);
+		
+	}
 
 
 

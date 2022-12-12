@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
 
+
+
   <!--mycss-->
   <link rel="stylesheet" href="./assets/css/jy.css">
   <script>
@@ -59,8 +61,9 @@
                 <div class="row row-cards ">
                   <div class="col-lg-8 mx-auto">
                     <div class="form-floating mb-0" id="mysearch">
-                      <input id="search-form-text" name="keyword" type="text" class="form-control" placeholder="Search">
-                      <label for="search-form">Search</label>
+                      <input id="search-form-text" name="keyword" type="text" class="form-control"
+                             placeholder="Search">
+                      <label for="search-form-text">Search</label>
                       <i class="uil uil-search float-end mt-n8 me-4 fs-20 text-ash"></i>
                     </div>
                   </div>
@@ -72,139 +75,292 @@
                       <div class="row">
                         <div class="col-8">
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio1" value="인사혁신처" checked>
-                            <label class="form-check-label" for="radio1">&nbsp;&nbsp;기획재정부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">9</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio1" value="고용노동부">
+                            <label class="form-check-label" for="radio1">
+                              &nbsp;&nbsp;고용노동부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">22</span>
                           </div>
-                          <!-- <div class="dropdown d-in">
-                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle" type="button"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                              <input class="form-check-input" type="radio" name="radio2" id="radio2">
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio2" value="과학기술정보통신부">
                               <label class="form-check-label" for="radio2">&nbsp;&nbsp;과학기술정보통신부&nbsp;</label>
-                              <span class="badge bg-blue rounded-pill">56</span>
+                              <span class="badge bg-blue rounded-pill">68</span>
                             </button>
                             <ul class="dropdown-menu px-2 ">
                               <li>
-                                <input class="form-check-input " type="radio" name="ddradio" id="ddradio1">
-                                <label class="form-check-label" for="ddradio1">radio </label>
-                                <span class="badge bg-blue rounded-pill">20</span>
+                                <input class="form-check-input " type="radio" name="select" id="part1" value="">
+                                <label class="form-check-label" for="part1">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">34</span>
                               </li>
                               <li>
-                                <input class="form-check-input" type="radio" name="ddradio" id="ddradio2">
-                                <label class="form-check-label" for="ddradio2">radio2 </label>
-                                <span class="badge bg-blue rounded-pill">3</span>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part2" value="">
+                                <label class="form-check-label" for="part2">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">34</span>
                               </li>
                             </ul>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio3">
-                            <label class="form-check-label" for="radio3"> &nbsp;&nbsp;교육부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio3" value="교육부">
+                            <label class="form-check-label" for="radio3">
+                              &nbsp;&nbsp;교육부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">28</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio4">
-                            <label class="form-check-label" for="radio4"> &nbsp;&nbsp;외교부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio4" value="국민권익위원회">
+                            <label class="form-check-label" for="radio4">
+                              &nbsp;&nbsp;국민권익위원회&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">2</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;통일부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio5" value="국방부">
+                            <label class="form-check-label" for="radio5">
+                              &nbsp;&nbsp;국방부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">35</span>
+                          </div>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio6" value="국토교통부">
+                              <label class="form-check-label" for="radio6">&nbsp;&nbsp;국토교통부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">45</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part3" value="">
+                                <label class="form-check-label" for="part3">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">22</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part4" value="">
+                                <label class="form-check-label" for="part4">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">23</span>
+                              </li>
+                            </ul>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;법무부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio7" value="금융위원회">
+                            <label class="form-check-label" for="radio7">
+                              &nbsp;&nbsp;금융위원회&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">7</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;국방부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio8" value="기획재정부">
+                            <label class="form-check-label"
+                                   for="radio8">&nbsp;&nbsp;기획재정부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">9</span>
+                          </div>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio9" value="농림축산식품부">
+                              <label class="form-check-label" for="radio9">&nbsp;&nbsp;농림축산식품부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">42</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part5" value="">
+                                <label class="form-check-label" for="part5">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">21</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part6" value="">
+                                <label class="form-check-label" for="part6">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">21</span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio10" value="문화체육관광부">
+                              <label class="form-check-label" for="radio10">&nbsp;&nbsp;문화체육관광부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">56</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part7" value="">
+                                <label class="form-check-label" for="part7">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">28</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part8" value="">
+                                <label class="form-check-label" for="part8">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">28</span>
+                              </li>
+                            </ul>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;행정안전부&nbsp;</label>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio11" value="법무부">
+                            <label class="form-check-label" for="radio11">
+                              &nbsp;&nbsp;법무부&nbsp;</label>
                             <span class="badge bg-blue rounded-pill">20</span>
                           </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;농림축산식품부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio12" value="보건복지부">
+                              <label class="form-check-label" for="radio12">&nbsp;&nbsp;보건복지부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">44</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part9" value="">
+                                <label class="form-check-label" for="part9">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">22</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part10" value="">
+                                <label class="form-check-label" for="part10">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">22</span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio13" value="산업통상자원부">
+                              <label class="form-check-label" for="radio13">&nbsp;&nbsp;산업통상자원부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">68</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part11" value="">
+                                <label class="form-check-label" for="part9">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">34</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part12" value="">
+                                <label class="form-check-label" for="part10">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">34</span>
+                              </li>
+                            </ul>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;산업통상자원부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio14" value="식품의학품안전처">
+                            <label class="form-check-label" for="radio14">
+                              &nbsp;&nbsp;식품의학품안전처&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">14</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;보건복지부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio15" value="여성가족부">
+                            <label class="form-check-label" for="radio15">
+                              &nbsp;&nbsp;여성가족부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">5</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;환경부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio16" value="외교부">
+                            <label class="form-check-label" for="radio16">
+                              &nbsp;&nbsp;외교부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">6</span>
+                          </div>
+                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2 select">
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio17" value="인사혁신처" checked>
+                            <label class="form-check-label" for="radio17">
+                              &nbsp;&nbsp;인사혁신처&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">3</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;고용노동부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio18" value="중소벤처기업부">
+                            <label class="form-check-label" for="radio18">
+                              &nbsp;&nbsp;중소벤처기업부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">33</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;여성가족부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio19" value="통일부">
+                            <label class="form-check-label" for="radio19">
+                              &nbsp;&nbsp;통일부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">9</span>
+                          </div>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio20" value="해양수산부">
+                              <label class="form-check-label" for="radio20">&nbsp;&nbsp;해양수산부&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">41</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part13" value="">
+                                <label class="form-check-label" for="part13">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">21</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part14" value="">
+                                <label class="form-check-label" for="part14">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">20</span>
+                              </li>
+                            </ul>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;국토교통부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio21" value="행정안전부">
+                            <label class="form-check-label" for="radio21">
+                              &nbsp;&nbsp;행정안전부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">29</span>
                           </div>
                           <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;해양수산부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                            <input class="form-check-input" type="radio" name="select"
+                                   id="radio22" value="환경부">
+                            <label class="form-check-label" for="radio22">
+                              &nbsp;&nbsp;환경부&nbsp;</label>
+                            <span class="badge bg-blue rounded-pill">31</span>
                           </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;중서벤처기업부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
+                          <div class="dropdown d-in">
+                            <button class="btn btn-sm btn-outline-sky rounded-pill mb-2 dropdown-toggle"
+                                    style="height:45px" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                              <input class="form-check-input" type="radio" name="select" id="radio23" value="ETC">
+                              <label class="form-check-label" for="radio23">&nbsp;&nbsp;ETC&nbsp;</label>
+                              <span class="badge bg-blue rounded-pill">71</span>
+                            </button>
+                            <ul class="dropdown-menu px-2 ">
+                              <li>
+                                <input class="form-check-input " type="radio" name="select" id="part15" value="">
+                                <label class="form-check-label" for="part13">Partition 1</label>
+                                <span class="badge bg-blue rounded-pill">36</span>
+                              </li>
+                              <li>
+                                <input class="form-check-input" type="radio" name="ddradio" id="part16" value="">
+                                <label class="form-check-label" for="part14">Partition 2</label>
+                                <span class="badge bg-blue rounded-pill">35</span>
+                              </li>
+                            </ul>
                           </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;고용노동부&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
-                          </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;인사혁신처&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
-                          </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;식품의학품안전처&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
-                          </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;국민권익위원회&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
-                          </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;금융위원회&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span>
-                          </div>
-                          <div class="btn btn-sm btn-outline-sky rounded-pill mb-2">
-                            <input class="form-check-input" type="radio" name="radio2" id="radio5">
-                            <label class="form-check-label" for="radio5"> &nbsp;&nbsp;ETC&nbsp;</label>
-                            <span class="badge bg-blue rounded-pill">20</span> -->
                         </div>
-                      </div>
-                      <div class="col">
-                        <p class="">하위기관목록</p>
-                        <p class="">한국수출입은행, 한국조폐공사, 한국재정정보원, 한국투자공사, 복권위원회사무처, 국세청, 관세청, 조달청, 통계청</p>
+                        <div class="col">
+                          <p class="">하위기관목록</p>
+                          <p class=""> 교원소청심사위원회, 국립국제교육원, 국립특수교육원, 국사편찬위원회, 대한민국학술원, 중앙교육연수원, 강릉원주대학교치과병원,
+                            강원대학교병원, 경북대학교병원, 경북대학교치과병원, 경상대학교병원, 국가평생교육진흥원, 동북아역사재단, 부산대학교병원, 부산대학교치과병원,
+                            사립학교교직원연금공단, 서울대학교병원, 서울대학교치과병원, 전남대학교병원, 전북대학교병원, 제주대학교병원, 충남대학교병원, 충북대학교병원,
+                            한국고전번역원, 한국교육학술정보원, 한국사학진흥재단, 한국장학재단, 한국학중앙연구원</p>
+                          <div class="row row-cards mt-12">
+                            <div class="col-lg-8 mx-16">
+                              <button id="getRecommend" class="btn btn-gradient gradient-7 rounded-pill w-50 "type="button">submit</button>
+                            </div>
+                          </div>
+                        </div>
+
                       </div>
                     </div>
 
@@ -212,12 +368,9 @@
                 </div>
               </form>
             </div>
-            <div class="row row-cards mt-5 ">
-              <div class="col-lg-8 mx-auto">
-                <button id="getRecommend" class="btn btn-gradient gradient-7 rounded-pill w-50 " type="button" >submit</button>
-              </div>
-            </div>
-            <!--/.card-body -->
+            <!-- result show -->
+            <div id="show_Result"></div>
+            <!-- /result show -->
           </div>
           <!--/.card -->
         </div>
@@ -228,6 +381,104 @@
     <!-- /.container -->
   </section>
   <!-- /section -->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <!--wordcloud-->
+  <script>
+  		$('#getRecommend').click(function () {
+  			var company = document.getElementById('userNm').innerText;
+  			console.log(company);
+  			var keyword = $('#search-form-text').val();
+  			console.log(keyword);
+  			var org = $('input[name=select]:checked').val();
+  			console.log(org);
+  		    $.ajax({
+  		        url:" http://localhost:8089/org?company=" + company + "&keyword=" + keyword + "&org=" + org,
+  		        type:"GET",
+  		      	dataType: "json",
+  		        success:function(result){
+  		                  console.log(result['orgCosine'])
+  		                  var html = "<div class='card-body text-center'>";
+  		                  var colorList =["purple","green","red","yellow","blue"]
+  		                  html += "<div class='row'>"
+  		                  html += "<div class='col card me-2'>"
+  		                  html += "<div class='card-body'>"
+  		                  <!--/progressbar Area-->
+                            html += "<ul class='progress-list' id='show_Progressbar'>"
+                            for(var i=0; i<result['sorted_result'].length; i++){
+                            html += "<li>"
+                            html += "<p>"+result['sorted_result'][i]+"</p>";
+                            html += "<div class='progressbar line "+colorList[i]+"' data-value='"+parseInt(result['orgCosine'][i])+"'>"
+                            console.log(result['orgCosine'])
+                            html += "<svg viewBox='0 0 100 6' preserveAspectRatio='none' style='display: block; width: 100%;'>"
+                            html += "<path d='M 0,3 L 100,3' stroke='#eee' stroke-width='6' fill-opacity='0'></path>"
+                            html += "<path d='M 0,3 L 100,3' stroke='#555' stroke-width='6' fill-opacity='0' style='stroke-dasharray: 100, 100; stroke-dashoffset: "+(result['reverseCosine'][i])+";'></path>"
+                            html += "</svg>"
+                            html += "<div class='progressbar-text' style='color: inherit; position: absolute; right: 0px; top: -30px; padding: 0px; margin: 0px;'>"+parseInt(result['orgCosine'][i])+" %</div>"
+                            html += "</div>"
+                            html += "</li>"
+                            }
+                            html += "</ul></div></div>"
+                          <!--/progressbar Area-->
+                          <!--wordcloud Area-->
+                            html += "<div class='col card me-2'>"
+                            html += "<div class='card-body'>"
+                            html += "<div id='show_Cloud' class='w-100 h-100'></div>"
+                            html += "</div>"
+                            html += "</div>"
+                          <!--/wordcloud Area-->
+                            html += "</div>"
+                          <!--news Area-->
+                            for(var i=0; i<result['sorted_result'].length; i++){
+                            html += "<div class=' row mt-2'>"
+                            html += "<div class='card card-border-start border-primary'>"
+                            html += "<div class='card-body text-sm-start py-2'>"+org+" > "+result['sorted_result'][i]+"<br>"
+                            html += "<a href='#' class='fs-lg'>기관 대표 기사 "+(i+1)+"</a>"
+                            html += "<p style='overflow:hidden;white-space:nowrap;text-overflow:ellipsis;height: 28px;'>"+result['orgContent'][i]+"</p>"
+                            html += "</div></div></div>"
+                            }
+                          <!--/news Area-->
+                            html += "</div></div>"
+  		                  $("#show_Result").html(html);
+                          var words = [
+                              { text: "인공지능", weight: 20 },
+                              { text: "문화재", weight: 10.5 },
+                              { text: "지식인", weight: 9.4 },
+                              { text: "진흥원", weight: 8 },
+                              { text: "소장", weight: 6.2 },
+                              { text: "자료", weight: 5 },
+                              { text: "세계기록유산", weight: 5 },
+                              { text: "문화", weight: 10.5 },
+                              { text: "한국국학진흥원", weight: 9.4 },
+                              { text: "컬쳐", weight: 8 },
+                              { text: "국학", weight: 6.2 },
+                              { text: "콘텐츠", weight: 5 },
+                              { text: "헌법", weight: 5 },
+                              { text: "종이", weight: 10.5 },
+                              { text: "스토리", weight: 9.4 },
+                              { text: "홈페이지", weight: 8 },
+                              { text: "테마파크", weight: 6.2 },
+                              { text: "소양", weight: 5 },
+                              { text: "제자", weight: 5 },
+                              { text: "성과", weight: 8 },
+                              { text: "집대성", weight: 6.2 },
+                              { text: "유네스코", weight: 5 },
+                              ];
+                          $("#show_Cloud").jQCloud(words);
+
+
+  		        },
+  		        error:function(){
+  		            alert("에러입니다");
+  		        }
+  		    });
+  		})
+
+
+
+
+  </script>
+    <script src="https://golangkorea.github.io/js/jqcloud/jqcloud.min.js"></script>
+  <link rel="stylesheet" href="https://golangkorea.github.io/js/jqcloud/jqcloud.min.css">
 </div>
 <!-- /.content-wrapper -->
 <th:block th:replace="jy/footer" ::footer></th:block>
@@ -238,34 +489,6 @@
 </div>
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/theme.js"></script>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script>
-  		$('#getRecommend').click(function () {
-  			var company = document.getElementById('userNm').innerText;
-  			console.log(company);
-  			var keyword = $('#search-form-text').val();
-  			console.log(keyword);
-  			var org = $('input[name=radio2]:checked').val();
-  			console.log(org);
-  		    $.ajax({
-  		        url:"http://localhost:8089/org?company=" + company + "&keyword=" + keyword + "&org=" + org,
-  		        type:"GET",
-  		      	dataType: "json",
-  		        success:function(sorted_result){
-  		                  console.log(sorted_result);
-  		                  var html = "";
-  		                  html += "<p >"+sorted_result+"</p>";
-  		                  $("#sorted_result").html(html);
-  		                  let url = '/searchrs?sorted_result='+sorted_result;
-  		                  console.log(url);
-  		                  location.replace(url);
-  		        },
-  		        error:function(){
-  		            alert("에러입니다");
-  		        }
-  		    });
-  		})
-  </script>
 </body>
 
 </html>

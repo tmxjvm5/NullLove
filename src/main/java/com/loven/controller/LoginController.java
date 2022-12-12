@@ -88,7 +88,7 @@ public class LoginController {
 				System.out.println(mvo);
 			}else {
 
-			//session.setAttribute("mvo", mvo);
+				session.setAttribute("mvo", mvo);
 
 			rttr.addFlashAttribute("msg", false);
 		}

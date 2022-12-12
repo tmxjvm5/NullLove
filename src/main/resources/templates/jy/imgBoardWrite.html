@@ -258,9 +258,10 @@
 			var title = $('#title').val();
 			var id = $('#id').val();
 			var content = tinymce.get("editor").getContent();
-			formData.append('title',title);
-			formData.append('id',id);
-			formData.append('content',content);
+			/* formData.append('title',title); 
+			formData.append('id',id);  */
+			formData.delete('content');
+			formData.append('content', content);
 			console.log(formData);
 		
 	   /*

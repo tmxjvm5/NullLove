@@ -88,7 +88,7 @@ public class BoardController {
 		return "blindUpdate";
 	}
 	// 게시판 삭제
-	@GetMapping("/blindDelete/{seq}")
+	@GetMapping("blindDelete/{seq}")
 	public String blindDelete(@PathVariable int seq) {
 		service.blindDelete(seq);
 		return "redirect:/blindList";

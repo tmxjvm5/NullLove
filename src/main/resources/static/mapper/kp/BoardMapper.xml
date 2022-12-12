@@ -37,11 +37,11 @@
 		select * from company c,User u where c.id=u.id and c.id=#{id} and u.login_type=#{login_type}
 	</select>
 	<!-- 블라인드 게시판 리스트 -->
-	<select id="blindList" resultType="BlindVO">
-		select * from blind where id!='aaa' order by seq desc
+	<select id="blindList" resultType="BlindVO" parameterType="Criteria">
+		select * from blind where id!='aaa' order by seq desc limit #{pageStart}, #{perPageNum}
 	</select>
 	<!-- 블라인드 게시판 공지사항 리스트 -->
-	<select id="ablindList" resultType="BlindVO">
+	<select id="ablindList" resultType="BlindVO" parameterType="Criteria">
 		select * from blind where id='aaa' order by seq desc
 	</select>
 	<!-- 블라인드 게시판 인서트 -->
@@ -70,5 +70,29 @@
 	<delete id="blindDelete">
 		delete from blind where seq=#{seq}
 	</delete>
+	
+	<!-- 블라인드 게시판 일반 게시글 수 -->
+	<select id="cntBlind" resultType="int" parameterType="Criteria">
+		select count(*) from blind where id !='aaa'
+	</select>
+	
+	<!-- 블라인드 검색 -->
+	<select id="searchTitle" resultType="BlindVO" parameterType="hashmap">
+		select * from blind where title like concat('%', #{search}, '%') and id != 'aaa' limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="searchContent" resultType="BlindVO" parameterType="hashmap">
+		select * from blind where content like concat('%', #{search}, '%') and id != 'aaa' limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<!-- 검색된 게시글의 수 -->
+	<select id="cntSearch1" resultType="int">
+		select count(*) from blind where title like concat('%', #{search}, '%') and id != 'aaa'
+	</select>
+	
+	<select id="cntSearch2" resultType="int">
+		select count(*) from blind where content like concat('%', #{search}, '%') and id != 'aaa'
+	</select>
+	
 
 </mapper>

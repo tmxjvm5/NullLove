@@ -4,74 +4,92 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.loven.mapper.MemberMapper">
 
-    <!-- 일반 회원 -->
-    <insert id="memberJoin" parameterType="User">
-        insert into User(id, pw, name, nick, email, reg_date, login_type, company_name)
-        values (#{id}, #{pw}, #{name}, #{nick}, #{email}, sysdate(), 's', #{company_name})
-    </insert>
+	<!-- 일반 회원 -->
+	<insert id="memberJoin" parameterType="User">
+		insert into User(id, pw, name, nick, email, reg_date, login_type,
+		company_name)
+		values (#{id}, #{pw}, #{name}, #{nick}, #{email}, sysdate(), 's',
+		#{company_name})
+	</insert>
 
-    <!-- 카카오 로그인 Api -->
-    <insert id="kakaoLogin" parameterType="User">
-        insert into User(id, pw, name, email, reg_date, login_type)
-        values (#{id}, #{pw}, #{name}, #{email}, sysdate(), 'k')
-    </insert>
-    
-    <!-- 유저 리스트  -->
-    <select id="userList" resultType = "User" parameterType="Criteria">
-    	select * from User order by reg_date asc limit #{pageStart}, #{perPageNum}
-    </select>
-    
-    <!-- 전체 유저 수 -->
-    <select id="countUser" resultType="int" parameterType="Criteria">
-    	select count(*) from User
-    </select>
-    
-    <!-- 유저 검색 -->
-    <select id="searchList1" resultType = "User" >
-    	select * from User where id like concat('%', #{id}, '%')
-    </select>
-    
-    <select id="searchList2" resultType = "User" >
-    	select * from User where email like concat('%', #{email}, '%')
-    </select>
-    
-    <select id="searchList3" resultType = "User" >
-    	select * from User where company_name like concat('%', #{company}, '%')
-    </select>
-    
-    
-    <!-- 유저 삭제 -->
-    <delete id="userDelete" >
-    	delete from User where id = #{id}
-    </delete>
-    
-   <!-- id 제약조건 비활성화 및 활성화 -->
-    <update id="disableFk">
-    	<set>
-    		FOREIGN_KEY_CHECKS=0
-    	</set>
-    </update>
-    
-    <update id="enableFk">
-    	<set>
-    		FOREIGN_KEY_CHECKS=1
-    	</set>
-    </update>
-    
-    <!-- 유저 게시글 및 댓글 삭제 -->
-    <delete id="userPostDelete">
-    	delete from blind where id = #{id}
-    </delete>
-    
-    <delete id="userCommentDelete">
-    	delete from blind_cmt where id = #{id}
-    </delete>
+	<!-- 카카오 로그인 Api -->
+	<insert id="kakaoLogin" parameterType="User">
+		insert into User(id, pw, name, email, reg_date, login_type)
+		values (#{id}, #{pw}, #{name}, #{email}, sysdate(), 'k')
+	</insert>
 
-    <!-- 마이페이지 게시글 리스트 -->
-    <!--<select id="getInfo" resultMap="userInfo">
-        select id,pw,name,email,nick
-    </select>-->
-    <select id="postList" resultType="BlindVO">
-        select * from blind where id=#{id} order by date desc
-    </select>
+	<!-- 유저 리스트 -->
+	<select id="userList" resultType="User" parameterType="Criteria">
+		select * from User order by reg_date asc limit #{pageStart}, #{perPageNum}
+	</select>
+
+	<!-- 전체 유저 수 -->
+	<select id="countUser" resultType="int" parameterType="Criteria">
+		select count(*) from User
+	</select>
+
+	<!-- 유저 검색 -->
+	<select id="searchList1" resultType="User">
+		select * from User where id like concat('%', #{id}, '%')
+	</select>
+
+	<select id="searchList2" resultType="User">
+		select * from User where email like concat('%', #{email}, '%')
+	</select>
+
+	<select id="searchList3" resultType="User">
+		select * from User where company_name like concat('%', #{company}, '%')
+	</select>
+
+
+	<!-- 유저 삭제 -->
+	<delete id="userDelete">
+		delete from User where id = #{id}
+	</delete>
+
+	<!-- id 제약조건 비활성화 및 활성화 -->
+	<update id="disableFk">
+		<set>
+			FOREIGN_KEY_CHECKS=0
+		</set>
+	</update>
+
+	<update id="enableFk">
+		<set>
+			FOREIGN_KEY_CHECKS=1
+		</set>
+	</update>
+
+	<!-- 유저 게시글 및 댓글 삭제 -->
+	<delete id="userPostDelete">
+		delete from blind where id = #{id}
+	</delete>
+
+	<delete id="userCommentDelete">
+		delete from blind_cmt where id = #{id}
+	</delete>
+
+	<!-- 마이페이지 게시글 리스트 -->
+	<!--<select id="getInfo" resultMap="userInfo"> select id,pw,name,email,nick 
+		</select> -->
+	<select id="postList" resultType="BlindVO">
+		select * from blind where id = #{id} order by date desc
+	</select>
+
+	<!-- 마이페이지 유저 수정 -->
+	<update id="update_vo" parameterType="User">
+		update User set pw=#{pw}, email=#{email}, nick=#{nick} where id=#{id}
+	</update>
+	<delete id="mypageDelete" parameterType="String">
+		delete from blind where
+		seq=#{seq}
+	</delete>
+	<select id="cmtList" resultType="Comment">
+		select * from blind_cmt where
+		id=#{id}
+	</select>
+	<delete id="mypagecmtDelete" parameterType="String">
+		delete from blind_cmt
+		where cmt_seq=#{cmt_seq}
+	</delete>
 </mapper>

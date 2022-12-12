@@ -62,11 +62,10 @@
                                   </tr>
                                   <tr>
                                     <td class="text-center bg-soft-ash">작성자</td>
-                                    <td class="text-start"><input type="text" name="id" th:value="${session.mvo.id}"
-                                    readonly></td>
+                                    <td class="text-start" th:text="${vo.id}">id</td>
                                     <td class="text-center  bg-soft-ash">작성일
                                     </td>
-                                    <td class=" text-center" name="date">date</td>
+                                    <td class=" text-center" name="date" th:text="${vo.date}">date</td>
                                   </tr>
                                   <tr>
                                     <td colspan="4">
@@ -88,9 +87,9 @@
                         </div>
                         <div class="row mt-4">
                           <div class="col">
-                            <button type="submit">수정</button>
-                            <button type="reset">취소</button>
-                            <a th:href="@{/blindList}">게시글 리스트</a>
+                            <button type="submit" class="btn btn-sm btn-success">수정</button>
+                            <button type="reset" class="btn btn-sm btn-warning">취소</button>
+                            <a th:href="@{/blindList}" class="btn btn-sm btn-primary  float-end me-2">게시글 리스트</a>
                             <!-- <a type="button" onclick="writeCheck()" class="btn btn-sm btn-gradient gradient-7 float-end"><i
                                 class="uil uil-pen"></i>&nbsp;글쓰기</a> -->
                           </div>

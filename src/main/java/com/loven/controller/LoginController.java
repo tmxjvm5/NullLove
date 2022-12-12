@@ -83,7 +83,7 @@ public class LoginController {
 				session.setAttribute("mvo", mvo);
 				
 			}else {
-			session.setAttribute("mvo", mvo);
+//			session.setAttribute("mvo", mvo);
 			rttr.addFlashAttribute("msg", false);
 		}
 			return "redirect:/main";

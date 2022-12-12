@@ -1,5 +1,6 @@
 package com.loven.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +8,18 @@ import org.springframework.stereotype.Service;
 
 import com.loven.entity.BlindVO;
 import com.loven.entity.Company;
+import com.loven.entity.Criteria;
 import com.loven.entity.User;
 import com.loven.mapper.BoardMapper;
+import com.loven.mapper.MemberMapper;
 
 @Service
 public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardMapper mapper;
+	
+	@Autowired
+	MemberMapper mapper2;
 	// 일반회원가입
 	@Override
 	public void joinInsert(User vo) {
@@ -52,15 +58,15 @@ public class BoardServiceImpl implements BoardService{
 	}
 	// 블라인드 게시판 리스트
 	@Override
-	public List<BlindVO> blindList() {
-		return mapper.blindList();
+	public List<BlindVO> blindList(Criteria cri) {
+		return mapper.blindList(cri);
 		
 	}
 
 	// 블라인드 게시판 공지사항 리스트
 	@Override
-	public List<BlindVO> ablindList() {
-		return mapper.ablindList();
+	public List<BlindVO> ablindList(Criteria cri) {
+		return mapper.ablindList(cri);
 	}
 
 	// 블라인드 게시판 글쓰기
@@ -84,7 +90,10 @@ public class BoardServiceImpl implements BoardService{
 	// 게시글 삭제
 	@Override
 	public void blindDelete(int seq) {
+		mapper2.disableFk();
 		mapper.blindDelete(seq);
+		mapper2.enableFk();
+		
 		
 	}
 	// 조회수증가
@@ -92,9 +101,15 @@ public class BoardServiceImpl implements BoardService{
 	public boolean plusCnt(int seq) {
 		  return mapper.plusCnt(seq);
 		}
-
-
-
+	
+	// 블라인드 게시글의 총 개수
+	@Override
+	public int cntBlind(Criteria cri) {
+		int cnt = mapper.cntBlind(cri);
+		
+		return cnt;
+	}
+	
 	// 관리자 로그인
 	@Override
 	public User loginAdmin(User vo) {
@@ -102,6 +117,32 @@ public class BoardServiceImpl implements BoardService{
 		User mvo = mapper.loginAdmin(vo);
 		
 		return mvo;
+	}
+	
+	// 게시글 검색(제목)
+	@Override
+	public List<BlindVO> searchTitle(HashMap<String, Object> map) {
+		
+		return mapper.searchTitle(map);
+	}
+	
+	// 게시글 검색(내용)
+	@Override
+	public List<BlindVO> searchContent(HashMap<String, Object> map){
+		
+		return mapper.searchContent(map);
+	}
+	
+	// 검색된 게시글의 수
+	@Override
+	public int cntSearch1(String search) {
+		int cnt = mapper.cntSearch1(search);
+		return cnt;
+	}
+	@Override
+	public int cntSearch2(String search) {
+		int cnt = mapper.cntSearch2(search);
+		return cnt;
 	}
 	
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -9,11 +9,11 @@
   <meta name="keywords"
     content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
   <meta name="author" content="elemis">
-  <title>상세보기</title>
-  <link rel="shortcut icon" href="../assets/img/favicon.png">
-  <link rel="stylesheet" href="../assets/css/plugins.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="preload" href="../assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
+  <title>write</title>
+  <link rel="shortcut icon" href="./assets/img/favicon.png">
+  <link rel="stylesheet" href="./assets/css/plugins.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
   <!--글작성폼-->
   <script src="https://cdn.tiny.cloud/1/ty583711th8ic3ubyhtwe2q3df6y2hbv2fshi8ndse8ao4y8/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"></script>
@@ -24,14 +24,13 @@
 <body>
   <div class="content-wrapper">
     <th:block th:replace="jy/header" ::header></th:block>
-
     <!-- /header -->
     <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
-      data-image-src="../assets/img/photos/bg18.png">
+      data-image-src="./assets/img/photos/bg18.png">
       <div class="container pt-17 pb-20 pt-md-15 pb-md-21 text-center">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1 class="display-1 mb-3">블라인드 게시판</h1>
+            <h1 class="display-1 mb-3">블라인드 상세보기</h1>
             <!-- /nav -->
           </div>
           <!-- /column -->
@@ -49,77 +48,108 @@
               <div class="card-body text-center">
                 <div class="row row-cards ">
                   <div class="col-12">
-                    <!-- <form method="post" action="blindWrite" name="writeForm"> -->
-                      <div class="bg-light border-y">
-                        <div class="row">
-                          <div class="bg-light border-y">
-                            <div class="table-responsive">
-                              <table class="table table-sm ">
-                                <tbody class="fw-semibold">
-                                  <tr class="">
-                                    <td class="text-center bg-soft-ash align-middle">제목</td>
-                                    <td colspan="3" class="text-start" th:text="${vo.title}"><input id="title" type="text"
-                                         class="form-control form-control-" placeholder="제목"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center bg-soft-ash">작성자</td>
-                                    <td class="text-start" th:text="익명">
-                                    <td class="text-center  bg-soft-ash">작성일
-                                    </td>
-                                    <td class="text-center" id="date" th:text="${vo.date}"></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="4">
-                                      <div class="input-group">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
-                                        <label class="input-group-text" id="file" for="inputGroupFile02">Upload</label>
+                    <div class="bg-light border-y">
+                      <div class="row">
+                        <div class="bg-light border-y">
+                          <div class="table-responsive">
+                            <table th:each="vo:${vo}" class="table table-sm ">
+                              <tbody class="fw-semibold">
+                                <tr class="">
+                                  <td class="text-center bg-soft-ash align-middle">제목</td>
+                                  <td th:text="${vo.title}" colspan="5" class="text-start">title</td>
+                                </tr>
+                                <tr>
+                                  <td class="text-center bg-soft-ash">작성자</td>
+                                  <td th:text="익명">id</a></td>
+                                  <td class="text-center  bg-soft-ash">작성일
+                                  </td>
+                                  <td th:text="${vo.date}" class=" text-center">date</td>
+                                  <!-- <td th:text="${#dates.format(vo.date, 'yyyy-MM-dd')}"  class=" text-center">date</td> -->
+                                  <td class="text-center bg-soft-ash">조회수</td>
+                                  <td th:text="${vo.cnt}">cnt</a></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="6">
+                                    <div th:utext="${vo.content}" class="input-group">
+                                      content
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col">
+                          <a href="blindList" class="btn btn-sm btn-primary  float-end me-2">목록</a>
+                          <div th:if=" ${#strings.equals(session.mvo.login_type, 'A')} or ${session.mvo.id == vo.id}">
+                            <a href="javascript:goDel()" class="btn btn-sm btn-warning  float-end me-2">삭제</a>
+                            <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}"
+                              class="btn btn-sm btn-success  float-end me-2">수정</a>>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row card mt-5">
+                        <div class="col card-body">
+                          <form action="cmt_insert" method="post" name="cmt_writeForm">
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-floating">
+                                  <input type="hidden" th:value="${session.mvo.id}" name="id">
+                                  <input type="hidden" th:value="${vo.seq}" name="seq">
+                                  <textarea class="form-control" placeholder="Leave a comment here"
+                                    id="floatingTextarea2" style="height: 100px" name="content"></textarea>
+                                  <label for="floatingTextarea2">Comments</label>
+                                </div>
+                              </div>
+                              <div class="col-2">
+                                <button type="submit" class="btn btn-sm btn-primary w-100 mt-5 ">등록</button>
+                              </div>
+                            </div>
+                          </form>
+                          <div class="row card mt-3 ">
+                            <div class="col card-body overflow-auto py-4" style="max-height: 300px;">
+                              <div th:each="cmt : ${cmt}" class="row wrapper-border py-2">
+                                <div class="col-2 text-start">
+                                  <span class="text-ash me-1">업태명</span>
+                                  <span th:text="${cmt.id}" class="m-0">id</span>
+                                  <p th:text="${cmt.reg_date}" class="small text-ash m-0">reg_date</p>
+                                  <!--                                    <p th:text="${#dates.format(cmt.reg_date, 'yy-MM-dd')}" class="small text-ash m-0">reg_date</p>  -->
+                                </div>
+                                <div th:if="${session.mvo.id != cmt.id}" th:text="${cmt.content}"
+                                  class="col-7 text-start" id="cmt_view">
+                                  content
+                                </div>
+                                <div class="col-10">
+                                  <form id="cmtForm" th:action="@{/cmt_delete}" method="post" name="#"
+                                    th:if="${session.mvo.id == cmt.id}">
+                                    <div class="row">
+                                      <div class="col">
+                                        <textarea class="form-control" th:placeholder="${cmt.content}"
+                                          th:id="'cmt_update'+${cmt.cmt_seq}" style="height: 70px;" name="content"
+                                          readonly></textarea>
                                       </div>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                                      <div class="col-3">
+                                        <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
+                                        <input type="hidden" th:value="${vo.seq}" name="seq">
+                                        <a th:id="'edit'+${cmt.cmt_seq}"
+                                          th:onclick="'javascript:cmtUpdate('+ ${cmt.cmt_seq} + ');'" type="button"
+                                          class="btn btn-sm btn-outline-warning "> 수정 </a>
+                                        <a th:id="'sub'+${cmt.cmt_seq}" href="javascript:subUpdate()" type="button"
+                                          class="btn btn-sm btn-outline-primary" style="display:none"> 등록 </a>
+                                        <button type="submit" class="btn btn-sm btn-outline-success "> 삭제 </button>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="row ">
-                          <div class="col">
-                            <textarea id="editor" th:text="${vo.content}" readonly></textarea>
-                          </div>
-                        </div>
-                        <div class="row mt-4">
-                          <div class="col" th:if="${session.mvo.id == vo.id}">
-                            <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}">글 수정</a>
-                            <a th:href="@{/blindDelete/{seq}(seq=${vo.seq})}">글 삭제</a>
-                             <!-- <a type="button" onclick="writeCheck()" class="btn btn-sm btn-gradient gradient-7 float-end"><i
-                                class="uil uil-pen"></i>&nbsp;글쓰기</a> --> 
-                          </div>
-                            <a th:href="@{/blindList}">게시글 리스트</a> -->
-                        </div>
-                        <form th:action="@{/cmt_insert}" method="post" name="cmt_writeForm">
-                          <input type="hidden" th:value="${session.mvo.id}" name="id">
-                          <input type="hidden" th:value="${vo.seq}" name="seq">
-                          <textarea name="content"></textarea>
-                         <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 댓글 작성 </button>
-                        </form>
-                        <div th:each="cmt : ${cmt}">
-                          <span th:text="${cmt.content}"></span>
-                          <span th:text="${cmt.id}"></span>
-
-                          <form th:action="@{/cmt_update}" method="post" name="#">
-                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
-                            <input type="hidden" th:value="${vo.seq}" name="seq">  
-                            <textarea name="content"></textarea>
-                            <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 수정 </button>
-                          </form>
-                          <form th:action="@{/cmt_delete}" method="post" name="#">
-                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
-                            <input type="hidden" th:value="${vo.seq}" name="seq">
-                            <button type="submit" class="btn btn-outline-primary rounded-pill btn-login"> 삭제 </button>
-                          </form>
-
-                        </div>
                       </div>
-                   <!--  </form> -->
+                    </div>
                   </div>
 
                 </div>
@@ -135,7 +165,6 @@
       </div>
       <!-- /.container -->
     </section>
-    <!-- /section -->
   </div>
   <!-- /.content-wrapper -->
   <th:block th:replace="jy/footer" ::footer></th:block>
@@ -146,48 +175,44 @@
   </div>
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    var seq = /*[[${vo.seq}]]*/;
+    function goDel() {
+      var del = confirm("글을 삭제하시겠습니까?");
+      if (del == true) {
+        location.href = "../blindDelete/" + seq;
+
+      } else {
+        return false;
+      }
+    }
+
+    function cmtUpdate(seq) {
+      $("#cmt_update" + seq).removeAttr("readonly");
+      $("#edit" + seq).hide();
+      $("#sub" + seq).show();
+    }
+
+    function subUpdate() {
+      var Data = $('#cmtForm').serialize();
+      $.ajax({
+        url: "cmt_update",
+        type: "post",
+        data: Data,
+        success: function () {
+          alert('수정되었습니다.');
+          window.location.href = "/blindView?seq=" + seq;
+        },
+
+        error: function () { alert("goUpdate error"); }
+      });
+
+    }
+	   /*]]>*/
+  </script>
+
+
 </body>
-<script>
-  $(function () {
-    var plugins = [
-      "advlist", "autolink", "lists", "link", "image", "charmap", "print", "preview", "anchor",
-      "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table",
-      "paste", "code", "help", "wordcount", "save"
-    ];
-    var edit_toolbar = 'formatselect fontselect fontsizeselect |'
-      + ' forecolor backcolor |'
-      + ' bold italic underline strikethrough |'
-      + ' alignjustify alignleft aligncenter alignright |'
-      + ' bullist numlist |'
-      + ' table tabledelete |'
-      + ' link image';
-
-    tinymce.init({
-      language: "ko_KR", //한글판으로 변경
-      selector: '#editor',
-      height: 600,
-      menubar: false,
-      plugins: plugins,
-      toolbar: edit_toolbar,
-      content_style: 'body { font-family:Open Sans, Noto Sans KR, sans-serif; font-size:14px }',
-
-
-    });
-
-
-  });
-/*   function writeCheck(){
-		 if(document.getElementById("title").value==""){
-			        alert("제목을 입력하세요");
-			        return;
-			    }
-			    /* if(document.getElementById("contents").value==""){
-			        alert("내용을 입력하세요");
-			        return;
-			    } */
-	/* 	writeForm.submit();
-	} */ 
-</script>
-
 
 </html>

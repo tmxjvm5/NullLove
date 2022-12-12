@@ -7,7 +7,8 @@ public class Criteria {
 	private int page;
 	private int perPageNum;
 	private int pageStart;
-	
+	private String search;
+	private String option;
 	
 	public Criteria(int page) { // 생성자
 		this.page = page;
@@ -17,7 +18,7 @@ public class Criteria {
 	
 	public int getPageStart(int page) { // 현재 페이지의 게시글의 시작번호
 		
-		return ((page-1)*perPageNum); 
+		return ((page-1)*perPageNum-1); 
 	}
 	
 	

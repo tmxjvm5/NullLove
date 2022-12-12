@@ -27,7 +27,7 @@ public class CommentController {
 
         commentService.commentInsertService(comment);
 
-        return "redirect:/blindView/?seq="+comment.getSeq();
+        return "redirect:/blindView?seq="+comment.getSeq();
 
     }
 
@@ -36,7 +36,7 @@ public class CommentController {
 
         commentService.commentUpdateService(comment);
 
-        return "redirect:/blindView/?seq="+comment.getSeq();
+        return "redirect:/blindView?seq="+comment.getSeq();
     }
 
     @RequestMapping("/cmt_delete") // 댓글삭제
@@ -44,7 +44,7 @@ public class CommentController {
         System.out.println("comment = " + comment);
         commentService.commentDeleteService(comment.getCmt_seq());
         System.out.println("comment = " + comment);
-        return "redirect:/blindView/?seq="+comment.getSeq();
+        return "redirect:/blindView?seq="+comment.getSeq();
     }
 
 }

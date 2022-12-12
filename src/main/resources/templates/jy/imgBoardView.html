@@ -48,7 +48,6 @@
               <div class="card-body text-center">
                 <div class="row row-cards ">
                   <div class="col-12">
-                    <form method="post">
                       <div class="bg-light border-y">
                         <div class="row">
                           <div class="bg-light border-y">
@@ -70,6 +69,16 @@
                                   </tr>
                                   <tr>
                                     <td colspan="6">
+                                    	<img th:src="'./uploadImg/'+${vo.file1}" alt="첨부이미지1" />
+                                    	<br th:if="${vo.file1!= null}" >
+                                    	<img th:if="${vo.file2 != null}"  th:src="'./uploadImg/'+${vo.file2}" alt="첨부이미지2" />
+                                    	<br th:if="${vo.file2!= null}" >
+                                    	<img th:if="${vo.file3!= null}"  th:src="'./uploadImg/'+${vo.file3}" alt="첨부이미지3" />
+                                    	<br th:if="${vo.file3!= null}" >
+                                    	<img th:if="${vo.file4!= null}"  th:src="'./uploadImg/'+${vo.file4}" alt="첨부이미지4" />
+                                    	<br th:if="${vo.file4!= null}" >
+                                    	<img th:if="${vo.file5!= null}"  th:src="'./uploadImg/'+${vo.file5}" alt="첨부이미지5" />
+                                    	<br th:if="${vo.file5!= null}" >
                                       <div th:utext="${vo.content}"  class="input-group">
                                         content
                                       </div>
@@ -83,7 +92,7 @@
                         <div class="row mt-2">
                           <div class="col">
                             <a href="imgBoardList" class="btn btn-sm btn-primary  float-end me-2">목록</a>
-                            <div th:if=" ${#strings.equals(session.mvo.id, 'aaa')} or ${session.mvo.id == vo.id}">
+                            <div th:if=" ${#strings.equals(session.mvo.login_type, 'A')} or ${session.mvo.id == vo.id}">
 	                            <a href="javascript:goDel()" class="btn btn-sm btn-warning  float-end me-2">삭제</a>
 	                            <a th:href="@{imgBoardUpdateForm/{seq}(seq=${vo.seq})}" class="btn btn-sm btn-success  float-end me-2">수정</a>
                             </div>
@@ -91,42 +100,61 @@
                         </div>
                         <div class="row card mt-5">
                           <div class="col card-body">
+                                <form action="/imgCmtInsert" method="post" name="imgCmtInsert">
                             <div class="row">
-                              <div class="col">
-                                <form action="#" method="#">
-                                  <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here"
-                                      id="floatingTextarea2" style="height: 100px"></textarea>
-                                    <label for="floatingTextarea2">Comments</label>
-                                  </div>
-                                </form>
-                              </div>
-                              <div class="col-2">
-                                <a href="#" class="btn btn-sm btn-primary w-100 mt-5 ">등록</a>
-                              </div>
+	                              <div class="col">
+	                                  <div class="form-floating">
+	                                  <input type="hidden" th:value="${session.mvo.id}" name="id">
+                          				<input type="hidden" th:value="${vo.seq}" name="boast_seq">
+	                                    <textarea class="form-control" placeholder="Leave a comment here"
+	                                      id="floatingTextarea2" style="height: 100px" name="content"></textarea>
+	                                    <label for="floatingTextarea2">Comments</label>
+	                                  </div>
+	                              </div>
+	                              <div class="col-2">
+	                                <button type="submit" class="btn btn-sm btn-primary w-100 mt-5 ">등록</button>
+	                              </div>
                             </div>
+                                </form>
                             <div class="row card mt-3 ">
                               <div class="col card-body overflow-auto py-4" style="max-height: 300px;">
-                                <div class="row wrapper-border py-2">
+                                <div th:each="cmt : ${cmt}" class="row wrapper-border py-2">
                                   <div class="col text-start">
-                                    <span class="text-ash me-1">업태명</span>
-                                    <span class="m-0">${nick}</span>
-                                    <p class="small text-ash m-0">${date}</p>
+                                    <!-- <span class="text-ash me-1">업태명</span> -->
+                                    <span th:text="${cmt.id}" class="m-0">id</span>
+                                    <p th:text="${#dates.format(cmt.reg_date, 'yyyy-MM-dd')}" class="small text-ash m-0">reg_date</p>
                                   </div>
-                                  <div class="col-7 text-start">
-                                    ${contents}
+                                  <div  th:if="${session.mvo.id != cmt.id}"th:text="${cmt.content}" class="col-7 text-start" id="cmt_view">
+                                  	content
                                   </div>
-                                  <div class="col">
-                                    <a href="" class="btn btn-sm btn-outline-warning  float-end">삭제</a>
-                                    <a href="" class="btn btn-sm btn-outline-success  float-end me-2">수정</a>
+                                  <div class="col-10">
+                               		<form id="cmtForm" th:action="@{/imgCmtDelete}" method="post" name="#"  th:if="${session.mvo.id == cmt.id}">
+                                  		<div class="row">
+		                                  <div class="col">
+		                                  <textarea class="form-control" th:placeholder="${cmt.content}" 
+			                                    id="cmt_update"  style="height: 70px;" name="content" readonly></textarea>
+			                              </div>
+		                                  <div class="col-3">
+		<!--                                   <form style="display:inline-block" th:action="@{/imgCmtUpdate}" method="post" name="imgCmtUpdate">
+				                          </form> -->
+				                            <input type="hidden" th:value="${cmt.cmt_seq}" name="cmt_seq">
+				                            <input type="hidden" th:value="${vo.seq}" name="boast_seq">  
+				        					 <a th:id="'edit'+${cmt.cmt_seq}"  th:onclick="'javascript:cmtUpdate('+ ${cmt.cmt_seq} + ');'"  type="button" class="btn btn-sm btn-outline-warning "> 수정 </a> 
+				                            <a th:id="'sub'+${cmt.cmt_seq}" href="javascript:subUpdate()" type="button" class="btn btn-sm btn-outline-primary" style="display:none"> 등록 </a>
+				                            <button type="submit" class="btn btn-sm btn-outline-success "> 삭제 </button>
+		                                   <!--  <a href="" class="btn btn-sm btn-outline-warning  float-end">삭제</a>
+		                                    <a href="imgCmtDelete" class="btn btn-sm btn-outline-success  float-end me-2">수정</a> -->
+		                                  </div>
+                                  	</div>
+				                          </form>
                                   </div>
+	                          
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </form>
                   </div>
 
                 </div>
@@ -154,8 +182,8 @@
   <script src="./assets/js/theme.js"></script>
   <script th:inline="javascript">
 	  /*<![CDATA[*/
-	  function goDel(){
 		  	var seq= /*[[${vo.seq}]]*/;
+	  function goDel(){
 			var del = confirm("글을 삭제하시겠습니까?");
 			if(del == true){
 		  		location.href="imgBoardDelete/"+ seq;
@@ -164,6 +192,28 @@
 				return false;
 			}
 		}
+	  
+	  function cmtUpdate(seq){
+		  $("#cmt_update").removeAttr("readonly"); 
+		  $("#edit"+seq).hide();
+		  $("#sub"+seq).show();
+	  }
+	  
+	  function subUpdate(){
+		var Data = $('#cmtForm').serialize();
+		  $.ajax({
+	  			url :"imgCmtUpdate",
+	  			type :"post",
+	  			data : Data,
+	  			success : function(){
+	  				alert('수정되었습니다.');
+	  				window.location.href = "/imgBoardView?seq="+seq;
+	  			},
+	  			
+	  			error : function(){alert("goUpdate error");}
+	  		}); 
+		  
+	  }
 	   /*]]>*/
   </script>
 </body>

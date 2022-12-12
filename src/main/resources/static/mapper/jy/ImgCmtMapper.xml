@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.loven.jy.mapper.ImgCmtMapper">
+
+
+  <insert id="imgCmtInsert" parameterType="Boast_cmt">
+  	insert into boast_cmt(content,reg_date,id,boast_seq)
+  	values(#{content},NOW(),#{id},#{boast_seq})
+  </insert>
+  
+  <select id="imgCmtList" resultType="Boast_cmt">
+        select * from boast_cmt where boast_seq=#{seq}
+    </select>
+
+
+    <update id="imgCmtUpdate" parameterType="Boast_cmt">
+        UPDATE boast_cmt
+        SET
+        CONTENT = #{content}
+        WHERE cmt_seq = #{cmt_seq}
+    </update>
+
+    <delete id="imgCmtDelete" parameterType="Boast_cmt">
+        DELETE FROM boast_cmt WHERE cmt_seq = #{cmt_seq}
+    </delete>
+    
+</mapper>

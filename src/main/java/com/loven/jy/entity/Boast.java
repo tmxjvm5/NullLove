@@ -1,6 +1,7 @@
 package com.loven.jy.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,6 +35,8 @@ public class Boast {
 	@Column(columnDefinition = "char default n")
 	private char order;
 	private String id;
+	
+	
 	private String file1;
 	private String file2;
 	private String file3;

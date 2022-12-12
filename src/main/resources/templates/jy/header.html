@@ -38,7 +38,6 @@
                 <!--/.dropdown-menu -->
               </li>
               <li class="nav-item"><a class="nav-link" href="">Search</a></li>
-              <li class="nav-item"><a class="nav-link" href="/myPage.do">Mypage</a></li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
@@ -48,32 +47,20 @@
               <li class="nav-item d-nones d-md-block">
                 <a href="login.do" class="btn btn-sm btn-primary rounded-pill">Login / Join</a>
               </li>
-              <li class="nav-item d-lg-none">
-                <div class="navbar-hamburger">
-                  <button class="hamburger animate plain" data-toggle="offcanvas-nav">
-                    <span></span>
-                  </button>
-                </div>
-              </li>
             </ul>
             <!-- /.navbar-nav -->
           </div>
           <div th:if="${!#lists.isEmpty(session.mvo)}" class="navbar-other w-100 d-flex ms-auto">
             <div class="row">
-            <div class="col ps-17">
-            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
-              <li class="nav-item d-none d-md-block nav-link">
-                <label th:text="${session.mvo.name}"></label>
-                <br>
-                <a href="myPage.do">My Page</a>
-              </li>
-            </ul>
-            </div>
-            <div class="col">
-              <form action="logout.do">
-              <!--   <p th:text="${session.cvo}"></p> !-->
-                <button type="submit" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</button>
-              </form>
+	            <div class="col ps-17">
+	            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+	              <li class="nav-item d-none d-md-block nav-link text-end ">
+	                <a href="myPage.do" th:text="${session.mvo.name}"></a>님,<br>환영합니다.
+	              </li>
+	              <li class="nav-item d-none d-md-block nav-link">
+            		  <a href="logout.do" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</a>
+	              </li>
+	            </ul>
             </div>
           </div>
         </div>
@@ -82,5 +69,15 @@
       </div>
       </nav>
     </header>
+     <script th:inline="javascript">
+	  /*<![CDATA[*/
+    	function myPage(){
+    		if("${#lists.isEmpty(session.mvo)}"){
+    			
+    		};
+    	}
+	  
+    	 /*]]>*/
+    </script>
 </body>
 </html>

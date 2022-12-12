@@ -49,7 +49,7 @@
               <div class="card-body text-center">
                 <div class="row row-cards ">
                   <div class="col-12">
-                    <form method="post" action="imgBoardWrite" name="writeForm">
+                    <form action="imgBoardWrite" name="dataForm" id="dataForm" enctype="multipart/form-data" onsubmit="javascript:registerAction()"  >
                       <div class="bg-light border-y">
                         <div class="row">
                           <div class="bg-light border-y">
@@ -65,13 +65,18 @@
                                     <td class="text-center bg-soft-ash">작성자</td>
                                     <td class="text-start" colspan="3" th:text="${session.mvo.id}">
 									</td>
-                                    	<input type="hidden" name="id" th:value="${session.mvo.id}">
+                                    	<input type="hidden" id = "id" name="id" th:value="${session.mvo.id}">
                                   <tr>
-                                    <td colspan="4">
-                                      <div class="input-group">
-                                        <input type="file" class="form-control" id="inputGroupFile02" name="file">
-                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                                      </div>
+                                    <td class="text-start" colspan="4">
+                                    <button id="btn-upload" type="button" class="py-1 btn btn-primary btn-sm rounded-pill " style="outline: none;">파일 추가</button>
+								  	<input id="input_file" multiple="multiple" type="file" style="display:none;">
+								  	<span style="font-size:12px; color: gray;">&nbsp;※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+								  	<div class="data_file_txt mt-2" id="data_file_txt" >
+										<span>첨부 파일 목록</span>
+										<br />
+										<div id="articlefileChange">
+										</div>
+									</div>
                                     </td>
                                   </tr>
                                 </tbody>
@@ -86,6 +91,7 @@
                         </div>
                         <div class="row mt-4">
                           <div class="col">
+                      <!--     <button type="submit" style="border: 1px solid #ddd; outline: none;">전송</button> -->
                             <a type="button" onclick="writeCheck()" class="btn btn-sm btn-gradient gradient-7 float-end"><i
                                 class="uil uil-pen"></i>&nbsp;글쓰기</a>
                           </div>
@@ -119,6 +125,7 @@
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/theme.js"></script>
 </body>
+
 <script>
   $(function () {
     var plugins = [
@@ -132,10 +139,10 @@
       + ' alignjustify alignleft aligncenter alignright |'
       + ' bullist numlist |'
       + ' table tabledelete |'
-      + ' link image';
+      + ' link ';
 
     tinymce.init({
-    //  language: "ko_KR", //한글판으로 변경
+     language: "ko_KR", //한글판으로 변경
       selector: '#editor',
       height: 600,
       menubar: false,
@@ -143,68 +150,16 @@
       toolbar: edit_toolbar,
       file_picker_types: 'image',
       automatic_uploads: true,
-      file_picker_callback: (cb, value, meta) => {
-    	    const input = document.createElement('input');
-    	    input.setAttribute('type', 'file');
-    	    input.setAttribute('accept', 'image/*');
-
-    	    input.addEventListener('change', (e) => {
-    	      const file = e.target.files[0];
-
-    	      const reader = new FileReader();
-    	      reader.addEventListener('load', () => {
-    	        /*
-    	          Note: Now we need to register the blob in TinyMCEs image blob
-    	          registry. In the next release this part hopefully won't be
-    	          necessary, as we are looking to handle it internally.
-    	        */
-    	        const id = 'blobid' + (new Date()).getTime();
-    	        const blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-    	        const base64 = reader.result.split(',')[1];
-    	        const blobInfo = blobCache.create(id, file, base64);
-    	        blobCache.add(blobInfo);
-
-    	        /* call the callback and populate the Title field with the file name */
-    	        cb(blobInfo.blobUri(), { title: file.name });
-    	      });
-    	      reader.readAsDataURL(file);
-    	    });
-
-    	    input.click();
-    	  },
-    	  setup: function(editor) {
-              editor.ui.registry.addButton('custom_image', {
-                  icon: 'image',
-                  tooltip: 'insert Image',
-                  onAction: function () {
-                      documentUpload({
-                          multiple: false,
-                          accept: '.jpg, .png',
-                          callback: function (data) {
-                              if (data.rs_st === 0) {
-                                  var fileInfo = data.rs_data;
-                                  tinymce.execCommand('mceInsertContent', false,
-                                      /**
-                                       "<img src='" + fileInfo.fullPath + "' data-mce-src='" + fileInfo.fullPath + "' data-originalFileName='" + fileInfo.orgFilename + "' >");
-                                       **/
-                                      "<img src='" + fileInfo.thumbnailPath + "' data-mce-src='" + fileInfo.thumbnailPath + "' data-originalFileName='" + fileInfo.orgFilename + "' >");
-                              }
-                          }
-                      });
-                  }
-              });
-          }
-
-
+      autosave_ask_before_unload: true,
+      content_style: 'body { font-family:open sans, noto sans kr, sans-serif; font-size:14px }',
     
     });
 
 
   });
   
-  function writeCheck(){
+   function writeCheck(){
 	  var text = tinymce.get("editor").getContent();
-  	console.log(text);
 		 if(document.getElementById("title").value==""){
 			        alert("제목을 입력하세요");
 			        return;
@@ -212,9 +167,127 @@
 		  if (text  == "") {
 			alert("내용을 입력하세요");
 			return false;
-	    } 
-	 	writeForm.submit();
+	    } if(content_files==""){
+		alert("사진을 한 개이상 등록하세요");
+		return false;}
+		registerAction();
+	} 
+  
+  
+  $(document).ready(function()
+			// input file 파일 첨부시 fileCheck 함수 실행
+			{
+				$("#input_file").on("change", fileCheck);
+			});
+
+	/**
+	 * 첨부파일로직
+	 */
+	$(function () {
+	    $('#btn-upload').click(function (e) {
+	        e.preventDefault();
+	        $('#input_file').click();
+	    });
+	});
+
+	// 파일 현재 필드 숫자 totalCount랑 비교값
+	var fileCount = 0;
+	// 해당 숫자를 수정하여 전체 업로드 갯수를 정한다.
+	var totalCount = 5;
+	// 파일 고유넘버
+	var fileNum = 0;
+	// 첨부파일 배열
+	var content_files = new Array();
+
+	function fileCheck(e) {
+	    var files = e.target.files;
+	    
+	    // 파일 배열 담기
+	    var filesArr = Array.prototype.slice.call(files);
+	    
+	    // 파일 개수 확인 및 제한
+	    if (fileCount + filesArr.length > totalCount) {
+	      $.alert('파일은 최대 '+totalCount+'개까지 업로드 할 수 있습니다.');
+	      return;
+	    } else {
+	    	 fileCount = fileCount + filesArr.length;
+	    }
+	    
+	    // 각각의 파일 배열담기 및 기타
+	    filesArr.forEach(function (f) {
+	      var reader = new FileReader();
+	      reader.onload = function (e) {
+	        content_files.push(f);
+	        $('#articlefileChange').append(
+	       		'<div id="file' + fileNum + '" onclick="fileDelete(\'file' + fileNum + '\')">'
+	       		+ '<font style="font-size:12px">' + f.name + '</font>'  
+	       		+ '<i class="uil uil-trash-alt" style="font-size:20px; color:red; vertical-align: middle; cursor: pointer;"></i>' 
+	       		+ '<div/>'
+			);
+	        fileNum ++;
+	      };
+	      reader.readAsDataURL(f);
+	    });
+	    console.log(content_files);
+	    //초기화 한다.
+	    $("#input_file").val("");
+	  }
+
+	// 파일 부분 삭제 함수
+	function fileDelete(fileNum){
+	    var no = fileNum.replace(/[^0-9]/g, "");
+	    content_files[no].is_delete = true;
+		$('#' + fileNum).remove();
+		fileCount --;
+	    console.log(content_files);
 	}
+
+	/*
+	 * 폼 submit 로직
+	 */
+		function registerAction(){
+			
+		var form = $("form")[0];        
+	 	var formData = new FormData(form);
+			for (var x = 0; x < content_files.length; x++) {
+				// 삭제 안한것만 담아 준다. 
+				if(!content_files[x].is_delete){
+					 formData.append("article_file", content_files[x]);
+				}
+			}
+			var title = $('#title').val();
+			var id = $('#id').val();
+			var content = tinymce.get("editor").getContent();
+			formData.append('title',title);
+			formData.append('id',id);
+			formData.append('content',content);
+			console.log(formData);
+		
+	   /*
+	   * 파일업로드 multiple ajax처리
+	   */    
+		$.ajax({
+	   	      type: "POST",
+	   	   	  enctype: "multipart/form-data",
+	   	      url: "/imgBoardWrite",
+	       	  data : formData,
+	       	  processData: false,
+	   	      contentType: false,
+	   	      success: function (data) {
+	   	    	if(JSON.parse(data)['result'] == "OK"){
+	   	    		alert("등록되었습니다.");
+	   	    		window.location.href = "/imgBoardList";
+				} else
+					alert("Error");
+	   	      },
+	   	      error: function (xhr, status, error) {
+	   	    	alert("Error.");
+	   	     return false;
+	   	      }
+	   	    });
+	   	    return false;
+		}
+  
 </script>
 
 </html>

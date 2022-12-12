@@ -80,10 +80,12 @@ public class LoginController {
 				session.setAttribute("mvo",mvo);
 
 				session.setAttribute("cvo", cvo);
+				
+				
 			}else if(vo.getLogin_type().equals("a")) { // 관리자인 경우
 				mvo = service.loginAdmin(vo); // 관리자용 로그인
 				session.setAttribute("mvo", mvo);
-				
+				System.out.println(mvo);
 			}else {
 
 				 session.setAttribute("mvo", mvo);

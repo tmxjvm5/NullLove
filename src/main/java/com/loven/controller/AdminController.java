@@ -41,7 +41,7 @@ public class AdminController {
 		}
 		else {
 			
-			if(mvo.getLogin_type().equals("a")) { // 관리자 로그인
+			if(mvo.getLogin_type().equals("A")) { // 관리자 로그인
 		
 		List<User> list = adminService.userList(cri);
 		model.addAttribute("list", list);

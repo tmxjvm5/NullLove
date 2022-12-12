@@ -11,6 +11,7 @@ import com.loven.jy.entity.Boast;
 public interface ImgBoardMapper {
 	public List<Boast> getLists();
 	public void imgBoardInsert(Boast vo);
+	public void imgFileInsert(Boast vo);
 	public Boast imgBoardView(int seq);
 	public boolean cntPlus(int seq);
 	public void imgBoardUpdate(Boast vo);

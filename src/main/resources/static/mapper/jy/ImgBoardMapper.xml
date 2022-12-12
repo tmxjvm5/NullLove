@@ -10,7 +10,17 @@
   	insert into boast(title,content,date,id)
   	values(#{title},#{content},NOW(),#{id})
   </insert>
+  <update id="imgFileInsert" parameterType="Boast">
+  	update boast set
+  		file1 = #{file1},
+  		file2 = #{file2},
+  		file3 = #{file3},
+  		file4 = #{file4},
+  		file5 = #{file5}
+    where seq = (select max(r.seq) from (select seq from boast) as r );
+  </update>
   
+	
   <select id="imgBoardView" resultType="Boast" parameterType="int">
   	select * from boast where seq=#{seq}
   </select>

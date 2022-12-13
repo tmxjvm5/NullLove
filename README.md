@@ -89,19 +89,20 @@
 
 ## 📌 SW유스케이스
 <br>
-![SW유스케이스]
-![유스케이스](https://user-images.githubusercontent.com/108060141/207209688-3ecaf01f-eee7-4b4f-8ce2-035acde60972.png)
+
+![유스케이스](https://user-images.githubusercontent.com/108060141/207209833-edae7162-f42b-49af-835f-29648af53bd5.png)
 
 
 
 ## 📌 서비스 흐름도
 <br>
-![서비스흐름도]
+
+![테이블구성](https://user-images.githubusercontent.com/108060141/207210099-94454152-6767-4d16-8116-7326cab04a6e.png)
 
 
 ## 📌 ER다이어그램
 <br>
-![ER다이어]
+![ERD](https://user-images.githubusercontent.com/108060141/207210373-e9758ee4-bd5b-4c3f-ac5c-aa6ac11c2dd5.png)
 
 ## 🖥 화면 구성
 
@@ -147,3 +148,9 @@
 <td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
 </tr>
 </table>
+
+## 🤾‍♂️ 트러블슈팅
+
+- 문제1<br>
+
+- 문제2<br>

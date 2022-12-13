@@ -61,15 +61,15 @@
                                 <h5 class="from-top mb-0">Read More</h5>
                               </figcaption>
                             </figure>
-                            <div class="card-body  p-3" style="height:105px;">
+                            <div class="card-body  p-3" style="height:125px;">
                               <div class="post-header">
                                 <h2 class="post-title fs-16 my-1 text-start"><a  th:text="${img.title}"  class="link-dark"
                                     th:href="@{/imgBoardView(seq=${img.seq})}">title</a>
                                 </h2>
                               </div>
                               <!-- /.post-header -->
-                              <div class="post-content  text-start ls-xs">
-                                <p  th:utext="${img.content}"  class="mb-0">content</p>
+                              <div class="post-content  text-start ls-xs " style="height:45px; overflow:hidden">
+                                <p  th:utext="${img.content}"  class="mb-0"  >content</p>
                               </div>
                               <!-- /.post-content -->
                             </div>

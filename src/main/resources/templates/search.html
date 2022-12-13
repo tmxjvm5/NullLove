@@ -398,7 +398,7 @@
   			var org = $('input[name=select]:checked').val();
   			console.log(org);
   		    $.ajax({
-  		        url:" http://localhost:8089/org?company=" + company + "&keyword=" + keyword + "&org=" + org,
+  		        url:" http://192.168.20.46:8089/org?company=" + company + "&keyword=" + keyword + "&org=" + org,
   		        type:"GET",
   		      	dataType: "json",
   		        success:function(result){

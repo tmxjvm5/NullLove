@@ -65,13 +65,13 @@
                                     <td class="text-start" colspan="3" th:text="${session.mvo.id}">
 									</td>
                                     	<input type="hidden" name="id" th:value="${session.mvo.id}">
-                                  <tr>
+<!--                                   <tr>
                                     <td colspan="4">
                                       <div class="input-group">
                                         <input type="file" class="form-control" id="inputGroupFile02" name="file">
                                         <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                       </div>
-                                    </td>
+                                    </td> -->
                                   </tr>
                                 </tbody>
                               </table>
@@ -131,7 +131,7 @@
       + ' alignjustify alignleft aligncenter alignright |'
       + ' bullist numlist |'
       + ' table tabledelete |'
-      + ' link image';
+      + ' link';
 
     tinymce.init({
       language: "ko_KR", //한글판으로 변경

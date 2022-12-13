@@ -160,12 +160,12 @@
 
 <table>
 <tr>
-<td align="center"><img src="https://user-images.githubusercontent.com/108060141/189051723-60d04faa-1812-4bba-8187-dbccb49da370.png" width="100" height="100"/></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/108060141/189051723-60d04faa-1812-4bba-8187-dbccb49da370.png" width="100" height="100"/></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/108060141/189051723-60d04faa-1812-4bba-8187-dbccb49da370.png" width="100" height="100"/></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/108060141/189051723-60d04faa-1812-4bba-8187-dbccb49da370.png" width="100" height="100"/></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/108060141/189051723-60d04faa-1812-4bba-8187-dbccb49da370.png" width="100" height="100"/></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/108060141/189051723-60d04faa-1812-4bba-8187-dbccb49da370.png" width="100" height="100"/></td>
+<td align="center"><img src="/ReadMe/사람.png" width="100" height="100"/></td>
+<td align="center"><img src="/ReadMe/사람.png" width="100" height="100"/></td>
+<td align="center"><img src="/ReadMe/사람.png" width="100" height="100"/></td>
+<td align="center"><img src="/ReadMe/사람.png" width="100" height="100"/></td>
+<td align="center"><img src="/ReadMe/사람.png" width="100" height="100"/></td>
+<td align="center"><img src="/ReadMe/사람.png" width="100" height="100"/></td>
 </tr>
 <tr>
 <td align="center"><strong>최정윤</strong></td>

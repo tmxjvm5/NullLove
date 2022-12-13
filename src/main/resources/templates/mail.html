@@ -183,7 +183,7 @@
 				var orgs = $("#org option:selected").val();
 				console.log(orgs);
 				$.ajax({
-					url : "http://localhost:8090/favorite?user=" + user
+					url : "http://192.168.20.178:8090/favorite?user=" + user
 							+ "&keyword=" + keyword + "&orgs=" + orgs,
 					type : "GET",
 					dataType : "json",

@@ -86,7 +86,7 @@
                           <div th:if=" ${#strings.equals(session.mvo.login_type, 'A')} or ${session.mvo.id == vo.id}">
                             <a href="javascript:goDel()" class="btn btn-sm btn-warning  float-end me-2">삭제</a>
                             <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}"
-                              class="btn btn-sm btn-success  float-end me-2">수정</a>>
+                              class="btn btn-sm btn-success  float-end me-2">수정</a>
                           </div>
                         </div>
                       </div>

@@ -2,6 +2,7 @@
 
 # 📎새싹기업의 사업수주를 위한 Sentence BERT 기반 발주기관 추천 서비스(팀명 : Null사랑하지않아)
 
+![메인](https://user-images.githubusercontent.com/108060141/207208762-96aee8c2-f798-4a7c-a203-787a7cce8a52.png)
 
 ## 👀 서비스 소개
 
@@ -89,6 +90,8 @@
 ## 📌 SW유스케이스
 <br>
 ![SW유스케이스]
+![유스케이스](https://user-images.githubusercontent.com/108060141/207209688-3ecaf01f-eee7-4b4f-8ce2-035acde60972.png)
+
 
 
 ## 📌 서비스 흐름도
@@ -141,6 +144,6 @@
 <td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
 <td align="center"><a href="https://github.com/Chochoooo" target='_blank'>github</a></td>
 <td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
-<td align="center"><a href="[https://github.com/자신의username작성해주세요]
+<td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
 </tr>
 </table>

@@ -14,7 +14,7 @@
 
 🐱프로젝트 기간 :11/07~12/14 
 <br>
-
+<br>
 
 ## ⭐ 주요 기능
 
@@ -102,12 +102,58 @@
 
 ## 📌 ER다이어그램
 <br>
-![ERD](https://user-images.githubusercontent.com/108060141/207210373-e9758ee4-bd5b-4c3f-ac5c-aa6ac11c2dd5.png)
+
+![ERD](https://user-images.githubusercontent.com/108060141/207210498-caad372e-9059-4980-bbde-40137036a59a.png)
 
 ## 🖥 화면 구성
+<details>
+<summary>
+   메인페이지
+  </summary>
+  </details>
+  
+<details>
+<summary> 
+   회원가입/로그인
+   </summary>
+  ![일반회원가입](https://user-images.githubusercontent.com/108060141/207233315-3d1c5046-3f88-446f-996b-b209867f0d86.png)
+![로그인](https://user-images.githubusercontent.com/108060141/207233335-40ea46d2-eebb-4b36-804e-a79778670a11.png)
 
-### 메인페이지/API/회원가입
-<br>
+  </details>
+ 
+<details>
+<summary>
+  BBlind
+  </summary>
+  </details>
+  
+<details>
+<summary>
+  우리기업좋아요
+    </summary>
+  </details>
+
+<details>
+<summary>
+  추천게시판
+    </summary>
+  </details>
+
+<details>
+<summary> 
+    마이 페이지
+   </summary>
+![마이페이지](https://user-images.githubusercontent.com/108060141/207233246-e75ac77e-e6d3-483c-b6b0-63e00206785a.png)
+
+  </details>
+ 
+<details>
+<summary>  
+   관리자 페이지
+    </summary>
+  </details>
+
+
 
 
 ## 👨‍👩‍👦‍👦 팀원 역할

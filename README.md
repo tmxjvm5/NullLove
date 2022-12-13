@@ -56,7 +56,6 @@
 <td>
 <img src="https://img.shields.io/badge/IntelliJ IDEA-000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white"/>
 <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"/>
-<img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
 <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
 <img src="https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=Anaconda&logoColor=white"/>
 <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white"/>
@@ -66,6 +65,7 @@
 <td>서버환경</td>
 <td>
 <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/>
 </td>
 </tr>
 <tr>
@@ -88,7 +88,7 @@
 <br>
 
 ## ⚙ 시스템 아키텍처
-![서비스]
+
 
 ## 📌 SW유스케이스
 <br>
@@ -176,12 +176,12 @@
 <td align="center"><strong>양서현</strong></td>
 </tr>
 <tr>
-<td align="center"><b>팀장<br><br>역할1<br>역할2<br>역할3</b></td>
-<td align="center"><b>팀원<br><br>역할1<br>역할2<br>역할3</b></td>
-<td align="center"><b>팀원<br><br>역할1<br>역할2<br>역할3</b></td>
-<td align="center"><b>팀원<br><br>역할1<br>역할2<br>역할3</b></td>
-<td align="center"><b>팀원<br><br>역할1<br>역할2<br>역할3</b></td>
-<td align="center"><b>팀원<br><br>역할1<br>역할2<br>역할3</b></td>
+<td align="center"><b>팀장<br><br>UX/UI 및 Front-End<br> 전반<br>ERD 설계<br>우리회사좋아요 게시판</b></td>
+<td align="center"><b>팀원<br><br>로그인/회원가입<br>블라인드 게시판<br>마이페이지 및 메일링</b></td>
+<td align="center"><b>팀원<br><br>데이터 크롤링 및<br> 모델링<br>관리자 페이지<br>게시판 서브 및 메일링</b></td>
+<td align="center"><b>팀원<br><br>게시판 댓글<br>카카오 로그인 API<br>PPT</b></td>
+<td align="center"><b>팀원<br><br>유효성 테스트<br>DB 설계<br>블라인드 게시판</b></td>
+<td align="center"><b>팀원<br><br>데이터 크롤링 및<br> 모델링<br>추천 페이지<br>마이 페이지</b></td>
 </tr>
 
 <tr>

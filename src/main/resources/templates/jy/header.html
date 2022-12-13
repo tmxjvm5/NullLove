@@ -55,7 +55,7 @@
 	            <div class="col ps-17"  th:if="${#strings.equals(session.mvo.login_type, 'S')}">
 	            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
 	              <li class="nav-item d-none d-md-block nav-link text-end ">
-	                <a href="myPage.do" th:text="${session.mvo.name}" id=userNm></a>님,<br>환영합니다.
+	                <a href="myPage.do" th:text="${session.mvo.name}"></a>님,<br>환영합니다.
 	              </li>
 	              <li class="nav-item d-none d-md-block nav-link">
             		  <a href="logout.do" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</a>
@@ -65,7 +65,7 @@
 	            <div class="col ps-17"  th:if="${#strings.equals(session.mvo.login_type, 'C')}">
 	            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
 	              <li class="nav-item d-none d-md-block nav-link text-end ">
-	                <a href="mypage_com" th:text="${session.mvo.name}"></a>님,<br>환영합니다.
+	                <a href="mypage_com" th:text="${session.mvo.name}" id="userNm"></a>님,<br>환영합니다.
 	              </li>
 	              <li class="nav-item d-none d-md-block nav-link">
             		  <a href="logout.do" class="btn btn-outline-primary rounded-pill btn-login">로그아웃</a>

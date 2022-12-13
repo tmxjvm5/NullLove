@@ -13,12 +13,13 @@
   <link rel="shortcut icon" href="./assets/img/favicon.png">
   <link rel="stylesheet" href="./assets/css/plugins.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+
   <link rel="preload" href="./assets/css/fonts/noto2.css" as="style" onload="this.rel='stylesheet'">
-
-
 
   <!--mycss-->
   <link rel="stylesheet" href="./assets/css/jy.css">
+  <link rel="stylesheet" href="./assets/css/progress.css">
+
   <script>
     function showSpinner() {
       document.getElementsByClassName('layerPopup')[0].style.display = 'block';
@@ -360,10 +361,9 @@
                             </div>
                           </div>
                         </div>
-
                       </div>
                     </div>
-
+                          <div id="loading"></div>
                   </div>
                 </div>
               </form>
@@ -385,6 +385,12 @@
   <!--wordcloud-->
   <script>
   		$('#getRecommend').click(function () {
+            var load = "<div class='progress'>"
+            load += "<span class='progress-bar' style='width: 100%'></span>"
+            load += "</div>"
+             $("#loading").html(load);
+             $("#loading").css("display", "block")
+
   			var company = document.getElementById('userNm').innerText;
   			console.log(company);
   			var keyword = $('#search-form-text').val();
@@ -396,7 +402,7 @@
   		        type:"GET",
   		      	dataType: "json",
   		        success:function(result){
-  		                  console.log(result['orgCosine'])
+  		                  $("#loading").css("display", "none")
   		                  var html = "<div class='card-body text-center'>";
   		                  var colorList =["purple","green","red","yellow","blue"]
   		                  html += "<div class='row'>"
@@ -461,7 +467,7 @@
 
 
   </script>
-    <script src="https://golangkorea.github.io/js/jqcloud/jqcloud.min.js"></script>
+  <script src="https://golangkorea.github.io/js/jqcloud/jqcloud.min.js"></script>
   <link rel="stylesheet" href="https://golangkorea.github.io/js/jqcloud/jqcloud.min.css">
 </div>
 <!-- /.content-wrapper -->

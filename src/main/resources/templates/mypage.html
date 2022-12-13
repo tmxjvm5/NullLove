@@ -60,7 +60,7 @@
                                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                                     </div>-->
                                      <div class="form-floating password-field mb-5">
-                                        <input type="password" class="form-control w-85  me-lg-5 " placeholder="${session.mvo.id}" th:value="${session.mvo.id}" id="loginPassword" name="pw">
+                                        <input type="password" class="form-control w-85  me-lg-5 " placeholder="${session.mvo.id}" th:value="${session.mvo.pw}" id="loginPassword" name="pw">
                                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                                         <label for="loginPassword">비밀번호</label>
                                         <!-- <a type="button" class="btn btn-edit btn-sm rounded-pill mt-1" id="check_btn">수정</a>  -->
@@ -104,7 +104,7 @@
                             <li class="list-group-item"><a href="/myPage.do" class="">회원정보 수정</a></li>
                             <li class="list-group-item"><a href="/mypageList">내가 쓴 글</a></li>
                             <li class="list-group-item"><a href="/mypagecmtList">내가 쓴 댓글</a></li>
-                            <li class="list-group-item"><a href="/mail">즐겨 찾기</a></li>
+                            <li class="list-group-item"><a href="/mail">메일링</a></li>
                         </ul>
                     </div>
                 </aside>

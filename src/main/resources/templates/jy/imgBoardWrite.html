@@ -131,7 +131,7 @@
     var plugins = [
       "advlist", "autolink", "lists", "link", "image", "charmap", "print", "preview", "anchor",
       "searchreplace", "visualblocks", "code", "fullscreen","table",
-      "paste", "code", "help", "wordcount", "save"
+      "paste", "code", "help", "wordcount", "save", "image"
     ];
     var edit_toolbar = 'formatselect fontselect fontsizeselect |'
       + ' forecolor backcolor |'
@@ -139,7 +139,7 @@
       + ' alignjustify alignleft aligncenter alignright |'
       + ' bullist numlist |'
       + ' table tabledelete |'
-      + ' link ';
+      + ' link image';
 
     tinymce.init({
      language: "ko_KR", //한글판으로 변경
@@ -151,6 +151,7 @@
       file_picker_types: 'image',
       automatic_uploads: true,
       autosave_ask_before_unload: true,
+      images_file_types: 'jpg,svg,png',
       content_style: 'body { font-family:open sans, noto sans kr, sans-serif; font-size:14px }',
     
     });

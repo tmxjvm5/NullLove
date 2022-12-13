@@ -148,14 +148,15 @@
 
   });
   function writeCheck(){
-		 if(document.getElementById("title").value==""){
+	  var text = tinymce.get("editor").getContent();
+	   if(document.getElementById("title").value==""){
 			        alert("제목을 입력하세요");
 			        return;
 			    }
-			    /* if(document.getElementById("contents").value==""){
+		 if(text==""){
 			        alert("내용을 입력하세요");
 			        return;
-			    } */
+			    } 
 		writeForm.submit();
 	}
 </script>

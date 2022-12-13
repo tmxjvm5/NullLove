@@ -86,7 +86,7 @@
                           <div th:if=" ${#strings.equals(session.mvo.login_type, 'A')} or ${session.mvo.id == vo.id}">
                             <a href="javascript:goDel()" class="btn btn-sm btn-warning  float-end me-2">삭제</a>
                             <a th:href="@{/blindUpdateForm/{seq}(seq=${vo.seq})}"
-                              class="btn btn-sm btn-success  float-end me-2">수정</a>>
+                              class="btn btn-sm btn-success  float-end me-2">수정</a>
                           </div>
                         </div>
                       </div>
@@ -112,8 +112,8 @@
                             <div class="col card-body overflow-auto py-4" style="max-height: 300px;">
                               <div th:each="cmt : ${cmt}" class="row wrapper-border py-2">
                                 <div class="col-2 text-start">
-                                  <span class="text-ash me-1">업태명</span>
-                                  <span th:text="${cmt.id}" class="m-0">id</span>
+                                  <!-- <span class="text-ash me-1">업태명</span> -->
+                                  <span class="m-0">Unknown</span>
                                   <p th:text="${cmt.reg_date}" class="small text-ash m-0">reg_date</p>
                                   <!--                                    <p th:text="${#dates.format(cmt.reg_date, 'yy-MM-dd')}" class="small text-ash m-0">reg_date</p>  -->
                                 </div>

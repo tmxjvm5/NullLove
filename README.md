@@ -116,9 +116,9 @@
 <summary> 
    회원가입/로그인
    </summary>
-  ![일반회원가입](https://user-images.githubusercontent.com/108060141/207233315-3d1c5046-3f88-446f-996b-b209867f0d86.png)
-![로그인](https://user-images.githubusercontent.com/108060141/207233335-40ea46d2-eebb-4b36-804e-a79778670a11.png)
-
+      ![로그인](https://user-images.githubusercontent.com/108060141/207233543-4392ff13-2e6d-46dc-83b3-946030793589.png)
+      ![일반회원가입](https://user-images.githubusercontent.com/108060141/207233552-5fa8b82d-5cb8-4393-8c9c-34443d4855f6.png)
+      ![기업회원가입](https://user-images.githubusercontent.com/108060141/207233563-57c9cfbc-4392-49ed-867d-ef252c85faed.png)
   </details>
  
 <details>

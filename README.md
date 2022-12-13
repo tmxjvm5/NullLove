@@ -2,7 +2,7 @@
 
 # 📎새싹기업의 사업수주를 위한 Sentence BERT 기반 발주기관 추천 서비스(팀명 : Null사랑하지않아)
 
-<img src="/ReadMe/메인.png" width="500" height="300">
+<img src="/ReadMe/메인.png" width="80%">
 
 
 ## 👀 서비스 소개
@@ -91,20 +91,20 @@
 ## 📌 SW유스케이스
 <br>
 
-<img src="/ReadMe/.png" width="500" height="300">
+<img src="/ReadMe/유스케이스.png" width="80%">
 
 
 
 ## 📌 서비스 흐름도
 <br>
 
-![테이블구성](https://user-images.githubusercontent.com/108060141/207210099-94454152-6767-4d16-8116-7326cab04a6e.png)
+<img src="/ReadMe/테이블구성.png" width="80%">
 
 
 ## 📌 ER다이어그램
 <br>
 
-![ERD](https://user-images.githubusercontent.com/108060141/207210498-caad372e-9059-4980-bbde-40137036a59a.png)
+<img src="/ReadMe/ERD.png" width="80%">
 
 ## 🖥 화면 구성
 <details>
@@ -117,45 +117,49 @@
 <summary> 
    회원가입/로그인
    </summary>
-      ![로그인](https://user-images.githubusercontent.com/108060141/207233543-4392ff13-2e6d-46dc-83b3-946030793589.png)
-      ![일반회원가입](https://user-images.githubusercontent.com/108060141/207233552-5fa8b82d-5cb8-4393-8c9c-34443d4855f6.png)
-      ![기업회원가입](https://user-images.githubusercontent.com/108060141/207233563-57c9cfbc-4392-49ed-867d-ef252c85faed.png)
+      <img src="/ReadMe/로그인.png" width="80%">
+      <br>
+      <img src="/ReadMe/일반회원가입.png" width="80%">
+      <br>
+      <img src="/ReadMe/기업회원가입.png" width="80%">
   </details>
  
 <details>
 <summary>
   BBlind
   </summary>
+  <img src="/ReadMe/블라인드상세보기.png" width="80%">
   </details>
   
 <details>
 <summary>
   우리기업좋아요
     </summary>
+    
   </details>
 
 <details>
 <summary>
   추천게시판
     </summary>
+    <img src="/ReadMe/추천페이지1.png" width="80%">
+    <
+    <img src="/ReadMe/추천페이지2.png" width="80%">
   </details>
 
 <details>
 <summary> 
     마이 페이지
    </summary>
-![마이페이지](https://user-images.githubusercontent.com/108060141/207233246-e75ac77e-e6d3-483c-b6b0-63e00206785a.png)
-
+   <img src="/ReadMe/마이페이지.png" width="80%">
   </details>
  
 <details>
 <summary>  
    관리자 페이지
     </summary>
+    <img src="/ReadMe/관리자페이지.png" width="80%">
   </details>
-
-
-
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 

@@ -2,7 +2,8 @@
 
 # 📎새싹기업의 사업수주를 위한 Sentence BERT 기반 발주기관 추천 서비스(팀명 : Null사랑하지않아)
 
-![메인](https://user-images.githubusercontent.com/108060141/207208762-96aee8c2-f798-4a7c-a203-787a7cce8a52.png)
+<img src="/ReadMe/메인.png" width="500" height="300">
+
 
 ## 👀 서비스 소개
 
@@ -90,7 +91,7 @@
 ## 📌 SW유스케이스
 <br>
 
-![유스케이스](https://user-images.githubusercontent.com/108060141/207209833-edae7162-f42b-49af-835f-29648af53bd5.png)
+<img src="/ReadMe/.png" width="500" height="300">
 
 
 

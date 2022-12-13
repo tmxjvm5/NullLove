@@ -8,6 +8,7 @@
 ## 👀 서비스 소개
 
 - 서비스명: 새싹기업에게 발주기관을 추천해주는 사이트
+<br>
 - 서비스설명:
 <br>
 
@@ -29,7 +30,6 @@
 <br>
 
 ## ⛏ 기술스택
-
 <table>
 <tr>
 <th>구분</th>
@@ -82,7 +82,6 @@
 </td>
 </tr>
 </table>
-
 <br>
 
 ## ⚙ 시스템 아키텍처
@@ -90,10 +89,7 @@
 
 ## 📌 SW유스케이스
 <br>
-
 <img src="/ReadMe/유스케이스.png" width="80%">
-
-
 
 ## 📌 서비스 흐름도
 <br>
@@ -128,7 +124,7 @@
 <summary>
   BBlind
   </summary>
-  <img src="/ReadMe/블라인드상세보기.png" width="80%">
+  <img src="/ReadMe/블라인드 상세보기.png" width="80%">
   </details>
   
 <details>
@@ -202,6 +198,9 @@
 
 ## 🤾‍♂️ 트러블슈팅
 
-- 문제1<br>
+- 문제1
+   
+<br>
+- 문제2
 
-- 문제2<br>
+<br>

@@ -94,7 +94,7 @@
 ## 📌 서비스 흐름도
 <br>
 
-<img src="/ReadMe/테이블구성.png" width="80%">
+<img src="/ReadMe/테이블구조.png" width="80%">
 
 
 ## 📌 ER다이어그램
@@ -103,12 +103,7 @@
 <img src="/ReadMe/ERD.png" width="80%">
 
 ## 🖥 화면 구성
-<details>
-<summary>
-   메인페이지
-  </summary>
-  </details>
-  
+ 
 <details>
 <summary> 
    회원가입/로그인
@@ -131,7 +126,7 @@
 <summary>
   우리기업좋아요
     </summary>
-    
+    <img src="/ReadMe/이미지 게시판.png" width="80%">
   </details>
 
 <details>
@@ -147,7 +142,8 @@
 <summary> 
     마이 페이지
    </summary>
-   <img src="/ReadMe/마이페이지.png" width="80%">
+   <img src="/ReadMe/마이페이지2.png" width="80%">
+   <img src="/ReadMe/메일링.png" width="80%">
   </details>
  
 <details>

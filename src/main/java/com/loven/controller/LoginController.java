@@ -55,7 +55,7 @@ public class LoginController {
 			session.setAttribute("mvo", mvo);
 		}
 
-		return "redirect:/login.do";
+		return "redirect:/main";
 	}
 
 //아이디 중복체크

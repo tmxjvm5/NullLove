@@ -122,7 +122,7 @@
                 <li class="list-group-item">
                   <a href="/mypagecmtList">내가 쓴 댓글</a>
                 </li>
-                <li class="list-group-item"><a href="/mail">즐겨 찾기</a></li>
+                <li class="list-group-item"><a href="/mail">메일링</a></li>
               </ul>
             </div>
           </aside>
@@ -183,7 +183,7 @@
 				var orgs = $("#org option:selected").val();
 				console.log(orgs);
 				$.ajax({
-					url : "http://localhost:8090/favorite?user=" + user
+					url : "http://192.168.20.178:8090/favorite?user=" + user
 							+ "&keyword=" + keyword + "&orgs=" + orgs,
 					type : "GET",
 					dataType : "json",

@@ -186,13 +186,12 @@
 </tr>
 
 <tr>
-
-<td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
-<td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
-<td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
+<td align="center"><a href="https://github.com/Amarinnn" target='_blank'>github</a></td>
+<td align="center"><a href="https://github.com/tmxjvm5" target='_blank'>github</a></td>
+<td align="center"><a href="https://github.com/dotoritoring" target='_blank'>github</a></td>
 <td align="center"><a href="https://github.com/Chochoooo" target='_blank'>github</a></td>
-<td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
-<td align="center"><a href="[https://github.com/자신의username작성해주세요](https://github.com/%EC%9E%90%EC%8B%A0%EC%9D%98username%EC%9E%91%EC%84%B1%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94)" target='_blank'>github</a></td>
+<td align="center"><a href="https://github.com/100geun10000" target='_blank'>github</a></td>
+<td align="center"><a href="https://github.com/pyth1007" target='_blank'>github</a></td>
 </tr>
 </table>
 
